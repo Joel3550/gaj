@@ -1,0 +1,106 @@
+<% layout('layout') %>
+
+<section class="invoice" ng-app="app" ng-controller="transmettreJugementController">
+    <!-- title row -->
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="page-header">
+                <i class="fa fa-globe"></i> ROLE D'AUDIENCE {{jugementTransItem.libelle_nature | uppercase}}
+                <small class="pull-right">Date d'audience: {{jugementTransItem.date_audience}}</small>
+            </h2>
+        </div>
+        <!-- /.col -->
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="alert {{message.class}}">{{message.msg}}</div>
+        </div>
+    </div>
+    <!-- info row -->
+    <div class="row invoice-info" style="margin-bottom: 15px">
+        <div class="col-sm-4 invoice-col">
+            <address>
+                NUMERO DE DOSSIER : <strong>{{jugementTransItem.numero_ordre}}</strong><br>
+                OBJET : <strong>{{jugementTransItem.objet_affaire}}</strong><br>
+                CHAMBRE : <strong>{{jugementTransItem.libelle_chambre}}</strong><br>
+            </address>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+            <address>
+                OBSERVATION : <strong>{{jugementTransItem.observation}}</strong><br>
+            </address>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+
+    <!-- Table row -->
+    <div class="row">
+        <div class="col-xs-12 table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Nom(s) individu(s)</th>
+                    <th>Prenom(s) individu(s)</th>
+                    <th>Parie(s)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="liste in individusForAffaire">
+                    <td>{{liste.nom_individu | uppercase}}</td>
+                    <td>{{liste.prenom_individu | uppercase}}</td>
+                    <td>{{liste.libelle_typeIndividu | uppercase}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.col -->
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <p class="lead">REGLEMENT EFFECTUE PAR {{jugementTransItem.nom_individu | uppercase}}</p>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th style="width:50%">Montant HT:</th>
+                        <td>{{jugementTransItem.montant}}</td>
+                    </tr>
+                    <tr>
+                        <th>TVA (18%)</th>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <th>Montant TTC:</th>
+                        <td>{{jugementTransItem.montant}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+
+    <!-- this row will not appear when printing -->
+    <form class="form-horizontal" name="formAffaire" role="form" method="post" novalidate>
+
+        <div class="box-footer">
+            <div class="col-xs-12">
+                <a href="/listeAudiences" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Retour a la liste</a>
+                <button type="button" class="btn btn-success pull-right" ng-click="ajusterDateAffaire_FC()"><i class="fa fa-refresh"></i> Mettre a jour la date
+                </button>
+            </div>
+        </div>
+    </form>
+    <!-- /.content -->
+    <div class="clearfix"></div>
+</section>
+
+
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
+<script src="/javascripts/app/roleAudience/transmettreJugementController.js"></script>

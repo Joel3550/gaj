@@ -1,0 +1,100 @@
+<!--<table id="example1" class="table table-striped table-bordered table-hover table-condensed" role="grid" aria-describedby="example1_info"-->
+        <!--style="border: 1px solid #1e282c">-->
+    <!--<thead>-->
+    <!--<tr role="row"  style="font-size: 11px; background-color: #1e282c; color:#fff">-->
+        <!--<th id="thBorder">N° ordre</th>-->
+        <!--<th id="thBorder">Date d'enrolt.</th>-->
+        <!--<th id="thBorder">Demandeur(s)</th>-->
+        <!--<th id="thBorder">Defendeur(s)</th>-->
+        <!--<th id="thBorder">Objet</th>-->
+        <!--<th id="thBorder">1ere Date d'aud.</th>-->
+        <!--<th id="thBorder">Chambre</th>-->
+        <!--<th id="thBorder">Observation</th>-->
+        <!--<th id="thBorder">Nature</th>-->
+        <!--&lt;!&ndash;<th>Trans. Rep. Aud</th>&ndash;&gt;-->
+        <!--&lt;!&ndash;<th>Type Affaire</th>&ndash;&gt;-->
+        <!--&lt;!&ndash;<th></th>&ndash;&gt;-->
+    <!--</tr>-->
+    <!--</thead>-->
+
+    <!--<tbody>-->
+    <!--<tr ng-show="audiences.length == 0">-->
+        <!--<td colspan="9" align="center"><p>Aucune affaire transmise au role d'audience</p></td>-->
+    <!--</tr>-->
+    <!--<tr role="row" class="odd" ng-repeat="affaire in audiences | orderBy : affaire.date_saisie_affaire" ng-show="affaire.transmission == 1 && affaire.valide == 1"-->
+        <!--style="font-size: 11px">-->
+
+        <!--<td id="tdBorder">{{affaire.numero_ordre}}</td>-->
+        <!--<td id="tdBorder"><p align="center">{{affaire.date_saisie_affaire}}</p></td>-->
+        <!--<td id="tdBorder">-->
+            <!--<div ng-repeat="partie in parties">-->
+                <!--<p ng-if="partie.id_affaire_individu == affaire.id_affaire && partie.id_typeIndividu_individu == 1">{{partie.nom_individu | uppercase}}</p>-->
+            <!--</div>-->
+        <!--</td>-->
+        <!--<td id="tdBorder">-->
+            <!--<div ng-repeat="partie in parties">-->
+                <!--<p ng-if="partie.id_affaire_individu == affaire.id_affaire && partie.id_typeIndividu_individu == 2">{{partie.nom_individu | uppercase}}</p>-->
+            <!--</div>-->
+        <!--</td>-->
+        <!--<td id="tdBorder">{{affaire.objet_affaire}}</td>-->
+        <!--<td id="tdBorder"><p align="center">{{affaire.date_audience}}</p></td>-->
+        <!--<td id="tdBorder">{{affaire.libelle_chambre}}</td>-->
+        <!--<td id="tdBorder">{{affaire.observation}}</td>-->
+        <!--<td id="tdBorder">{{affaire.libelle_nature}}</td>-->
+        <!--&lt;!&ndash;<td><a href="/formAjoutCours/{{affaire.id_affaire}}">Ajouter la cours</a></td>&ndash;&gt;-->
+    <!--</tr>-->
+    <!--</tbody>-->
+
+<!--</table>-->
+
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-solid">
+            <div class="box-body">
+                <div class="box-group" id="accordion">
+                    <div class="panel box box-primary">
+                        <table class="table table-bordered table-condensed table-hover">
+                            <thead>
+                            <tr style="font-size: 11px">
+                                <th style="width: 65px">N°ordre</th>
+                                <th style="width: 100px">Date d'enrolement</th>
+                                <th style="width: 110px">Demandeur(s)</th>
+                                <th style="width: 110px">Defendeur(s)</th>
+                                <th style="width: 130px">Objet</th>
+                                <th style="width: 110px">1ere Date d'audience</th>
+                                <th style="width: 60px">Chambre</th>
+                                <th style="width: 100px">Observation</th>
+                                <th style="width: 100px">Nature</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="liste in audiences | limitTo :limit" ng-show="liste.valide == 1 && !liste.publie" class="panel-collapse collapse in" style="font-size: 11px; cursor: pointer">
+                                <td style="width: 65px">{{liste.numero_ordre}}</td>
+                                <td style="width: 100px">{{liste.date_saisie_affaire | date : 'dd/MM/yyyy'}}</td>
+                                <td style="width: 110px">
+                                    <div ng-repeat="partie in parties">
+                                        <div ng-if="partie.id_affaire_individu == liste.id_affaire && partie.id_typeIndividu_individu == 1">{{partie.nom_individu | uppercase}}</div>
+                                    </div>
+                                </td>
+                                <td style="width: 110px">
+                                    <div ng-repeat="partie in parties">
+                                        <div ng-if="partie.id_affaire_individu == liste.id_affaire && partie.id_typeIndividu_individu == 2">{{partie.nom_individu | uppercase}}</div>
+                                    </div>
+                                </td>
+                                <td style="width: 130px">{{liste.objet_affaire | limitTo : 20}}</td>
+                                <td style="width: 80px">{{liste.date_audience | date : 'dd/MM/yyyy'}}</td>
+                                <td style="width: 60px">{{liste.libelle_chambre}}</td>
+                                <td style="width: 100px">{{liste.observation | limitTo : 20}}</td>
+                                <td style="width: 100px">{{liste.libelle_nature | limitTo : 15}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+</div>

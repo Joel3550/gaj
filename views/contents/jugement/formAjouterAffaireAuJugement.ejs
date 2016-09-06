@@ -1,0 +1,166 @@
+<div class="row" xmlns="http://www.w3.org/1999/html">
+    <div class="col-xs-12">
+        <div class="modal-header" style="background-color:#357ca5; color:#fff">
+            <span><i class="fa fa-info-circle"></i> FORMULAIRE D'ENREGISTREMENT D'UNE AFFAIRE</span>
+        </div>
+    </div>
+
+    <div class="col-xs-12">
+        <div ng-show="message" class="alert {{message.class}}">{{message.msg}}</div>
+    </div>
+    <!-- /.col -->
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box-body">
+            <div class="form-group">
+                <label for="id_affaire" class="col-sm-5 control-label">Numero de dossier <span style="color:#dd4b39">(*)</span></label>
+                <div class="col-sm-6">
+                    <select class="form-control" style="width: 100%;"  name="chambre" id="chambre" ng-model="jugementFormItems.id_affaire"
+                            ng-click="listeAffaireAEnregisitrer_FC(jugementFormItems.id_affaire)">
+                        <option value=""></option>
+                        <option ng-repeat="liste in listeNumeroAffaire" ng-if="liste.traite == 1 && liste.fonde==0 && liste.mal_fonde==0 &&
+                        liste.partiellement_fonde==0 && liste.edit_qualite == 1 && liste.edit_factum == 1
+                         && liste.edit_expedition == 1 && liste.id_user_affaire == id_user" value="{{liste.id_affaire}}">{{liste.numero_ordre}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row" ng-show="jugementFormItems.id_affaire">
+    <div class="modal-body">
+        <div class="col-md-12 pull-left alert bg-warning">
+            <table align="center">
+                <tr>
+                    <td align="right"><b>Date de l'audience : </b></td>
+                    <td align="left" style="padding-left: 3px">{{jugementFormItems.date_audience | date:'dd/MM/yyyy'}}</td>
+                </tr>
+                <tr>
+                    <td align="right"><b>Demandeur(s) : </b></td>
+                    <td style="padding-left: 3px" ng-repeat="partie in individusAJuger"
+                        ng-if="partie.id_affaire_individu == jugementFormItems.id_affaire && partie.id_typeIndividu == 1">
+                        {{partie.nom_individu}} {{partie.prenom_individu}}</td>
+                </tr>
+                <tr><td align="right"><b>Defendeur(s) : </b></td>
+                    <td style="padding-left: 3px" ng-repeat="partie in individusAJuger"
+                        ng-if="partie.id_affaire_individu == jugementFormItems.id_affaire && partie.id_typeIndividu == 2">
+                        {{partie.nom_individu}} {{partie.prenom_individu}}</td>
+                </tr>
+                <tr>
+                    <td align="right"><b>Objet :</b></td>
+                    <td align="left" style="padding-left: 3px">{{jugementFormItems.objet_affaire}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-12">
+            <div role="form">
+                <form class="form-horizontal" name="form.affaireJugementForm" role="form" method="post" novalidate>
+
+                    <input type="hidden" ng-model="jugementFormItems.id_affaire_cours"/>
+
+                    <div>
+                        <div class="form-group">
+                            <label for="numero_jugement" class="col-sm-5 control-label">N° du Jugement <span style="color:#dd4b39">(*)</span></label>
+
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" style="width:100%" name="numero_jugement" id="numero_jugement"
+                                       placeholder="Entrer le numero de jugement" ng-model="jugementFormItems.numero_jugement"
+                                       required disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dispositif" class="col-sm-5 control-label">Dispositif</label>
+
+                            <div class="col-sm-6">
+                                <div ng-hide="statutPartielFonde || statutMalFonde">
+                                    <span ng-click="fonde = false"><a ng-click="annulerFondeAffaire_FC(jugementFormItems)" ng-if="fonde">
+                                            <i class="fa fa-check-circle-o" title="Retirer de la publication" style="cursor: pointer"></i></a></span>
+                                    <span ng-click="fonde = true"><a ng-click="fondeAffaire_FC(jugementFormItems)" ng-if="!fonde" style="color: #dd4b39">
+                                        <i class="fa fa-circle-o" title="Autoriser sa publication" style="cursor: pointer"></i></a></span>
+                                    Fondé
+                                </div>
+                                <div ng-hide="statutFonde || statutPartielFonde">
+                                    <span ng-click="malFonde = false"><a ng-click="annulerMalFondeAffaire_FC(jugementFormItems)" ng-if="malFonde">
+                                            <i class="fa fa-check-circle-o" title="Retirer de la publication" style="cursor: pointer"></i></a></span>
+                                    <span ng-click="malFonde = true"><a ng-click="malFondeAffaire_FC(jugementFormItems)" ng-if="!malFonde" style="color: #dd4b39">
+                                        <i class="fa fa-circle-o" title="Autoriser sa publication" style="cursor: pointer"></i></a></span>
+                                    Mal fondé
+                                </div>
+                                <div ng-hide="statutFonde || statutMalFonde">
+                                    <span ng-click="partielFonde = false"><a ng-click="annulerPartiellementFondeAffaire_FC(jugementFormItems)" ng-if="partielFonde">
+                                            <i class="fa fa-check-circle-o" title="Retirer de la publication" style="cursor: pointer"></i></a></span>
+                                    <span ng-click="partielFonde = true"><a ng-click="partiellementFondeAffaire_FC(jugementFormItems)" ng-if="!partielFonde" style="color: #dd4b39">
+                                        <i class="fa fa-circle-o" title="Autoriser sa publication" style="cursor: pointer"></i></a></span>
+                                    Partiellement fondé
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="caractere" class="col-sm-5 control-label">Caractère</label>
+
+                            <div class="col-sm-6">
+                                <select class="form-control" style="width: 100%;"  name="caractere" id="caractere" ng-model="jugementFormItems.id_caractere_jugement" required>
+                                    <option ng-repeat="liste in listeCaracteres" value="{{liste.id_caractere}}">{{liste.libelle_caractere}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Observation</label>
+                            <div class="col-sm-6">
+                                <textarea class="form-control" rows="3" ng-model="jugementFormItems.observation_jugement" placeholder="Entrer une observation"></textarea>
+                            </div>
+                        </div>
+                        <!--<div class="form-group">-->
+                            <!--<label for="salle_audience" class="col-sm-5 control-label">Signature président</label>-->
+
+                            <!--<div class="col-sm-6">-->
+                                <!--<input type="text" class="form-control" style="width:100%" name="signature_presi" id="signature_presi"-->
+                                       <!--ng-model="jugementFormItems.signature_presi"-->
+                                       <!--ng-minlength="3" required disabled="disabled">-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <input type="hidden" value="{{jugementFormItems.president}}" ng-model="jugementFormItems.president"/>
+
+                        <div class="row">
+                            <div class="modal-footer" style="background-color:#357ca5; color:#fff">
+                                <button ng-click="cancel()" class="btn btn-danger"><i class="fa fa-close"></i> Fermer</button>
+                                <button type="button" class="btn btn-outline pull-right" ng-disabled="form.affaireJugementForm.$invalid" ng-click="form.affaireJugementForm.$valid && enregistrerAuJugement_FC(jugementFormItems)"><i class="fa fa-save"></i> Enregistrer
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<!--<script src="/angular/angular-animate.min.js"></script>-->
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
+<!--<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.9.0.js"></script>-->
+<script src="/javascripts/app/jugement/jugementController.js"></script>
+
+<script src="/plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<!-- jQuery UI 1.11.4-->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script src="/plugins/datepicker/bootstrap-datepicker.js"></script>
+<script>
+    $(function () {
+
+        $('#datepicker').datepicker({
+            autoClose : true
+        });
+    });
+</script>

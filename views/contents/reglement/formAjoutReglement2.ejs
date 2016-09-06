@@ -1,0 +1,115 @@
+<% layout('layout') %>
+
+<section class="invoice" ng-app="app" ng-controller="reglementController" id="formAjoutReglement">
+    <!-- title row -->
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="page-header">
+                <i class="fa fa-globe"></i> ROLE GENERAL {{reglementFormItems.libelle_nature | uppercase}}
+                <small class="pull-right">Date d'audience: {{reglementFormItems.date_audience}}</small>
+            </h2>
+        </div>
+        <!-- /.col -->
+        <div id="msg">
+            <div class="col-xs-12">
+                <div ng-show="message" class="alert {{message.class}}">{{message.msg}}</div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <p class="lead">EDITER LE RECU</p>
+
+            <form class="form-horizontal" name="formReglement" role="form" method="post" novalidate>
+
+                <input type="hidden" class="form-control" style="width:100%" name="id_affaire_reglement" id="id_affaire_reglement" ng-model="reglementFormItems.id_affaire_reglement">
+
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="id_affaire" class="col-sm-4 control-label">Choisir le demandeur</label>
+
+                        <div class="col-sm-4">
+                            <select class="form-control select2" style="width: 100%;" required name="id_individu_reglement" ng-model="reglementFormItems.id_individu_reglement">
+                                <option selected="selected"></option>
+                                <option ng-repeat="liste in listeIndividus" value="{{liste.id_individu}}" ng-show="liste.id_typeIndividu_individu == 1 && liste.id_affaire_individu == reglementFormItems.id_affaire_individu">{{liste.nom_individu | uppercase}} {{liste.prenom_individu}}</option>
+                            </select>
+                            <span ng-show="formReglement.id_individu.$invalid && !formReglement.id_individu.$pristine" class="help-block">Champ requis</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="montant" class="col-sm-4 control-label">Montant (F.CFA)</label>
+
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" style="width:100%" name="montant" id="montant" ng-model="reglementFormItems.montant" required>
+                        </div>
+                        <!--<div class="col-xs-1">-->
+                        <!--<button type="button" class="btn btn-danger pull-right"><i class="fa fa-edit"></i>-->
+                        <!--</button>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+            </form>
+            <div class="box-footer">
+                <div class="col-xs-12">
+                    <!--<a href="/listeAffaires" class="btn btn-success pull-right" ng-show="suivantStatut"><i class="fa fa-save"></i> Terminer</a>-->
+                    <a href="/formAjoutIndividu" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Retour a la liste</a>
+                    <button type="button" class="btn btn-primary" id="save" ng-disabled="formReglement.$invalid" ng-click="formReglement.$valid && ajouterReglement_FC(reglementFormItems)"><i class="fa fa-save"></i> Enregistrer</button>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="box-footer">
+            <div class="col-xs-12">
+                <a href="/listeAffaires" class="btn btn-success pull-right" ng-show="suivantStatut"><i class="fa fa-save"></i> Terminer</a>
+                <a href="" class="btn btn-default" ng-show="suivantStatut"><i class="fa fa-print"></i> Imprimer le recu</a>
+            </div>
+        </div>
+        <!-- /.col -->
+        <!--<div ng-show="reglementFormItems.id_affaire == reglementItems.id_affaire_reglement">-->
+            <!--<div class="col-xs-12">-->
+                <!--<p class="lead">REGLEMENT EFFECTUE PAR {{reglementAffaire.nomIndividu | uppercase}}</p>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6">-->
+                <!--<div class="table-responsive">-->
+                    <!--<table class="table">-->
+                        <!--<tr>-->
+                            <!--<th style="width:50%">Montant HT:</th>-->
+                            <!--<td>{{reglementAffaire.montant}}</td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<th>TVA (18%)</th>-->
+                            <!--<td>0</td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                            <!--<th>Montant TTC:</th>-->
+                            <!--<td>{{reglementAffaire.montant}}</td>-->
+                        <!--</tr>-->
+                    <!--</table>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="box-footer">-->
+                <!--<div class="col-xs-12">-->
+                    <!--<a href="/impressionReglement_url/{{reglementAffaire.id_reglement}}" class="btn btn-success pull-right"><i class="fa fa-print"></i> Imprimer le recu</a>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; /.col &ndash;&gt;-->
+        <!--</div>-->
+    </div>
+    <!-- this row will not appear when printing -->
+    <!-- /.content -->
+    <div class="clearfix"></div>
+</section>
+
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
+<script src="/javascripts/app/reglement/reglementController.js"></script>
+
+<script src="/plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<!-- jQuery UI 1.11.4-->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+<!-- Select2 -->
+<script src="/plugins/select2/select2.full.min.js"></script>

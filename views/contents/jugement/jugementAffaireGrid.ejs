@@ -1,0 +1,55 @@
+<table id="example1" class="table table-bordered table-striped" role="grid" aria-describedby="example1_info">
+    <thead>
+        <tr role="row">
+            <th>N ordre</th>
+            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                aria-label="Code: active to sort column ascending">Date audience</th>
+            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                aria-label="Date creation: active to sort column ascending">President</th>
+            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                aria-label="Objet: active to sort column ascending">Greffier</th>
+            <!--<td>Demandeur(s)</td>-->
+            <!--<td>Defendeur(s)</td>-->
+            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                aria-label="Date modification: active to sort column ascending">Demandeur(s)</th>
+            <th>Defendeur(s)</th>
+            <th>Objet</th>
+            <th>Juger</th>
+            <th>Reporter</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr role="row" class="odd" ng-repeat="jugement in listeAffaireAJuger | limitTo:limit">
+            <td>{{jugement.numero_ordre}}</td>
+            <td>{{jugement.date_audience}}</td>
+            <td>{{jugement.president | uppercase}}</td>
+            <td>{{jugement.greffier |uppercase}}</td>
+            <td>
+                <div ng-repeat="demandeur in individusAJuger">
+                    <p ng-if="demandeur.id_affaire_individu == jugement.id_affaire && demandeur.id_typeIndividu_individu == 1">{{demandeur.nom_individu | uppercase}} {{demandeur.prenom_individu}}</p>
+                </div>
+            </td>
+            <td>
+                <div ng-repeat="defendeur in individusAJuger">
+                    <p ng-if="defendeur.id_affaire_individu == jugement.id_affaire && defendeur.id_typeIndividu_individu == 2">{{defendeur.nom_individu | uppercase}} {{defendeur.prenom_individu}}</p>
+                </div>
+            </td>
+            <td>{{jugement.objet_affaire}}</td>
+            <td></td>
+            <td ng-if="jugement.report == 0">Aucun</td>
+            <td ng-if="jugement.report == 1">{{jugement.date_report}}</td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-warning dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false">Choisir une Action<span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/decisionJugementAffaire_url/{{jugement.id_audience}}">Juger l'affaire</a></li>
+                        <li><a href="/reportJugementAffaire_url/{{jugement.id_affaire}}">Reporter l'affaire</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+
+</table>

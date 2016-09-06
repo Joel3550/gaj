@@ -1,0 +1,80 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-solid">
+            <div class="box-body">
+                <div class="box-group" id="accordion">
+                    <div class="panel box box-primary">
+                        <table id="example1" class="table table-bordered table-condensed table-hover table-striped" role="grid" aria-describedby="example1_info">
+                            <thead>
+                                <tr style="font-size: 11px;">
+                                    <th style="width:95px">Type d'affaire</th>
+                                    <th style="width:80px">Audience du</th>
+                                    <th style="width:120px">President</th>
+                                    <th style="width:125px">Assesseurs</th>
+                                    <th style="width:115px">Substitut du P.R</th>
+                                    <th style="width:120px">Greffier</th>
+                                    <th rowspan="2" style="width:70px">Demandeur</th>
+                                    <th rowspan="2" style="width:80px">Defendeur</th>
+                                    <th rowspan="2" style="width:140px">Objet de la demande</th>
+                                    <th rowspan="2" style="width:110px">Observation</th>
+                                    <!--<th style="width:40px"></th>-->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="liste in listeAffairesPlumitif | limitTo : limit" style="font-size: 11px" ng-if="liste.id_user_affaire == id_user">
+                                    <td>{{liste.type_affaire}}</td>
+                                    <td>{{liste.date_audience | date : 'dd/MM/yyyy'}}</td>
+                                    <td>{{liste.president}}</td>
+                                    <td>{{liste.assesseurs}}</td>
+                                    <td>{{liste.substitut}}</td>
+                                    <td>{{liste.greffier}}</td>
+                                    <!--<td style="padding:0px">-->
+                                        <!--<table class="table table-condensed" style="width: 100%; margin-bottom: 0px">-->
+                                            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                                                <!--&lt;!&ndash;<td colspan="4" align="center"><p align="center" style="margin-bottom: -3px">COMPOSITION DE LA COURS OU DU TRIBUNAL</p></td>&ndash;&gt;-->
+                                            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+                                            <!--<tr>-->
+                                                <!--<td style="width:120px; border-right: 1px solid #f4f4f4">{{liste.president}}</td>-->
+                                                <!--<td style="width:110px; border-right: 1px solid #f4f4f4">{{liste.assesseurs}}</td>-->
+                                                <!--<td style="width:120px; border-right: 1px solid #f4f4f4">{{liste.substitut}}</td>-->
+                                                <!--<td style="width:100px; border-right: 1px solid #f4f4f4">{{liste.greffier}}</td>-->
+                                            <!--</tr>-->
+                                        <!--</table>-->
+                                    <!--</td>-->
+                                    <td style="width: 120px">
+                                        <div ng-repeat="partie in individusAJuger">
+                                            <div ng-if="partie.id_affaire_individu == liste.id_affaire && partie.id_typeIndividu_individu == 1">
+                                                {{partie.nom_individu}} {{partie.prenom_individu | limitTo : 8}}
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="width: 120px">
+                                        <div ng-repeat="partie in individusAJuger">
+                                            <div ng-if="partie.id_affaire_individu == liste.id_affaire && partie.id_typeIndividu_individu == 2">
+                                                {{partie.nom_individu}} {{partie.prenom_individu | limitTo : 8}}
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>{{liste.objet_affaire}}</td>
+                                    <td>{{liste.observation_plumitif}}</td>
+                                    <!--<td style="text-align: center">-->
+                                        <!--<span>-->
+                                            <!--<a style="cursor: pointer"><i class="fa fa-edit"></i></a>-->
+                                        <!--</span>-->
+                                    <!--</td>-->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+<script src="/javascripts/app/jugement/jugementController.js"></script>
+
+

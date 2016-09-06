@@ -1,0 +1,263 @@
+<% layout('layout') %>
+
+<section class="invoice" ng-app="app" ng-controller="roleAudienceController">
+    <!-- title row -->
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="page-header">
+                <i class="fa fa-globe"></i> ROLE D'AUDIENCE {{affaireItems.libelle_nature | uppercase}}
+                <small class="pull-right">Date d'audience:</small>
+            </h2>
+        </div>
+        <!-- /.col -->
+    </div>
+
+    <div class="row" id="msg">
+        <div class="col-xs-12">
+            <div ng-show="message" class="alert {{message.class}}">{{message.msg}}</div>
+        </div>
+    </div>
+    <!-- info row -->
+    <div class="row invoice-info" style="margin-bottom: 15px">
+        <div class="col-sm-4 invoice-col">
+            <address>
+                NUMERO DE DOSSIER : <strong>{{affaireItems.numero_ordre}}</strong><br>
+                OBJET : <strong>{{affaireItems.objet_affaire}}</strong><br>
+                CHAMBRE : <strong>{{affaireItems.libelle_chambre}}</strong><br>
+                OBSERVATION : <strong>{{affaireItems.observation}}</strong><br>
+            </address>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+            <address>
+                DEMANDEUR(S)
+                <div ng-repeat="demandeur in parties" >
+                    <span ng-if="demandeur.id_affaire_individu == affaireItems.id_affaire && demandeur.id_typeIndividu_individu == 1">
+                        <strong>{{demandeur.nom_individu | uppercase}} {{demandeur.prenom_individu}}</strong>
+                    </span>
+                </div>
+            </address>
+        </div>
+        <div class="col-sm-4 invoice-col">
+            <address>
+                DEFENDEUR(S)
+                <div ng-repeat="defendeur in parties" >
+                    <span ng-if="defendeur.id_affaire_individu == affaireItems.id_affaire && defendeur.id_typeIndividu_individu == 2">
+                        <strong>{{defendeur.nom_individu | uppercase}} {{defendeur.prenom_individu}}</strong>
+                    </span>
+                </div>
+            </address>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+
+    <!-- Table row -->
+    <div class="row">
+        <div class="col-xs-12 table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr><th colspan="5"><p align="center">COMPOSITION DE LA COURS</p></th></tr>
+                <tr>
+                    <th>President</th>
+                    <th>Greffier</th>
+                    <th>Assesseur(s)</th>
+                    <th>Substitut</th>
+                    <th>Salle d'audience</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="liste in listeAgentsCours" style="font-size: 12px">
+                    <td>{{liste.president | uppercase}}</td>
+                    <td>{{liste.greffier | uppercase}}</td>
+                    <td>{{liste.assesseurs | uppercase}}</td>
+                    <td>{{liste.substitut | uppercase}}</td>
+                    <td>{{liste.libelle_salleAudience | uppercase}}</td>
+                    <td><button type="button" class="btn btn-xs btn-warning" ng-click="callFormModifCours_FC()"><i class="fa fa-refresh"></i>
+                        Modifier la composition</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.col -->
+    </div>
+
+    <!--FORMULAIRE DE MODIFICATION-->
+    <div class="col-md-12" ng-show="clickEvent == true">
+        <div class="alert alert-info">
+            <p><i class="fa fa-info-circle"></i> FORMULAIRE DE MODIFICATION DE LA COURS</p>
+        </div>
+        <div role="form">
+            <form class="form-horizontal" name="formModifCours" role="form" method="post" novalidate>
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="president" class="col-sm-4 control-label">Nom et Prenom du President <span style="color:#dd4b39">(*)</span></label>
+
+                        <div class="col-sm-5">
+                            <select class="form-control" style="width: 100%;"  name="president" id="president" class="select" ng-model="coursAffaireItems.president" required>
+                                <option value="coursAffaireItems.president">{{coursAffaireItems.president}}</option>
+                                <option ng-repeat="agent in listeAgents">{{agent.nom_agent}} {{agent.prenom_agent}}</option>
+                            </select>
+                            <span ng-show="formModifCours.president.$invalid && !formModifCours.president.$pristine" class="help-block" style="color:#dd4b39">Champ requis</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="assesseurs" class="col-sm-4 control-label">Assesseurs</label>
+                        <div class="col-sm-5">
+                            <textarea class="form-control" rows="3" placeholder="Entrer le ou les assesseurs" ng-model="coursAffaireItems.assesseurs">{{coursAffaireItems.assesseurs}}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="substitut" class="col-sm-4 control-label">Substitut du P.R</label>
+
+                        <div class="col-sm-5">
+                            <select class="form-control" style="width: 100%;"  name="substitut" id="substitut" ng-model="coursAffaireItems.substitut">
+                                <option value="coursAffaireItems.substitut">{{coursAffaireItems.substitut}}</option>
+                                <option ng-repeat="agent in listeAgents">{{agent.nom_agent}} {{agent.prenom_agent}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="greffier" class="col-sm-4 control-label">Nom et Prenom du greffier <span style="color:#dd4b39">(*)</span></label>
+                        <div class="col-sm-5">
+                            <select class="form-control" style="width: 100%;"  name="greffier" id="greffier" class="select" ng-model="coursAffaireItems.greffier" required>
+                                <option value="coursAffaireItems.greffier">{{coursAffaireItems.greffier}}</option>
+                                <option ng-repeat="agent in listeAgents">{{agent.nom_agent}} {{agent.prenom_agent}}</option>
+                            </select>
+                            <span ng-show="formModifCours.greffier.$invalid && !formModifCours.greffier.$pristine" class="help-block" style="color:#dd4b39">Champ requis</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="salleAudience" class="col-sm-4 control-label">Salle d'audience <span style="color:#dd4b39">(*)</span></label>
+                        <div class="col-sm-5">
+                            <select class="form-control" style="width: 100%;"  name="salleAudience" id="salleAudience" class="select" ng-model="coursAffaireItems.id_salleAudience_cours" required>
+                                <option value="coursAffaireItems.id_salleAudience">{{coursAffaireItems.libelle_salleAudience}}</option>
+                                <option ng-repeat="salle in listeSalleAudiences">{{salle.libelle_salleAudience}}</option>
+                            </select>
+                            <span ng-show="formModifCours.salleAudience.$invalid && !formModifCours.salleAudience.$pristine" class="help-block" style="color:#dd4b39">Champ requis</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    <div class="col-xs-12">
+                        <button type="button" class="btn btn-default" ng-click="annulerFormCours()"><i class="fa fa-arrow-circle-left"></i> Annuler</button>
+                        <button type="button" class="btn btn-primary pull-right" ng-disabled="formModifCours.$invalid" ng-click="formModifCours.$valid && ajouterCours_FC(coursFormItems)"><i class="fa fa-refresh"></i> Appliquer les modifications
+                        </button>
+                    </div>
+                </div>
+                <!-- /.box-footer -->
+            </form>
+        </div>
+    </div>
+    <!--FIN-->
+
+    <div class="col-md-12" ng-show="clickEvent == false && listeAgentsCours.length == 0">
+        <div class="alert alert-info">
+            <span><i class="fa fa-info-circle"></i> FORMULAIRE D'AJOUT DE LA COURS</span>
+        </div>
+        <div role="form">
+            <form class="form-horizontal" name="formCours" role="form" method="post" novalidate>
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="president" class="col-sm-4 control-label">Nom et Prenom du President <span style="color:#dd4b39">(*)</span></label>
+
+                        <div class="col-sm-5">
+                            <select class="form-control" style="width: 100%;"  name="president" id="president" ng-model="coursFormItems.president" required>
+                                <option></option>
+                                <option ng-repeat="agent in listeAgents">{{agent.nom_agent}} {{agent.prenom_agent}}</option>
+                            </select>
+                            <span ng-show="formCours.president.$invalid && !formCours.president.$pristine" class="help-block" style="color:#dd4b39">Champ requis</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="assesseurs" class="col-sm-4 control-label">Assesseurs</label>
+                        <div class="col-sm-5">
+                            <textarea class="form-control" rows="3" placeholder="Entrer le ou les assesseurs" ng-model="coursFormItems.assesseurs"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="substitut" class="col-sm-4 control-label">Substitut du P.R</label>
+
+                        <div class="col-sm-5">
+                            <select class="form-control" style="width: 100%;"  name="substitut" id="substitut" ng-model="coursFormItems.substitut">
+                                <option></option>
+                                <option ng-repeat="agent in listeAgents">{{agent.nom_agent}} {{agent.prenom_agent}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="greffier" class="col-sm-4 control-label">Nom et Prenom du greffier <span style="color:#dd4b39">(*)</span></label>
+                        <div class="col-sm-5">
+                            <select class="form-control" style="width: 100%;"  name="greffier" id="greffier" class="select" ng-model="coursFormItems.greffier" required>
+                                <option></option>
+                                <option ng-repeat="agent in listeAgents">{{agent.nom_agent}} {{agent.prenom_agent}}</option>
+                            </select>
+                            <span ng-show="formCours.greffier.$invalid && !formCours.greffier.$pristine" class="help-block" style="color:#dd4b39">Champ requis</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="salleAudience" class="col-sm-4 control-label">Salle d'audience <span style="color:#dd4b39">(*)</span></label>
+                        <div class="col-sm-5">
+                            <select class="form-control" style="width: 100%;"  name="salleAudience" id="salleAudience" class="select" ng-model="coursFormItems.id_salleAudience_cours" required>
+                                <option></option>
+                                <option ng-repeat="salle in listeSalleAudiences" value="{{salle.id_salleAudience}}">{{salle.libelle_salleAudience}}</option>
+                            </select>
+                            <span ng-show="formCours.salleAudience.$invalid && !formCours.salleAudience.$pristine" class="help-block" style="color:#dd4b39">Champ requis</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    <div class="col-xs-12">
+                        <a href="/listeJugements" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Retour a la liste</a>
+                        <button type="button" class="btn btn-primary pull-right" ng-disabled="formCours.$invalid" ng-click="formCours.$valid && ajouterCours_FC(coursFormItems)"><i class="fa fa-send"></i> Enregistrer
+                        </button>
+                    </div>
+                </div>
+                <!-- /.box-footer -->
+            </form>
+        </div>
+    </div>
+    <div class="box-footer" ng-show="clickEvent == false && listeAgentsCours.length > 0">
+        <div class="col-xs-12">
+            <a href="/listeJugements" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Retour a la liste</a>
+        </div>
+    </div>
+    <!-- /.row -->
+    <!-- /.content -->
+    <div class="clearfix"></div>
+</section>
+
+
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<script src="/angular/angular-animate.min.js"></script>
+<script src="/angular/angular-animate.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
+<script src="/plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<!-- jQuery UI 1.11.4-->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script src="/plugins/select2/select2.js"></script>
+<script src="/plugins/select2/select2.min.js"></script>
+<script src="/javascripts/app/roleAudience/roleAudienceController.js"></script>
+<script>
+    $(function () {
+
+        $('#datepicker').datepicker({
+            autoClose : true
+        });
+        $(".select2").select2();
+    });
+</script>

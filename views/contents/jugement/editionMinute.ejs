@@ -1,0 +1,236 @@
+<% layout('layout') %>
+
+<section class="invoice" ng-app="app" ng-controller="jugementController">
+    <!-- title row -->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header alert bg-info" style="padding: 10px; margin-bottom: 5px">
+                <i class="fa fa-file"></i> EDITION DE LA MINUTE
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div ng-show="message" class="alert {{message.class}}">{{message.msg}}</div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <form class="form-horizontal" name="formChambre" role="form" method="post" novalidate>
+                <div class="alert bg-warning">
+                    <div class="box-body" ng-init="edition = false">
+                        <div class="form-group">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4">
+                                <select class="form-control" style="width: 100%;"  name="numero_ordre" id="numero_ordre" ng-model="jugementFormItems.id_affaire"
+                                        ng-click="detailAffairesJuge_FC(jugementFormItems.id_affaire)">
+                                    <option value="">Choisir un numero de dossier</option>
+                                    <option ng-repeat="liste in listeAffairesJuge" value="{{liste.id_affaire}}" ng-if="liste.juge == 1 && liste.id_user_affaire == id_user">
+                                        <span>{{liste.numero_ordre}}</span>
+                                    </option>
+                                </select>
+                            </div>
+                            <!--<div class="col-sm-4">-->
+                                <!--<select class="form-control" style="width: 100%;"  name="numero_ordre" id="numero_ordre" ng-model="type_document">-->
+                                    <!--<option value="">Type de document</option>-->
+                                    <!--<option value="qualite">La qualité (Greffier)</option>-->
+                                    <!--<option value="factum">Le factum (President)</option>-->
+                                <!--</select>-->
+                            <!--</div>-->
+                            <div>
+                                <div ng-show="jugementFormItems.id_affaire != ''">
+                                    <div class="col-xs-2" ng-if="!qualite">
+                                        <button type="button" class="btn btn-success" ng-click="activeQualite(listeDetailAffairesJuge.id_affaire)"><i class="fa fa-tasks"></i> Editer la qualité</button>
+                                    </div>
+                                    <div class="col-xs-2" ng-if="qualite">
+                                        <button type="button" class="btn btn-danger" ng-click="closeQualite(listeDetailAffairesJuge.id_affaire)"><i class="fa fa-close"></i> Annuler l'edition</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-if="qualite">
+                                <div ng-show="jugementFormItems.id_affaire != ''">
+                                    <div class="col-xs-2" ng-if="!factum">
+                                        <button type="button" class="btn btn-success" ng-click="activeFactum(jugementFormItems.id_affaire)"><i class="fa fa-tasks"></i> Editer le factum</button>
+                                    </div>
+                                    <div class="col-xs-2" ng-if="factum">
+                                        <button type="button" class="btn btn-danger" ng-click="closeFactum(jugementFormItems.id_affaire)"><i class="fa fa-close"></i> Annuler l'edition</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert bg-success" ng-if="listeDetailAffairesJuge.edit_qualite"> <i class="fa fa-check"></i> Vous aviez déjà autorisée l'édition de la qualité </div>
+                <div class="alert bg-success" ng-if="listeDetailAffairesJuge.edit_factum"> <i class="fa fa-check"></i> Vous aviez déjà autorisée l'édition du factum autorisée</div>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8" style="border : 1px solid #cccccc; padding: 20px" id="minute" ng-if="factum">
+
+                    <div>
+                        <div>
+                            <div style="text-align: right">
+                                <span>REPUBLIQUE DE CÔTE D'IVOIRE <br/>Union - Discipline - Travail</span>
+                            </div>
+                            <div style="text-align: left">
+                                <p>COUR D'APPEL ............... </p>
+                                <p>TRIBUNAL DE PREMIERE <br/>INSTANCE .............. </p>
+                                <p>SECTION DE ....................</p>
+                            </div>
+                        </div>
+                        <div style="padding-top: 90px">
+                            <span>N° <strong>{{listeDetailAffairesJuge.id_affaire}}</strong></span><br/>
+                            <span>DU <strong>{{listeDetailAffairesJuge.date_audience | date : 'dd/MM/yyyy'}}</strong></span><br/>
+                            <span>RG <strong>{{listeDetailAffairesJuge.numero_ordre | limitTo : -7}}</strong></span>
+                        </div>
+                        <div style="padding-top: 30px">
+                            <span>Jugement civil {{listDetailAffairesJugeSup.libelle_caractere}}</span>
+                        </div>
+                        <div style="text-align: center">
+                            <br/>
+                            <div style="padding-top: 10px">
+                                <label for="affaire"><u><strong>Affaire</strong></u></label>
+                            </div>
+                            <div style="padding-top: 5px" ng-repeat="liste in listePartiesAffairesJuge">
+                                <span ng-if="liste.id_typeIndividu_individu == 1">{{liste.nom_individu | uppercase}} {{liste.prenom_individu}}</span>
+                            </div>
+                            <div style="padding-top: 10px">
+                                <label for="affaire"><u><strong>Contre</strong></u></label>
+                            </div>
+                            <div style="padding-top: 5px" ng-repeat="liste in listePartiesAffairesJuge">
+                                <span ng-if="liste.id_typeIndividu_individu == 2">{{liste.nom_individu | uppercase}} {{liste.prenom_individu}}</span>
+                            </div>
+                            <br/>
+                            <div style="padding-top: 5px">
+                                <label for="objet"><strong><u>Objet:</u></strong></label>
+                            </div>
+                            <div style="padding-top: 10px">
+                                <span><strong></strong> {{listeDetailAffairesJuge.objet_affaire}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="padding-top: 20px;">
+                        <p style="text-align: center"><strong>AUDIENCE PUBLIQUE ORDINAIRE DU {{listeDetailAffairesJuge.date_audience | date : 'dd/MM/yyyy'}}</strong></p>
+                        <p>Le tribunal de Première Instance ................., section de ................., situant en matiere civile, en son audience
+                            ordinaire du <b>{{listeDetailAffairesJuge.date_audience | date : 'dd/MM/yyyy'}}</b>, tenu au palais de justice de ladite ville, a laquelle siegeait
+                            monsieur <b>{{listeDetailAffairesJuge.president | uppercase}}</b> president ;</p>
+                        <br/>
+                        <p>Assisté de maitre <b>{{listeDetailAffairesJuge.greffier | uppercase}}</b> greffier assermente;</p>
+                        <br/>
+                        <p>A rendu le jugement dont la teneur suit dans la cause :;</p>
+                        <p style="text-align: center; text-decoration-line: underline"><strong><u>ENTRE</u></strong></p>
+                        <div ng-repeat="liste in listePartiesAffairesJuge">
+                            <span ng-if="liste.id_typeIndividu_individu == 1">1- <strong>{{liste.nom_individu | uppercase}} {{liste.prenom_individu}}</strong>, né(e) le ..........
+                            à ............., .............., ................., domicilié à ..............</span><br/>
+                        </div>
+                        <p>Demandeur(s), comporant et concluant par le canal de la societe de maitre ............., avocat, leur conseil ;</p>
+                        <br/>
+                        <p style="text-align: right; text-decoration-line: underline"><strong><u>D'UNE PART;</u></strong></p>
+                        <p style="text-align: left; text-decoration-line: underline"><strong><u>ET:</u></strong></p>
+                        <p ng-repeat="liste in listePartiesAffairesJuge" ng-if="liste.id_typeIndividu_individu == 2"><strong>{{liste.nom_individu | uppercase}} {{liste.prenom_individu}}</strong>
+                            ne le .................., a ..................,, ..................,, ..................
+                            , domicilié a .................., ; </p>
+                        <p>Défendeur, comparant et concluant par le canal de maitre ..............., avocat, son conseil,</p>
+                        <p style="text-align: right; text-decoration-line: underline"><strong><u>D'AUTRE PART;</u></strong></p>
+                        <p style="text-align: justify">Sans que les présentes qualités puissent nuire ni préjudicier en quoi que ce soit aux droits et
+                            intérêts respectifs des parties en cause, mais au contraire sous les expresses réserves de fait et de droit.</p>
+
+                    </div>
+                    <div style="padding-top: 20px">
+                        <p style="text-align: center; text-decoration-line: underline"><strong>FAIT</strong></p>
+                        <p style="text-align: justify">Par exploit d'huissier en date du ................. ................. et .................
+                            ont assigné monsieur ................. par devant le tribunal civil de céans à l'audience du
+                            <strong>{{listeDetailAffairesJuge.date_audience | date : 'dd/MM/yyyy'}}</strong> ;</p>
+                        <p>Sur cette assignation la cause a été inscrite au rôle général du greffe sous le numéro ....... de l'an ........;</p>
+                        <p style="text-align: justify">Par décision avant-dire n°05 ................., le tribunal de céans a constaté la séparation de fait des
+                            époux et pris les mesures provisoires; </p>
+                        <p>Cette mesure close, l'affaire a été renvoyée à l'audience du <strong>{{listeDetailAffairesJuge.date_audience | date : 'dd/MM/yyyy'}}</strong> sur fond ;</p>
+                        <p ng-if="listeDetailAffairesJuge.reporte == 1" style="text-align: justify">Appelée a l'audience sus-indiquée, la cause a été utilement retenue, après
+                            plusieurs renvois, le <strong>{{listeDetailAffairesJuge.date_report | date : 'dd/MM/yyyy'}}</strong>
+                            sur les pièces, conclusions écrites et orales des parties ;</p>
+                        <p style="text-align: center; text-decoration-line: underline"><strong>DROIT</strong></p>
+                        <p>En cet état, la cause présentait à juger les points de droit résultant des pièces, des conclusions écrites et orales des parties ;</p>
+                        <p>Le tribunal a mis l'affaire en délibéré pour rendre son jugement à l'audience du ................ ; </p>
+                        <p>Advenue l'audience de ce jour ............... ; </p>
+                        <p>Le tribunal vidant son délibère conformément a la loi, a rendu le jugement suivant :</p>
+                        <p style="text-align: center; text-decoration-line: underline"><strong>LE TRIBUNAL</strong></p>
+                        <p>Vu les pièces du dossier ;</p>
+                        <p>Oui les parties en leurs moyens, fins et conclusions ;</p>
+                        <p>Vu le juhement avant-dire-droit numero .......... du ............... ;</p>
+                        <p>Vu les conclusions du ministère public en date du ................. ;</p>
+                        <p>Apres en avoir délibère conformément a la loi ;</p>
+                        <p style="text-align: center; text-decoration-line: underline"><strong>FAITS, PROCEDURE ET PRETENTIONS DES PARTIES</strong></p>
+                        <p style="text-align: justify">Monsieur ................. et ................. ont consacré mariage le ................. a la mairie
+                            de ................. sous le régime de la communauté de biens ;</p>
+                        <p>De cette union sont issus ................. enfants dont ................. mineurs à savoir :</p>
+                        <p>
+                            <ol>
+                                <li></li>
+                            </ol>
+                        </p>
+                        <p style="text-align: justify">Suite à sa requête en divorce en date du ................., monsieur ................. a été autorisé par
+                            ordonnance numéro ................. du président de la section de tribunal de ce siège à faire citer son
+                            épouse ................. ;</p>
+                        <p style="text-align: justify">Par exploit d'huissier de justice en date du ................., madame ................., a
+                            été citée à comparaitre à l'audience du ................., en conciliation ; </p>
+                        <p style="text-align: justify">Les époux ont comparu en personne et après leurs explications, il leur a été fait des observations
+                            propres a opérer un rapprochement ;</p>
+                        <p style="text-align: justify">La tentative de conciliation s'étant soldée par un échec, la cause a été renvoyé pour écritures des parties sur les mesures provisoires ;</p>
+                        <p>Par jugement ADD numéro ................. du ................., le tribunal a ordonné les mesures provisoires suivantes :</p>
+                        <p>-  Avant dire droit ;</p>
+                        <p>Face aux nombreuses disputes avec son époux elle a préféré quitter le domicile conjugal et s'entend pas y retourner;</p>
+                        <p>Cependant, elle refuse de divorcer et souhaite que le tribunal prononce leur séparation de corps ;</p>
+                        <p>Le minsitère public a conclu qu'il plaise au tribunal faire droit à la demande de monsieur............... </p>
+                        <p style="text-align: center; text-decoration-line: underline"><strong>DES MOTIFS</strong></p>
+                        <p style="text-align: center; text-decoration-line: underline"><strong>En la forme</strong></p>
+                        <p>Madame ................., a conclu ; il sied de statuer par décision contradictoire ;</p>
+                        <p style="text-align: center; text-decoration-line: underline"><strong>Sur la recevabilité de l'action</strong></p>
+                        <p style="text-align: justify">Les demandes principale de monsieur ................ et reconventionnelle de dame ............... sont conformes aux
+                            prescriptions légales ; </p>
+                        <p>Il y a lieu de les recevoir ;</p>
+                        <p style="text-align: center; text-decoration-line: underline"><strong>Au fond</strong></p>
+                        <p style="text-align: center; text-decoration-line: underline"><strong>1/	Sur la demande en divorce</strong></p>
+                        <p>Monsieur ..................... reproche à son épouse des faits d'abandon de domicile conjugal ou de famille;</p>
+                        <p style="text-align: justify">Aux termes de l'article 1er de la loi sur le divorce et la séparation de corps, les juges peuvent prononcer
+                            le divorce ou la séparation de corps pour cause d'aldultère, d'abandon de domicile conjugal ou de famille et d'injures
+                            graves, de sévices ou d'excès de l'un des époux envers l'autre, lorsque ces faits rendent intolérable le
+                            maintien du lien conjugal;
+                        </p>
+                        <p style="text-align: justify">En l'espèce, les faits d'abandon de domicile conjugal ou de famille reprochés a dame ............. ne sont pas
+                            contestés par elle;</p>
+                        <p style="text-align: justify">Ordonne la mention du dispositif du présent jugement en marge tant de l'acte de naissance de chacun des ex époux
+                            que de leur acte de mariage;</p>
+                        <p>Dit qu'un extrait du présent jugement sera inséré dans un journal d'annonce légales;</p>
+                        <p>Dit que les formalités ci-dessus prescrites seront effectuées a la diligence du Ministère public </p>
+                        <p>Condamne les parties aux dépens chaque partie pour moitié ;</p>
+                        <p>Ainsi fait, jugé et prononcé publiquement, les jours, mois et ans que dessus ;</p>
+                        <p>Et ont signé le président et le Greffier</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="box-footer">
+        <div class="col-xs-12">
+            <a href="/listeAffairesPlumitif_url" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Retour a la liste</a>
+            <a href="javascript:printMinute()" class="btn btn-danger" ng-if="factum"><i class="fa fa-print"></i> Impression</a>
+            <!--<a href="/printMinute" class="btn btn-default"><i class="fa fa-print"></i> Impression 2</a>-->
+        </div>
+    </div>
+
+</section>
+<div class="control-sidebar-bg"></div>
+
+
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
+<!--<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.9.0.js"></script>-->
+<script src="/javascripts/app/jugement/jugementController.js"></script>
+
+

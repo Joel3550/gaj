@@ -1,0 +1,36 @@
+<table id="example1" class="table table-bordered table-striped" role="grid" aria-describedby="example1_info">
+    <thead>
+        <tr role="row">
+            <!--<th>Numero jugement</th>-->
+            <th>Date saisie</th>
+            <th>President</th>
+            <th>Assesseurs</th>
+            <th>Substitut</th>
+            <th>Greffier</th>
+            <th>Observation</th>
+            <!--<td>Demandeur(s)</td>-->
+            <!--<td>Defendeur(s)</td>-->
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr role="row" class="odd" ng-repeat="jugement in jugements | limitTo :limit" ng-show="jugement.etat_publication">
+            <td>{{jugement.date_saisie_jugement}}</td>
+            <td>{{jugement.president}}</td>
+            <td>{{jugement.assesseurs}}</td>
+            <td>{{jugement.substitut}}</td>
+            <td>{{jugement.greffier}}</td>
+            <td>{{jugement.observation}}</td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-warning dropdown-toggle btn-xs" data-toggle="dropdown" aria-expanded="false">Choisir une Action<span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/decisionJugementAffaire_url/{{jugement.id_audience}}">Decision du jegement</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+
+</table>

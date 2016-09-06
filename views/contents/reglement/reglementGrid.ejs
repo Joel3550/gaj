@@ -1,0 +1,30 @@
+<table id="example1" class="table table-bordered table-striped" role="grid" aria-describedby="example1_info">
+    <thead>
+        <tr role="row">
+            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                aria-label="numero ordre affaire: active to sort column ascending">Numero d'ordre affaire</th>
+            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                aria-label="Montant: active to sort column ascending">Montant</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr role="row" class="odd" ng-repeat="liste in reglements | limitTo : limit | filter:filter.montant">
+            <td>{{liste.numero_ordre}}</td>
+            <td>{{liste.montant}}</td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Modifier la categorie<span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/formModifReglement_url/{{reglement.id_reglement}}">Modifier le reglement</a></li>
+                        <li><a href="/detailsReglement/{{reglement.id_reglement}}">Voir les details</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/supprimerReglement_url/{{reglement.id_reglement}}" class="danger">Supprimer le reglement</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+
+</table>

@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-solid">
+            <div class="box-body">
+                <div class="box-group" id="accordion">
+                    <div class="panel box box-primary">
+                        <table class="table table-bordered table-condensed table-hover table-striped">
+                            <thead>
+                                <tr role="row" style="font-size: 12px">
+                                    <th>Nom</th>
+                                    <th>Prenom</th>
+                                    <th>Date d'enregistrement</th>
+                                    <th style="width: 100px"></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr role="row" class="odd" ng-repeat="agent in agents | limitTo : limit | filter:filter.demandeur" style="font-size: 12px; cursor: pointer">
+                                    <td>{{agent.nom_agent}}</td>
+                                    <td>{{agent.prenom_agent}}</td>
+                                    <td>{{agent.date_saisie_agent}}</td>
+                                    <td>
+                                        <span>
+                                            <a ng-click="modalModifAgent_FC(agent.id_agent)"><i class="fa fa-edit"></i></a>
+                                            <a ng-click="supprimerAgent_FC(agent.id_agent)" style="color:#dd4b39"><i class="fa fa-trash"></i></a>
+                                        </span>
+                                        <!--<div class="btn-group">-->
+                                            <!--<button class="btn btn-warning dropdown-toggle btn-xs"  data-toggle="dropdown" aria-expanded="false" style="font-size: 11px">Choisir une Action<span class="caret"></span></button>-->
+                                            <!--<ul class="dropdown-menu" role="menu" style="font-size: 11px">-->
+                                                <!--<li><a href="/formModifAgent_url/{{agent.id_agent}}">Modifier l'agent</a></li>-->
+                                                <!--<li class="divider"></li>-->
+                                                <!--<li><a href="/supprimerAgent_url/{{agent.id_agent}}" class="danger">Supprimer l'agent</a></li>-->
+                                            <!--</ul>-->
+                                        <!--</div>-->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+</div>

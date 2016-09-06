@@ -1,0 +1,158 @@
+<% layout('layout') %>
+
+<section class="invoice" ng-app="app" ng-controller="roleGeneralController">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header alert bg-info" style="padding: 10px">
+                <i class="fa fa-globe"></i> FORMULAIRE DE SAISIE DES AFFAIRES
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <div class="row" ng-if="message.msg">
+        <div class="col-xs-12">
+            <div class="alert {{message.class}}">{{message.msg}}</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div role="form">
+                <form class="form-horizontal" name="formAffaire" role="form" method="post" novalidate>
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="numero_ordre" class="col-sm-4 control-label" style="padding-right: 0px">Numero d'ordre <span style="color:#dd4b39">(*)</span></label>
+
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" style="width:100%" name="numero_ordre" id="numero_ordre"
+                                       placeholder="Entrer le numero d'ordre de l'affaire" value="{{affaireFormItems.numero_ordre}}"
+                                       ng-model="affaireFormItems.numero_ordre" required disabled="disabled">
+                                <input type="hidden" class="form-control" name="numero_ordre" id="numero_ordre" ng-model="affaireFormItems.numero_ordre">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" style="padding-right: 0px">Objet <span style="color:#dd4b39">(*)</span></label>
+                            <div class="col-sm-5">
+                                <textarea class="form-control" rows="3" ng-model="affaireFormItems.objet_affaire" required placeholder="Entrer l'objet de l'affaire"></textarea>
+                                <span ng-show="formAffaire.objet_affaire.$invalid && !formAffaire.objet_affaire.$pristine" class="help-block danger" style="color:#dd4b39">Numero d'ordre requis</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-left: 8px">
+                            <label for="date_audience" class="col-sm-4 control-label">1ere Date d'audience <span style="color:#dd4b39">(*)</span></label>
+
+                            <div class="col-sm-5 input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control"
+                                       name="date_audience" ng-model="affaireFormItems.date_audience"
+                                       style="width:362px" datepicker-popup="dd/MM/yyyy" datepicker-options="dateOptions">
+                                <!--<input type="text" datepicker-popup="dd-MMMM-yyyy" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions"/>-->
+                                <!--<button class="btn" ng-click="open()"><i class="icon-calendar"></i></button>-->
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-left: 8px">
+                            <label for="heure_audience" class="col-sm-4 control-label">Heure de l'audience <span style="color:#dd4b39">(*)</span></label>
+
+                            <div class="col-sm-5 input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                <input type="text" class="form-control"
+                                       name="heure_audience" ng-model="affaireFormItems.heure_audience"
+                                       style="width:362px">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nature" class="col-sm-4 control-label" style="padding-right: 0px">Nature de l'affaire <span style="color:#dd4b39">(*)</span></label>
+
+                            <div class="col-sm-5">
+                                <select class="form-control" style="width: 100%;" required ng-model="affaireFormItems.id_nature_affaire">
+                                    <option ng-repeat="listeNature in natures" value="{{listeNature.id_nature}}">{{listeNature.libelle_nature}}</option>
+                                </select>
+                                <span ng-show="formAffaire.libelle_nature.$invalid && !formAffaire.libelle_nature.$pristine" class="help-block danger" style="color:#dd4b39">Champ requis</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="chambre" class="col-sm-4 control-label" style="padding-right: 0px">Chambre <span style="color:#dd4b39">(*)</span></label>
+
+                            <div class="col-sm-5">
+                                <select class="form-control" role="combobox" style="width: 100%;" required ng-model="affaireFormItems.id_chambre_affaire">
+                                    <option ng-repeat="listeChambre in chambres" value="{{listeChambre.id_chambre}}">{{listeChambre.libelle_chambre}}</option>
+                                </select>
+                                <span ng-show="formAffaire.libelle_chambre.$invalid && !formAffaire.libelle_chambre.$pristine" class="help-block danger" style="color:#dd4b39">Champ requis</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" style="padding-right: 0px">Observation</label>
+                            <div class="col-sm-5">
+                                <textarea class="form-control" rows="3" ng-model="affaireFormItems.observation"></textarea>
+                            </div>
+                        </div>
+                        <!--<div class="form-group">-->
+                            <!--<label for="chambre" class="col-sm-4 control-label" style="padding-right: 0px">Charger des fichier</label>-->
+                            <!--<button type="submit" class="btn btn-warning btn-sm" ng-click="uploadFileModal()">-->
+                                <!--<i class="fa fa-upload"></i>-->
+                            <!--</button>-->
+                        <!--</div>-->
+                        <div class="form-group">
+                            <label for="nature" class="col-sm-4 control-label" style="padding-right: 0px">Importer un fichier</label>
+
+                            <div class="col-sm-5">
+                                <!--<form name="up.upload_form">-->
+                                <input id="uploadFile" placeholder="Choisir un fichier" disabled="disabled"
+                                       style="width: 130px; height: 30px; padding: 3px"/>
+                                <div class="fileUpload btn btn-danger btn-sm">
+                                    <span>Sélectioin un fichier de votre ordinateur</span>
+                                    <!--<input type="file" ng-model="affaireFormItems.doc_scan" ngf-select=""-->
+                                    <input type="file" ng-model="affaireFormItems.doc_scan" ngf-select=""
+                                           name="file" ngf-pattern="'image/*'"
+                                           accept="image/*" ngf-max-size="20MB" id="uploadBtn" class="upload"/>
+                                </div>
+                                <div style="margin-top: 15px">
+                                    <div ng-show="!!affaireFormItems.doc_scan">
+                                        <img style="width:100px; height: auto; border: 2px solid #ccc; margin: 2px; border-radius: 5px"
+                                             ngf-thumbnail="affaireFormItems.doc_scan || '/thumb.jpg'"/>
+                                    </div>
+                                    <i ng-show="formAffaire.file.$error.required">* requis</i><br>
+                                    <i ng-show="formAffaire.file.$error.maxSize">Taille de fichier trop élevé
+                                        {{file.size / 1000000|number:1}}MB: max 20M</i>
+                                </div>
+                                <p align="center">{{progress}}</p>
+                                <!--</form>-->
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+            <div class="box-footer">
+                <div class="col-xs-12">
+                    <!--<a href="/listeAffaires" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Retour a la liste</a>-->
+                    <button name="valide" type="button" class="btn btn-primary" ng-disabled="formAffaire.$invalid" ng-click="formAffaire.$valid && ajouterAffaire_FC(affaireFormItems)"><i class="fa fa-save"></i> Ajouter une affaire</button>
+                    <!--<a href="/formAjoutIndividu" ng-show="suivantStatut" class="btn btn-success pull-right">Suivant <i class="fa fa-arrow-right"></i></a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<!--<script src="/angular/angular-animate.min.js"></script>-->
+<script src="/angular/i18n/angular-locale_fr-fr.js"></script>
+<script src="/javascripts/app/roleGeneral/roleGeneralController.js"></script>
+
+<script src="/ng-file-upload/dist/ng-file-upload.min.js"></script>
+<script src="/ng-file-upload/dist/ng-file-upload-shim.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<!-- bootstrap time picker -->
+<script src="/plugins/timepicker/bootstrap-timepicker.min.js"></script>

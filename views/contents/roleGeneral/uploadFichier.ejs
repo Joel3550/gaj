@@ -1,0 +1,30 @@
+<div class="row" ng-app="app">
+    <h1>Angular Node File Upload</h1>
+    <form  ng-controller="MyCtrl" name="upload_form">
+        Single Image with validations
+        <input
+                type="file"
+                ng-model="fichier"
+                ngf-select=""
+                name="{{fichier.name}}"
+                ngf-pattern="'image/*'"
+                accept="image/*"
+                ngf-max-size="20MB"
+                />{{fichier.name}}
+        Image thumbnail: <img style="width:100px;" ng-show="fichier" ngf-thumbnail="fichier || '/thumb.jpg'"/>
+        <i ng-show="upload_form.file.$error.required">*required</i><br>
+        <i ng-show="upload_form.file.$error.maxSize">File too large
+            {{file.size / 1000000|number:1}}MB: max 20M</i>
+        <button ng-click="submit(file)">submit</button>
+        <p>{{progress}}</p>
+    </form>
+    <!-- /.col -->
+</div>
+
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<script src="/javascripts/app/roleGeneral/uploadFileController.js"></script>
+
+<script src="/ng-file-upload/dist/ng-file-upload.min.js"></script>
+<script src="/ng-file-upload/dist/ng-file-upload-shim.min.js"></script>
+<!-- jQuery UI 1.11.4-->

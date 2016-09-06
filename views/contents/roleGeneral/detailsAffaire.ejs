@@ -1,0 +1,161 @@
+<% layout('layout') %>
+
+<section class="invoice" ng-app="app" ng-controller="roleGeneralController">
+    <!-- title row -->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header alert bg-info" style="padding: 10px; margin-bottom: 5px">
+                <i class="fa fa-globe"></i> ROLE GENERAL {{affaireFormItems.libelle_nature | uppercase}}
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <div class="row" ng-if="affaireFormItems.motif_retour != ''">
+        <div class="col-xs-12">
+            <div class="alert alert-warning">
+                <i class="fa fa-warning"></i> Affaire rejetée par l'audience. <strong>Motif du rejet : </strong>{{affaireFormItems.motif_retour}}
+            </div>
+        </div>
+    </div>
+    <!-- info row -->
+    <div class="row" style="margin-bottom: 15px">
+        <div class="col-xs-12">
+            <div class="alert bg-warning" style="height: 90px; margin-bottom: 0px">
+                <div class="invoice-info" ng-mouseover="voirFichier = true" ng-mouseleave="voirFichier = false">
+                    <div class="col-sm-4 invoice-col">
+                        <address>
+                            NUMERO DE DOSSIER : <strong>{{affaireFormItems.numero_ordre}}</strong><br>
+                            OBJET : <strong>{{affaireFormItems.objet_affaire}}</strong><br>
+                            CHAMBRE : <strong>{{affaireFormItems.libelle_chambre}}</strong><br>
+                        </address>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-6 invoice-col">
+                        <address>
+                            OBSERVATION : <strong>{{affaireFormItems.observation}} <span ng-if="!affaireFormItems.observation">(Aucun)</span></strong><br>
+                            DATE D'AUDIENCE : <strong>{{affaireFormItems.date_audience | date : 'd/MM/yyyy'}}</strong><br>
+                            <span ng-if="affaireFormItems.doc_scan">FICHIER JOINT :
+                                <strong>{{affaireFormItems.doc_scan}}
+                                    <a ng-click="afficherFichierModal()" style="color: #000; cursor:pointer;" ng-show="voirFichier"> <i class="fa fa-eye" style="color:#ff8c00"></i></a>
+                                </strong>
+                            </span>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+
+    <!-- Table row -->
+
+    <div class="row">
+        <div class="col-xs-8 table-responsive">
+            <div class="box box-solid">
+                <div class="box-header with-border" style="padding-top: 0px">
+                    <h3 class="box-title">LISTE DES PARTIES</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="box-group" id="accordion">
+                        <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+
+                        <div class="panel box box-primary">
+                            <table class="table table-bordered table-condensed table-hover table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Nom(s)</th>
+                                    <th>Prenom(s)</th>
+                                    <th>Age(s)</th>
+                                    <th>Partie(s)</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td ng-show="individusForAffaire.length == 0" colspan="3"><p align="center">Aucun demandeur / defendeur saisi. Cliquer
+                                            <a href="/formAjoutIndividu2/{{affaireFormItems.id_affaire}}"> ici </a>pour ajouter</p></td>
+                                </tr>
+                                <tr ng-repeat="liste in individusForAffaire" style="cursor: pointer">
+                                    <td>{{liste.nom_individu | uppercase}}</td>
+                                    <td>{{liste.prenom_individu | uppercase}}</td>
+                                    <td ng-if="liste.age != ''">{{liste.age}} ans</td>
+                                    <td ng-if="liste.age == ''"></td>
+                                    <td ng-if="liste.id_typeIndividu_individu == 1"><span class="label label-primary">{{liste.libelle_typeIndividu | uppercase}}</span></td>
+                                    <td ng-if="liste.id_typeIndividu_individu == 2"><span class="label label-warning">{{liste.libelle_typeIndividu | uppercase}}</span></td>
+                                    <td style="width: 50px">
+                                        <a ng-click="modifIndividuModal(liste.id_individu)"><i class="fa fa-edit"></i></a>
+                                        <a ng-init="idIndividu = liste.id_individu" ng-click="supprimerIndividu_FC(idIndividu)" style="color:#dd4b39"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+        <div class="row" ng-if="reglements.length == 0">
+            <div class="col-xs-4">
+                <div class="alert alert-warning">Aucun reglement enregistre pour cette affaire!. Editer la facture <a
+                            href="/formAjoutReglement2/{{affaireFormItems.id_affaire}}">ici.</a></div>
+            </div>
+        </div>
+        <div class="col-xs-4 table-responsive">
+            <div class="box box-solid">
+                <div ng-repeat="liste in reglements" ng-show="reglements.length > 0">
+                    <div class="box-header with-border" style="padding-top: 0px">
+                        <h3 class="box-title">REGLEMENT</h3>
+                        <a ng-click="modifReglementModal(liste.id_reglement)" style="cursor: pointer"><i class="fa fa-edit"></i></a>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="box-group" id="accordion">
+                            <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+
+                            <div class="panel box box-primary">
+                                <table class="table table-bordered table-condensed table-hover table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Auteur</th>
+                                        <th>Montant</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="liste in reglements" ng-show="reglements.length > 0" style="cursor: pointer">
+                                        <td>{{liste.nom_individu | uppercase}} {{liste.prenom_individu | uppercase}}</td>
+                                        <td>{{liste.montant}} FCFA</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+            </div>
+        </div>
+    </div>
+
+    <!-- this row will not appear when printing -->
+    <div class="row">
+        <div class="box-footer">
+            <div class="col-xs-12">
+                <a href="/listeAffaires" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Retour a la liste</a>
+            </div>
+        </div>
+    </div>
+    <!-- /.content -->
+    <div class="clearfix"></div>
+</section>
+
+
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<script type="text/javascript" src="/ng-file-upload/dist/ng-file-upload.min.js"></script>
+<script type="text/javascript" src="/ng-file-upload/dist/ng-file-upload-shim.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
+<script src="/javascripts/app/roleGeneral/roleGeneralController.js"></script>

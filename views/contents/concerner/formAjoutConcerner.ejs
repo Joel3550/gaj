@@ -1,0 +1,59 @@
+<% layout('layout') %>
+
+<!-- Horizontal Form -->
+
+<div class="col-md-6">
+    <div class="box box-info" ng-app="app" ng-controller="concernerController">
+        <div class="box-header with-border">
+            <h3 class="box-title">Formulaire d'ajout d'un concerne</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" name="formConcerner" role="form" method="post" novalidate>
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="numero_ordre" class="col-sm-4 control-label">Numero ordre affaire</label>
+
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" style="width:100%" name="numero_ordre" id="numero_ordre" ng-model="concernerFormItems.numero_ordre"
+                               value="{{concernerFormItems.id_affaire_concerner}}" disabled="disabled">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="id_individu_concerner" class="col-sm-4 control-label">Choisir les individus</label>
+
+                <div class="col-sm-8">
+                    <select class="form-control select2" style="width: 100%;" required ng-model="concernerFormItems.id_individu_concerner" name="id_individu_concerner">
+                        <option selected="selected"></option>
+                        <option ng-repeat="liste in individus" value="{{liste.id_individu}}">{{liste.nom_individu}} {{liste.prenom_individu}} - {{liste.libelle_typeIndividu}}</option>
+                    </select>
+                    <span ng-show="formConcerner.id_individu_concerner.$invalid && !formConcerner.id_individu_concerner.$pristine" class="help-block">Individus requis</span>
+                </div>
+            </div>
+
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="numero_ordre" class="col-sm-4 control-label">Montant (F.CFA)</label>
+
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" style="width:100%" name="montant" id="montant" ng-model="concernerFormItems.montant"
+                               placeholder="Entrer le montant"><i style="color:#ccc">(30 000 F.CFA)</i>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                <button type="button" class="btn btn-primary" ng-disabled="formConcerner.$invalid" ng-click="formConcerner.$valid && ajouterConcerner_FC(concernerFormItems)">Ajouter</button>
+                <a href="/listeAffaires" class="btn btn-warning">Retour</a>
+                <button type="reset" class="btn btn-danger">Annuler</button>
+            </div>
+            <!-- /.box-footer -->
+        </form>
+    </div>
+</div>
+
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<script src="/javascripts/app/concerner/concernerController.js"></script>

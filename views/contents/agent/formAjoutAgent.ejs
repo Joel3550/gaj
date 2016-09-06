@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="modal-header" style="background-color:#357ca5; color:#fff">
+            <span><i class="fa fa-info-circle"></i> FORMULAIRE D'ENREGISTREMENT D'UN AGENT</span>
+        </div>
+    </div>
+    <!-- /.col -->
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <div ng-show="message" class="alert {{message.class}}">{{message.msg}}</div>
+    </div>
+</div>
+<div class="row">
+    <div role="form">
+        <form class="form-horizontal" name="formAgent" role="form" method="post" novalidate>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="nom_agent" class="col-sm-4 control-label">Nom agent</label>
+
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" style="width:100%" name="nom_agent" id="nom_agent"
+                               placeholder="Entrer le nom de l'agent" ng-model="agentFormItems.nom_agent"
+                               ng-minlength="3" required>
+                        <span ng-show="formAgent.nom_agent.$error.minlength" class="help-block" style="color:#dd4b39">Le nom de l'agent doit avoir 3 caracteres minimum</span>
+                        <span ng-show="formAgent.nom_agent.$invalid && !formAgent.nom_agent.$pristine" class="help-block" style="color:#dd4b39">Champ requis</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="prenom_agent" class="col-sm-4 control-label">Prenom agent</label>
+
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" style="width:100%" name="prenom_agent" id="prenom_agent"
+                               placeholder="Entrer le prennom de l'agent" ng-model="agentFormItems.prenom_agent"
+                               ng-minlength="3" required>
+                        <span ng-show="formAgent.prenom_agent.$error.minlength" class="help-block">Le prennom de l'agent doit avoir 3 caracteres minimum</span>
+                        <span ng-show="formAgent.prenom_agent.$invalid && !formAgent.prenom_agent.$pristine" class="help-block" style="color:#dd4b39">Champ requis</span>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div class="modal-footer" style="background-color:#357ca5; color:#fff">
+    <div class="col-xs-12">
+        <button type="button" class="btn btn-danger" ng-click="cancel()"><i class="fa fa-close"></i> Fermer</button>
+        <button ng-disabled="formAgent.$invalid" type="button" class="btn btn-outline" ng-click="formAgent.$valid && ajouterAgent_FC(agentFormItems)"><i class="fa fa-send"></i> Ajouter un agent
+        </button>
+    </div>
+</div>
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+<script src="/javascripts/app/agent/agentController.js"></script>

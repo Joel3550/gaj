@@ -1,0 +1,22 @@
+|saisie demandeur / defendeur|
+---------------------
+nom 
+prenom
+
+|saisie reglement|
+---------------------
+fixer le montant
+
+|registre role general|
+-------------------------
+mettre des colonnes(cadriller les tableaux)
+
+|role d'audience|
+-------------------------
+permettre un retour des affaires au role general pour cause d'erreur de saisie(ajouter bouton retour)
+prevoir une consultation des affaires passees
+permettre la selection des affaires a publier
+
+|composition de la cours|
+------------------------
+permettre la saisie de la composition par affaires

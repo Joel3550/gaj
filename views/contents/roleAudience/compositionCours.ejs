@@ -1,0 +1,226 @@
+<% layout('layout') %>
+
+<section class="invoice" ng-app="app" ng-controller="roleAudienceController">
+  <!-- title row -->
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header alert bg-info" style="padding: 10px; margin-bottom: 5px">
+                <i class="fa fa-globe"></i> ROLE D'AUDIENCE {{affaireItems.libelle_nature | uppercase}}
+            </div>
+        </div>
+    <!-- /.col -->
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <form class="form-horizontal" name="formChambre" role="form" method="post" novalidate>
+                <div class="alert bg-warning">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="chambre" class="col-sm-5 control-label">Choisir la chambre d'affaires à afficher <span style="color:#dd4b39">(*)</span></label>
+
+                            <div class="col-sm-5">
+                                <select class="form-control" style="width: 100%;"  name="chambre" id="chambre" ng-model="coursFormItems.id_chambre_cours">
+                                    <!--<option value=""></option>-->
+                                    <option ng-repeat="liste in listeChambres" value="{{liste.id_chambre}}" ng-if="liste.id_user_affaire == id_user">
+                                        {{liste.libelle_chambre | uppercase}} ({{liste.commentaire | uppercase}})
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row" ng-show="coursFormItems.id_chambre_cours">
+        <div class="col-xs-12 table-responsive" ng-if="!publieStatut">
+            <div class="box box-solid">
+                <div class="box-body">
+                    <div class="box-group" id="accordion">
+                        <div class="panel box box-primary">
+                            <table class="table table-bordered table-condensed table-hover table-striped">
+                                <thead>
+                                <tr style="font-size: 11px">
+                                    <th style="width: 75px">N°ordre</th>
+                                    <th style="width: 100px">Date d'enrolement</th>
+                                    <th style="width: 120px">Demandeur(s)</th>
+                                    <th style="width: 120px">Defendeur(s)</th>
+                                    <th style="width: 100px">Objet</th>
+                                    <th style="width: 110px">1ere Date d'audience</th>
+                                    <th style="width: 60px">Chambre</th>
+                                    <th style="width: 100px">Observation</th>
+                                    <th style="width: 100px">Nature</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="liste in chambreAffaires" ng-show="liste.id_chambre_affaire == coursFormItems.id_chambre_cours && liste.valide == 1 && liste.publie == 0 && liste.id_user_affaire == id_user"
+                                    ng-init="idAffaire = liste.id_affaire" ng-click="ajoutCoursAffaire(idAffaire)" class="panel-collapse collapse in" style="font-size: 11px; cursor: pointer">
+                                    <td style="width: 65px">
+                                        <i style="color: #4FFF0A" class="fa fa-check-circle" ng-repeat="item in listeCoursAffaireBis" ng-if="liste.id_affaire == item.id_affaire" title="Cours deja assignée"></i>
+                                        {{liste.numero_ordre}}
+                                    </td>
+                                    <td style="width: 100px">{{liste.date_saisie_affaire | date : 'dd/MM/yyyy'}}</td>
+                                    <td style="width: 120px">
+                                        <div ng-repeat="partie in parties">
+                                            <div ng-if="partie.id_affaire_individu == liste.id_affaire && partie.id_typeIndividu_individu == 1">{{partie.nom_individu | uppercase}} {{partie.prenom_individu}}</div>
+                                        </div>
+                                    </td>
+                                    <td style="width: 120px">
+                                        <div ng-repeat="partie in parties">
+                                            <div ng-if="partie.id_affaire_individu == liste.id_affaire && partie.id_typeIndividu_individu == 2">{{partie.nom_individu | uppercase}} {{partie.prenom_individu}}</div>
+                                        </div>
+                                    </td>
+                                    <td style="width: 130px">{{liste.objet_affaire | limitTo : 15}}</td>
+                                    <td style="width: 80px" ng-if="liste.reporte == 0">{{liste.date_audience | date : 'dd/MM/yyyy'}}</td>
+                                    <td style="width: 80px" ng-if="liste.reporte == 1">
+                                        <i style="color: #dd4b39" class="fa fa-warning" ng-if="liste.reporte == 1" title="audience affaire reporté"></i>
+                                        {{liste.date_audience | date : 'dd/MM/yyyy'}}
+                                    </td>
+                                    <td style="width: 60px">{{liste.libelle_chambre}}</td>
+                                    <td style="width: 100px">{{liste.observation | limitTo : 15}}</td>
+                                    <td style="width: 100px">{{liste.libelle_nature | limitTo : 15}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+        <div class="col-xs-12" ng-if="!publieStatut">
+            <button type="button" class="btn btn-info pull-left" ng-click="publieEvent()"><i class="fa fa-tasks"></i> Publier les affaires</button>
+        </div>
+        <div class="col-xs-12" ng-if="publieStatut">
+            <button type="button" class="btn btn-danger" ng-click="closePublieEvent()"><i class="fa fa-close"></i> Annuler la publication</button>
+        </div>
+    </div>
+
+    <div ng-if="publieStatut" style="padding-top: 20px">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="page-header">
+                    PUBLICATION DE L'AUDIENCE {{jugementFormItems.libelle_nature | uppercase}}
+                </h2>
+            </div>
+            <!-- /.col -->
+        </div>
+
+        <div class="box box-danger">
+            <div class="box-header with-border">
+                <h3 class="box-title">Choix des criteres de publicattion</h3>
+            </div>
+            <form role="form" novalidate>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <select class="form-control" style="width: 100%;"  name="salle" id="salle" ng-model="coursFormItems.id_salleAudience" required>
+                                <option value=""><span>Choisir une salle</span></option>
+                                <option ng-repeat="liste in salles" value="{{liste.id_salleAudience}}">{{liste.libelle_salleAudience | uppercase}}</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-3">
+                            <select class="form-control" style="width: 100%;"  name="president" id="president" ng-model="coursFormItems.president" required>
+                                <option value=""><span>Choisir un president</span></option>
+                                <option ng-repeat="liste in presidents" value="{{liste.president}}" ng-if="liste.id_chambre_cours == coursFormItems.id_chambre_cours &&
+                                liste.id_salleAudience_cours == coursFormItems.id_salleAudience && liste.id_user_affaire == id_user">{{liste.president | uppercase}}</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <select class="form-control" style="width: 100%;"  name="greffier" id="greffier" ng-model="coursFormItems.greffier" required>
+                                <option value=""><span>Choisir un greffier</span></option>
+                                <option ng-repeat="liste in greffiers" value="{{liste.greffier}}" ng-if="liste.id_chambre_cours == coursFormItems.id_chambre_cours &&
+                                liste.id_salleAudience_cours == coursFormItems.id_salleAudience && liste.president == coursFormItems.president &&
+                                liste.id_user_affaire == id_user">{{liste.greffier | uppercase}}</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <select class="form-control" style="width: 100%;"  name="date_audience" id="date_audience" ng-model="coursFormItems.date_audience" required>
+                                <option value=""><span>Choisir une date d'audience</span></option>
+                                <option ng-repeat="liste in listeDateAudiences" value="{{liste.date_audience}}" ng-if="liste.id_chambre_affaire == coursFormItems.id_chambre_cours &&
+                                liste.president == coursFormItems.president && liste.greffier == coursFormItems.greffier && liste.id_user_affaire == id_user">{{liste.date_audience | date : 'dd/MM/yyyy'}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- /.box-body -->
+        </div>
+
+        <div class="row" ng-show="coursFormItems.president && coursFormItems.greffier && coursFormItems.date_audience">
+            <div class="col-xs-12 table-responsive">
+                <table class="table table-bordered table-condensed table-hover table-striped">
+                    <thead>
+                        <tr style="font-size: 11px">
+                            <th style="width: 65px">N°ordre</th>
+                            <th style="width: 105px">Date d'enrolement</th>
+                            <th style="width: 125px">Demandeur(s)</th>
+                            <th style="width: 125px">Defendeur(s)</th>
+                            <th style="width: 100px">Objet</th>
+                            <th style="width: 120px">1ere Date d'audience</th>
+                            <th style="width: 60px">Chambre</th>
+                            <th style="width: 100px">Observation</th>
+                            <th style="width: 100px">Nature</th>
+                            <th style="width: 20px"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="liste in affaireForCours"
+                            ng-show="liste.id_chambre_affaire == coursFormItems.id_chambre_cours && liste.valide == 1 &&
+                            liste.id_salleAudience == coursFormItems.id_salleAudience && liste.president == coursFormItems.president && liste.greffier == coursFormItems.greffier &&
+                            liste.date_audience == coursFormItems.date_audience && liste.id_user_affaire == id_user" style="font-size: 11px; cursor: pointer">
+                            <td style="width: 65px">{{liste.numero_ordre}}</td>
+                            <td style="width: 95px">{{liste.date_saisie_affaire | date : 'dd/MM/yyyy'}}</td>
+                            <td style="width: 120px">
+                                <div ng-repeat="partie in parties">
+                                    <div ng-if="partie.id_affaire_individu == liste.id_affaire && partie.id_typeIndividu_individu == 1">{{partie.nom_individu | uppercase}} {{partie.prenom_individu}}</div>
+                                </div>
+                            </td>
+                            <td style="width: 120px">
+                                <div ng-repeat="partie in parties">
+                                    <div ng-if="partie.id_affaire_individu == liste.id_affaire && partie.id_typeIndividu_individu == 2">{{partie.nom_individu | uppercase}} {{partie.prenom_individu}}</div>
+                                </div>
+                            </td>
+                            <td style="width: 100px">{{liste.objet_affaire | limitTo : 15}}</td>
+                            <td style="width: 120px" ng-if="liste.reporte == 0">{{liste.date_audience | date : 'dd/MM/yyyy'}}</td>
+                            <td style="width: 120px" ng-if="liste.reporte == 1">
+                                <i style="color: #dd4b39" class="fa fa-warning" title="audience affaire reporté"></i>
+                                {{liste.date_audience | date : 'dd/MM/yyyy'}}
+                            </td>
+                            <td style="width: 60px">{{liste.libelle_chambre}}</td>
+                            <td style="width: 100px">{{liste.observation | limitTo : 15}}</td>
+                            <td style="width: 100px">{{liste.libelle_nature | limitTo : 15}}</td>
+                            <!--<td style="width: 20px"></td>-->
+                            <td style="width: 20px">
+                                <span ng-click="publie = false"><a ng-click="annulerPublieAffaire_FC(liste.id_affaire)" ng-if="publie">
+                                        <i class="fa fa-check" title="Retirer de la publication"></i></a>
+                                </span>
+                                <span ng-click="publie = true"><a ng-click="autoriserPublieAffaire_FC(liste.id_affaire)" ng-if="!publie" style="color: #dd4b39">
+                                        <i class="fa fa-remove" title="Autoriser sa publication"></i></a>
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-xs-12" ng-if="publieStatut && etatPublie">
+                <a class="btn btn-success pull-right" href="/afficherPublication/{{coursFormItems.date_audience}}">Apperçu & impression publication</a>
+            </div>
+            <!-- /.col -->
+        </div>
+    </div>
+
+</section>
+  <div class="control-sidebar-bg"></div>
+
+
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
+<!--<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.9.0.js"></script>-->
+<script src="/javascripts/app/roleAudience/roleAudienceController.js"></script>
+
+

@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-solid">
+            <div class="box-header with-border" style="border-left:3px solid #dd4b39">
+                <h3 class="box-title">LISTE DES AFFAIRES PAR DATE DE SAISIE</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="box-group" id="accordion">
+                    <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+                    <!--<tr ng-if="affaireDate.length == 0">-->
+                        <!--<td><p align="center">Aucune affaire enregistrée pour le moment</p></td>-->
+                    <!--</tr>-->
+                    <div class="panel box box-primary" ng-repeat="date in affaireDate | limitTo : limit | filter:searchItem.date_saisie_affaire | orderBy : date.date_saisie_affaire : true"
+                            ng-show="date.id_user_affaire == id_user">
+                        <div class="box-header with-border">
+                            <h4 class="box-title" style="font-size: 12px">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#{{date.date_saisie_affaire | date : 'ddMMyyyy'}}">
+                                    Saisie du {{date.date_saisie_affaire | date : 'dd/MM/yyyy'}}
+                                </a>
+                            </h4>
+                        </div>
+                        <table class="table table-bordered table-condensed table-hover table-responsive table-striped"
+                               name="registreAffaire" id="registreAffaire">
+                            <thead>
+                                <tr style="font-size: 11px">
+                                    <th style="width: 65px">N°ordre</th>
+                                    <th style="width: 100px">Date d'enrolement</th>
+                                    <th style="width: 120px">Demandeur(s)</th>
+                                    <th style="width: 120px">Defendeur(s)</th>
+                                    <th style="width: 130px">Objet</th>
+                                    <th style="width: 80px">Date d'audience</th>
+                                    <th style="width: 60px">Chambre</th>
+                                    <th style="width: 100px">Nature</th>
+                                    <th style="width: 20px">Statut</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="liste in affaires" ng-if="liste.id_user_affaire == id_user && date.date_saisie_affaire == liste.date_saisie_affaire"
+                                    id="{{liste.date_saisie_affaire | date : 'ddMMyyyy'}}" class="panel-collapse collapse in" style="font-size: 11px; cursor: pointer">
+                                    <td style="width: 65px"><a href="/detailsAffaireConsultation/{{liste.id_affaire}}">{{liste.numero_ordre}}</a></td>
+                                    <td style="width: 100px">{{liste.date_saisie_affaire | date : 'dd/MM/yyyy'}}</td>
+                                    <td style="width: 120px">
+                                        <div ng-repeat="partie in listeIndividus | filter:recherche | orderBy:champTri:triDescendant">
+                                            <div ng-if="partie.id_affaire_individu == liste.id_affaire && partie.id_typeIndividu_individu == 1">
+                                                <span ng-bind-html="partie.nom_individu | uppercase | surbrillanceRecherche:recherche"></span> {{partie.prenom_individu}}
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="width: 120px">
+                                        <div ng-repeat="partie in listeIndividus">
+                                            <div ng-if="partie.id_affaire_individu == liste.id_affaire && partie.id_typeIndividu_individu == 2">
+                                                <span ng-bind-html="partie.nom_individu | uppercase | surbrillanceRecherche:recherche"></span> {{partie.prenom_individu}}
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="width: 130px">{{liste.objet_affaire | limitTo : 25}} ...</td>
+                                    <td style="width: 80px">{{liste.date_audience | date : 'dd/MM/yyyy'}}</td>
+                                    <td style="width: 60px">{{liste.libelle_chambre}}</td>
+                                    <td style="width: 100px">{{liste.libelle_nature}}</td>
+                                    <td ng-if="liste.valide"><span style="color:#008000">Valide</span></td>
+                                    <td ng-if="!liste.valide"><span style="color:#dd4b39">Invalide</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        <!-- /.box-body -->
+        </div>
+    </div>
+</div>

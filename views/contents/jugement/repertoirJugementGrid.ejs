@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-solid">
+            <div class="box-body">
+                <div class="box-group" id="accordion">
+                    <div class="panel box box-primary">
+                        <table id="example1" class="table table-bordered table-condensed table-hover table-striped" role="grid" aria-describedby="example1_info">
+                            <thead>
+                                <tr style="font-size: 11px;">
+                                    <th style="width:95px">N° du jugement</th>
+                                    <th style="width:100px;">Date de l'audience</th>
+                                    <th style="width:140px;">Objet</th>
+                                    <th style="width:70px">Demandeur(s)</th>
+                                    <th style="width:80px">Defendeur(s)</th>
+                                    <th style="width:140px">Dispositif</th>
+                                    <th style="width:100px">Caractère</th>
+                                    <th style="width:80px">Date fin appel</th>
+                                    <th style="width:110px">Observation</th>
+                                    <th style="width:40px"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="font-size: 11px" ng-repeat="liste in jugements | limitTo :limit" ng-if="liste.id_user_affaire == id_user">
+                                    <td><a href="/detailsAffaireAuJugement/{{liste.id_jugement}}">{{liste.numero_jugement}}</a></td>
+                                    <td>{{liste.date_audience | date:'dd/MM/yyyy'}}</td>
+                                    <td>{{liste.objet_affaire}}</td>
+                                    <td style="width: 120px">
+                                        <div ng-repeat="partie in individusAJuger">
+                                            <div ng-if="partie.id_affaire_individu == liste.id_affaire && partie.id_typeIndividu_individu == 1">
+                                                {{partie.nom_individu}} {{partie.prenom_individu | limitTo : 8}}
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="width: 120px">
+                                        <div ng-repeat="partie in individusAJuger">
+                                            <div ng-if="partie.id_affaire_individu == liste.id_affaire && partie.id_typeIndividu_individu == 2">
+                                                {{partie.nom_individu}} {{partie.prenom_individu | limitTo : 8}}
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td ng-if="liste.fonde == 1">Fonde</td>
+                                    <td ng-if="liste.mal_fonde == 1">Mal fonde</td>
+                                    <td ng-if="liste.partiellement_fonde == 1">Partiellement fonde</td>
+                                    <td>{{liste.libelle_caractere}}</td>
+                                    <td>{{liste.fin_appel | date:'dd/MM/yyyy'}}</td>
+                                    <td>{{liste.observation_jugement}}</td>
+                                    <td style="text-align: center">
+                                        <span>
+                                            <a style="cursor: pointer;"><i class="fa fa-edit"></i></a>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+<script src="/javascripts/app/jugement/jugementController.js"></script>
+
+

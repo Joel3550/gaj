@@ -1,0 +1,155 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="modal-header" ng-if="!verifStatut" style="background-color:#357ca5; color:#fff">
+            <span><i class="fa fa-info-circle"></i> FORMULAIRE DE COMPOSITION DE LA COURS</span>
+        </div>
+        <!--</div>-->
+        <div class="modal-body" ng-repeat="cours in compositionCours" ng-show="cours.id_affaire_cours == coursFormItems.id_affaire_cours">
+
+            <div>
+                <div class="row">
+                    <div class="col-xs-12" style="margin-bottom: 20px">
+                        <div class="modal-header" style="background-color:#357ca5; color:#fff">
+                            <span><i class="fa fa-info-circle"> COMPOSITION DE LA COURS</i></span>
+                        <span ng-repeat="cours in compositionCours" ng-if="cours.id_affaire_cours == coursFormItems.id_affaire_cours">
+                            AFFAIRE <strong>N° {{cours.numero_ordre}}</strong></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row invoice-info" style="margin-bottom: 15px">
+                    <div>
+                        <div class="col-sm-5 invoice-col">
+                            PRESIDENT
+                            <address>
+                                <strong>{{cours.president | uppercase}}</strong><br>
+                            </address>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-5 invoice-col">
+                            GREFFIER
+                            <address>
+                                <strong>{{cours.greffier | uppercase}}</strong><br>
+                            </address>
+                        </div>
+
+                        <div class="col-sm-5 invoice-col">
+                            ASSESSEURS
+                            <address>
+                                <strong ng-if="cours.assesseurs">{{cours.assesseurs | uppercase}}</strong>
+                                <span ng-if="!cours.assesseurs">(Aucun)</span>
+                            </address>
+                        </div>
+
+                        <div class="col-sm-5 invoice-col">
+                            SUBSTITUT
+                            <address>
+                                <strong ng-if="cours.substitut">{{cours.substitut | uppercase}}</strong>
+                                <span ng-if="!cours.substitut">(Aucun)</span>
+                            </address>
+                        </div>
+
+                        <div class="col-sm-5 invoice-col">
+                            SALLE D'AUDIENCE
+                            <address>
+                                <strong>{{cours.libelle_salleAudience | uppercase}}</strong><br>
+                            </address>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4 invoice-col">
+                            <b>{{cours.salle_audience | uppercase}}</b><br>
+                        </div>
+                    </div>
+
+                    <!--<div class="col-xs-12">-->
+                        <!--<button type="button" class="btn btn-info pull-left" ng-disabled="formChambre.$invalid" ng-click="formChambre.$valid"><i class="fa fa-send"></i> Publier les affaires-->
+                        <!--</button>-->
+                    <!--</div>-->
+                    <!-- /.col -->
+                </div>
+            </div>
+        </div>
+        <div role="form" ng-if="!verifStatut">
+
+            <div class="row" ng-if="message.msg">
+                <div class="col-xs-12">
+                    <div class="alert {{message.class}}">{{message.msg}}</div>
+                </div>
+            </div>
+            <form name="form.coursForm" method="post" novalidate>
+                <div class="modal-body">
+                    <!-- NAME -->
+                    <div class="form-group">
+                        <div>
+                            <input type="hidden" name="id_affaire_cours" id="id_affaire_cours" ng-model="coursFormItems.id_affaire_cours" value="coursFormItems.id_affaire_cours"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="president" class="control-label">Nom et Prenom du President <span style="color:#dd4b39">(*)</span></label>
+
+                        <div>
+                            <select class="form-control" style="width: 100%;"  name="president" id="president" ng-model="coursFormItems.president" required>
+                                <option></option>
+                                <option ng-repeat="agent in listeAgents">{{agent.nom_agent}} {{agent.prenom_agent}}</option>
+                            </select>
+                            <span ng-show="form.coursForm.president.$invalid && !form.coursForm.president.$pristine" class="help-block" style="color:#dd4b39">Champ requis</span>
+                        </div>
+                    </div>
+
+                    <!-- USERNAME -->
+                    <div class="form-group">
+                        <label for="assesseurs" class="control-label">Assesseurs</label>
+                        <div>
+                            <textarea class="form-control" rows="3" placeholder="Entrer le ou les assesseurs" ng-model="coursFormItems.assesseurs"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div class="form-group">
+                        <label for="substitut" class="control-label">Substitut du P.R</label>
+
+                        <div>
+                            <select class="form-control" style="width: 100%;"  name="substitut" id="substitut" ng-model="coursFormItems.substitut">
+                                <option></option>
+                                <option ng-repeat="agent in listeAgents">{{agent.nom_agent}} {{agent.prenom_agent}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="greffier" class="control-label">Nom et Prenom du greffier <span style="color:#dd4b39">(*)</span></label>
+                        <div>
+                            <select class="form-control" style="width: 100%;"  name="greffier" id="greffier" class="select" ng-model="coursFormItems.greffier" required>
+                                <option></option>
+                                <option ng-repeat="agent in listeAgents">{{agent.nom_agent}} {{agent.prenom_agent}}</option>
+                            </select>
+                            <span ng-show="form.coursForm.greffier.$invalid && !form.coursForm.greffier.$pristine" class="help-block" style="color:#dd4b39">Champ requis</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="salleAudience" class="control-label">Salle d'audience <span style="color:#dd4b39">(*)</span></label>
+                        <div>
+                            <select class="form-control" style="width: 100%;"  name="salleAudience" id="salleAudience" class="select" ng-model="coursFormItems.id_salleAudience_cours" required>
+                                <option></option>
+                                <option ng-repeat="salle in listeSalleAudiences" value="{{salle.id_salleAudience}}">{{salle.libelle_salleAudience}}</option>
+                            </select>
+                            <span ng-show="form.coursForm.salleAudience.$invalid && !form.coursForm.salleAudience.$pristine" class="help-block" style="color:#dd4b39">Champ requis</span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="modal-footer" style="background-color:#357ca5; color:#fff">
+                    <div class="col-xs-12">
+                        <button type="button" class="btn btn-danger" ng-click="cancel()"><i class="fa fa-close"></i> Fermer</button>
+                        <!--<button type="submit" class="btn btn-primary pull-right" ng-disabled="form.coursForm.$invalid" ng-click="form.coursForm.$valid && ajouterCours_FC(coursFormItems)"><i class="fa fa-save"></i> Enregistrer-->
+                        <button type="submit" class="btn btn-outline pull-right" ng-disabled="form.coursForm.$invalid" ng-click="form.coursForm.$valid && ajouterCours_FC(coursFormItems)"><i class="fa fa-save"></i> Enregistrer
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

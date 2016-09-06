@@ -1,0 +1,375 @@
+<% layout('layout') %>
+
+<section class="invoice" ng-app="app" ng-controller="jugementController" xmlns="http://www.w3.org/1999/html"
+         xmlns="http://www.w3.org/1999/html">
+    <!-- title row -->
+    <div ng-if="detailsAffaireAuJugement.nbr_jour_restant > 0">
+        <!--<button type="submit" class="btn btn-success" ng-if="detailsAffaireAuJugement.appel_effectue == 1">
+            <i class="fa fa-file-text"></i> Editer l'acte d'appel
+        </button>-->
+        <span style="font-size: 16px; border-left: 3px solid #dd4b39; padding: 5px;" ng-if="detailsAffaireAuJugement.appel_effectue == 1">APPEL EFFECTUE SUR CETTE AFFAIRE PAR LE {{appelInfo.libelle_typeIndividu | uppercase}} M./Mlle/Mme
+            <b>{{appelInfo.nom_individu | uppercase}} {{appelInfo.prenom_individu}}</b>
+        </span>
+        <button type="submit" class="btn btn-warning" ng-if="detailsAffaireAuJugement.appel_effectue == 0" ng-click="faireAppelModal(detailsAffaireAuJugement.id_jugement)">
+            <i class="fa fa-bullhorn"></i> Faire Appel
+        </button>
+        <span style="color: red; font-size: 14px; border-left: 3px solid #dd4b39; padding: 5px; margin-left: 10px" ng-if="detailsAffaireAuJugement.appel_effectue == 0">
+            <i style="color: red" class="fa fa-warning"></i> <b>(Nombre de jours restant avant la cloture de l'appel : {{detailsAffaireAuJugement.nbr_jour_restant}} jours)</b>
+        </span>
+    </div>
+
+    <div ng-if="detailsAffaireAuJugement.nbr_jour_restant <= 0">
+        <!--<button type="submit" class="btn btn-success" ng-if="detailsAffaireAuJugement.appel_effectue == 0">
+            <i class="fa fa-file-text"></i> Editer le certificat de non appel
+        </button>-->
+        <span style="color: red; font-size: 14px" ng-if="detailsAffaireAuJugement.appel_effectue == 0">
+            <i style="color: red" class="fa fa-warning"></i> <b>(Nombre de jour restant avant la cloture de l'appel : {{detailsAffaireAuJugement.nbr_jour_restant}})</b>
+        </span>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header alert bg-info" style="padding: 10px; margin-bottom: 5px">
+                <i class="fa fa-globe"></i> DETAIL JUGEMENT {{detailsAffaireAuJugement.libelle_nature | uppercase}} | DATE FIN APPEL :
+                <span style="color:red" ng-if="detailsAffaireAuJugement.appel_effectue == 0">
+                    <b>{{detailsAffaireAuJugement.fin_appel | date : 'd/MM/yyyy'}}</b>
+                </span>
+                <span style="color:red" ng-if="detailsAffaireAuJugement.appel_effectue == 1">
+                    <b><s>{{detailsAffaireAuJugement.fin_appel | date : 'd/MM/yyyy'}}</s></b>
+                </span>
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- info row -->
+    <div class="row" style="margin-bottom: 15px">
+        <div class="col-xs-12">
+            <div class="alert bg-warning" style="height: 230px; margin-bottom: 0px">
+                <div class="invoice-info" ng-mouseover="voirFichier = true" ng-mouseleave="voirFichier = false">
+                    <div class="col-sm-4 invoice-col" style="border-right:1px solid #ccc">
+                        <h4 class="box-title"><u>DETAIL AFFAIRE</u></h4>
+                        <address>
+                            NUMERO DE DOSSIER : <strong>{{detailsAffaireAuJugement.numero_ordre}}</strong><br>
+                            OBJET : <strong>{{detailsAffaireAuJugement.objet_affaire}}</strong><br>
+                            CHAMBRE : <strong>{{detailsAffaireAuJugement.libelle_chambre}}</strong><br>
+                            NATURE : <strong>{{detailsAffaireAuJugement.libelle_nature}}</strong><br>
+                            OBSERVATION : <strong>{{detailsAffaireAuJugement.observation}} <span ng-if="!detailsAffaireAuJugement.observation">(Aucun)</span></strong><br>
+                            DATE D'AUDIENCE : <strong>{{detailsAffaireAuJugement.date_audience | date : 'd/MM/yyyy'}}</strong><br>
+                            <span ng-if="detailsAffaireAuJugement.doc_scan">FICHIER JOINT :
+                                <strong>{{detailsAffaireAuJugement.doc_scan}}
+                                    <a ng-click="afficherFichierModal()" style="color: #000; cursor:pointer;" ng-show="voirFichier"> <i class="fa fa-eye" style="color:#ff8c00"></i></a>
+                                </strong>
+                            </span>
+                        </address>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-4 invoice-col" style="border-right:1px solid #ccc">
+                        <h4 class="box-title"><u>DETAIL COURS</u></h4>
+                        <address>
+                            PRESIDENT : <strong>{{detailsAffaireAuJugement.president}}</strong><br>
+                            GREFFIER : <strong>{{detailsAffaireAuJugement.greffier}}</strong><br>
+                            ACCESSEUR(S) : <strong>{{detailsAffaireAuJugement.accesseurs}}</strong><br>
+                            SUBSTITUT : <strong>{{detailsAffaireAuJugement.substitut}}</strong><br>
+                            SALLE D'AUDIENCE : <strong>{{detailsAffaireAuJugement.libelle_salleAudience}}</strong><br>
+                            TYPE D'AFFAIRE : <strong>{{detailsAffaireAuJugement.type_affaire}}</strong><br><br>
+                        </address>
+                    </div>
+                    <div class="col-sm-4 invoice-col">
+                        <h4 class="box-title"><u>DETAIL JUGEMENT</u></h4>
+                        <address>
+                            NUMERO DE JUGEMENT : <strong>{{detailsAffaireAuJugement.numero_jugement}}</strong><br>
+                            DATE JUGEMENT AFFAIRE : <strong>{{detailsAffaireAuJugement.date_enregistrement |date:'d/MM/yyyy'}}</strong><br>
+                            DISPOSITIF : <strong ng-if="detailsAffaireAuJugement.fonde==1">Fondé</strong>
+                            <strong ng-if="detailsAffaireAuJugement.mal_fonde==1">Mal fondé</strong>
+                            <strong ng-if="detailsAffaireAuJugement.partiellement_fonde==1">Partiellement fondé</strong><br>
+                            CARACTERE : <strong>{{detailsAffaireAuJugement.libelle_caractere}}</strong><br>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+
+    <!-- Table row -->
+
+    <div class="row">
+        <div class="col-xs-8 table-responsive">
+            <div class="box box-solid">
+                <div class="box-header with-border" style="padding-top: 0px">
+                    <h3 class="box-title">LISTE DES PARTIES</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="box-group" id="accordion">
+                        <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+
+                        <div class="panel box box-primary">
+                            <table class="table table-bordered table-condensed table-hover table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Nom(s)</th>
+                                    <th>Prenom(s)</th>
+                                    <th>Age(s)</th>
+                                    <th>Partie(s)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td ng-show="individusForAffaire.length == 0" colspan="3"><p align="center">Aucun demandeur / defendeur saisi. Cliquer
+                                            <a href="/formAjoutIndividu2/{{affaireFormItems.id_affaire}}"> ici </a>pour ajouter</p></td>
+                                </tr>
+                                <tr ng-repeat="liste in detailsAffaireAuJugement" style="cursor: pointer">
+                                    <td>{{liste.nom_individu | uppercase}}</td>
+                                    <td>{{liste.prenom_individu | uppercase}}</td>
+                                    <td ng-if="liste.age != ''">{{liste.age}} ans</td>
+                                    <td ng-if="liste.age == ''"></td>
+                                    <td ng-if="liste.id_typeIndividu_individu == 1"><span class="label label-primary">{{liste.libelle_typeIndividu | uppercase}}</span></td>
+                                    <td ng-if="liste.id_typeIndividu_individu == 2"><span class="label label-warning">{{liste.libelle_typeIndividu | uppercase}}</span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+        <div class="row" ng-if="reglements.length == 0">
+            <div class="col-xs-4">
+                <div class="alert alert-warning">Aucun reglement enregistre pour cette affaire!. Editer la facture <a
+                            href="/formAjoutReglement2/{{affaireFormItems.id_affaire}}">ici.</a></div>
+            </div>
+        </div>
+        <div class="col-xs-4 table-responsive">
+            <div class="box box-solid">
+                <div ng-repeat="liste in reglements" ng-show="reglements.length > 0">
+                    <div class="box-header with-border" style="padding-top: 0px">
+                        <h3 class="box-title">REGLEMENT</h3>
+                        <a ng-click="modifReglementModal(liste.id_reglement)" style="cursor: pointer"><i class="fa fa-edit"></i></a>
+                    </div>
+
+                    <div class="box-body">
+                        <div class="box-group" id="accordion">
+                            <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+
+                            <div class="panel box box-primary">
+                                <table class="table table-bordered table-condensed table-hover table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Auteur</th>
+                                        <th>Montant</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="liste in reglements" ng-show="reglements.length > 0" style="cursor: pointer">
+                                        <td>{{liste.nom_individu | uppercase}} {{liste.prenom_individu | uppercase}}</td>
+                                        <td>{{liste.montant}} FCFA</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+            </div>
+        </div>
+    </div>
+
+    <!-- this row will not appear when printing -->
+    <div class="row">
+        <div class="box-footer">
+            <div class="col-xs-12">
+                <a href="/repertoirJugement_url" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Retour a la liste</a>
+                <!--<div ng-if="detailsAffaireAuJugement.nbr_jour_restant > 0">-->
+                    <button type="submit" class="btn btn-success" ng-if="!editAppel && detailsAffaireAuJugement.nbr_jour_restant > 0 && detailsAffaireAuJugement.appel_effectue == 1"
+                            ng-click="editAppel_FC()">
+                        <i class="fa fa-file-text"></i> Editer l'acte d'appel
+                    </button>
+                    <button type="submit" class="btn btn-danger" ng-if="editAppel && detailsAffaireAuJugement.nbr_jour_restant > 0 && detailsAffaireAuJugement.appel_effectue == 1"
+                            ng-click="annulerEditAppel_FC()">
+                        <i class="fa fa-close"></i> Annuler l'édition
+                    </button>
+                <!--</div>-->
+                <!--<div ng-if="detailsAffaireAuJugement.nbr_jour_restant <= 0">-->
+                    <button type="submit" class="btn btn-success" ng-if="!editCertificat && detailsAffaireAuJugement.nbr_jour_restant <= 0 && detailsAffaireAuJugement.appel_effectue == 0"
+                            ng-click="editCertificat_FC()">
+                        <i class="fa fa-file-text"></i> Editer le certificat de non appel
+                    </button>
+                    <button type="submit" class="btn btn-danger" ng-if="editCertificat && detailsAffaireAuJugement.nbr_jour_restant <= 0 && detailsAffaireAuJugement.appel_effectue == 0"
+                            ng-click="annulerEditCertificat_FC()">
+                        <i class="fa fa-close"></i> Annuler l'édition
+                    </button>
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+
+    <!--///////////////////////////////////*****************ACTE D'APPEL*****************/////////////////////////////////////-->
+
+    <div class="col-sm-8 " style="text-align: center; border : 1px solid #cccccc; padding: 20px" id="acteAppel" ng-if="editAppel == true">
+
+        <div>
+            <div>
+                <div style="text-align: center">
+                    <span><b><u>ACTE D'APPEL VALANT PREMIERES CONCLUSIONS</u></b></span>
+                </div>
+            </div>
+            <div>
+                <span>...................</span><br/>
+                <span>ET LE ................ à ...............</span><br/>
+            </div>
+        </div>
+
+        <div style="padding-top: 20px;">
+            <p><strong><u>A LA REQUETE DE :</u></strong></p>
+            <p>Madame ................ épouse ................ née le ................ de nationalité ................
+                fille de ................ et de  ................ en service au ................ demeurant à ................
+                laquelle fait ................</p>
+            <br/>
+            <p><b><u>Dit déclare et signifié à :</u></b></p>
+            <p>1)   Monsieur ................ né le ................ à ................ de nationalité ................
+                demeurant à ................ en son domicile ou étant et parlant à :</p></br>
+            <p>2)   <b>Monsieur le GREFFIER EN CHEF</b> près la cour d'appel ................
+                en son Greffe sis au palais de justice de ladite ville ou étant et parlant à :</p>
+            <br/>
+            <p>3)   <b>Monsieur le GREFFIER EN CHEF</b> pres le tribunal de premier instance de ................, en son greffe sis au palais de justice de ladite ville ou etant et parlant a maitre ................. greffier ainsi declaré qui a recu copie de mon exploit et a visé mes originaux.</p>
+            <p>Que par les présentes, ma requérante interjette formellement appel contre le jugement ................ ................ N°xxx/ADD ;
+                RG N° ...../.... rendu le ................ par le tribunal de première instance de ................ en sa ................, ce pour les torts et griefs que lui cause ladite décision ;</p>
+            <p><b>Leur rappelant les disposition de l'article 166 nouveau du code de procédure civile aux termes desquelles, les parties doivent, à peine de forclusion de ce, dans un délai de deux mois à compter de la signature de l'acte d'appel, faire parvenir du Greffier de la cour :</b></p>
+            <p><strong>1)   Les conclusions et pièces dont elles entendent se servir en cause d'appel,  </strong></p>
+            <p><strong>2)   Une déclaration faisant connaitre si elles entendent présenter ou faire présenter devant la cour des explications orales ;</strong></p>
+            <p>Et pour statuer sur les mérites du présent appel, j'ai, Huissier susait et soussigné, donné assignation aux requis d'avoir à comparaitre
+            et se trouver présents le ................... à ............., jour et heure suivants s'il y'a lieu, à l'audience et par devant Messieurs les présidents
+            et conseillers composant la cour d'appel ............ statuant en matière civile en salle ordinaire des audiences publiques sise au palais
+            de justice de ladite ville.</p>
+
+            <p style="text-align: center; text-decoration-line: underline"><strong>POUR</strong></p>
+            <p>Attendu que par jugement N°..../...., RG N°..../.... du ...............,, le tribunal de premiere instance de
+                ..............., a rendu une decision de divorce, entre Monsieur ..............., et Madame ..............., epouse ..............., en des termes ci-apres :
+               </p></br>
+            <p><b>« statuant publiquement apres debats en chambre du conseil, ...............,, en matiere civile et en premier ressort; Déclare recevable la demande de .............
+                    ; constate l'échec de la tantative de conciliation
+                </b></p>
+            <p><b><u>AVANT DIRE DROIT</u></b></p>
+            <p><strong>Constate la séparation de fait des époux; Dit que chacun des époux sera maintenu en sa résidence actuelle; Fait défense a chacun
+                    des époux de troubles son conjoint dans sa résidence et tant que besoin, les autorise de faire cesser le trouble, de s'occuper à l'introduction du conjoint
+                au domicile et de l'n faire expulser avec l'assistance de la force publique; Autorise chacun des époux à se faire remettre avec l'assistance de la force publique s'il
+                y'a lieu, les effets et lignes a usage personnel; Confie la garde juridique des enfants mineurs ................ a leur père; Accorde à la mère un droit de visite tous
+                le 1er et 3e week-end du mois et d'hebergement pendant la premiere moitié des petites et grande vacances scolaires; Condamne Mme ............ épse ............... à payer à son époux au titre de contribution aux frais d'entretien et d'éducation
+                des enfants du couple la somme mensuelle de 40.000 francs et la somme mensuelle de 20.000 cfa à titre d'aide au logement; Déboute ............
+                du surplus de ses demandes; Reserve les dépens; Renvoie la cause et les parties à l'audience du .............. pour le dépôt des mémoires sur le fond;
+                Ainsi fait jugé et prononcé publiquement les jours, mois et an que dessus; Et avant signé le président et le Greffier. »</strong></p>
+            <p><strong><u>EN LA FORME</u></strong></p>
+            <p>Attendu que la cour déclarera l'appel formé par l'appelante recevable pour être intervenu dans les formes et délais légaux;<p>
+            <p><b><u>AU FOND</u></b></p>
+            <p>L'y dire bien fondée ;</p>
+            <p>Attendu qu'elle infirmera purement et simplement le jugement civil ............. N°.../ADD, RG N°..../.... du ............, le
+            tribunal de premiere instance de ............;</p>
+            <p><b><u>DES FAITS ET DE LA PROCEDURE</u></b></p>
+            <p>Attendu que l'appelante s'est vu delaisser une signification du jugement civil ............. N°.../ADD, RG N°..../.... du ............, le
+                tribunal de premiere instance de ............;</p>
+            <p>Que ledit jugement la condamne au paiement de la somme de 60.000 F CFA a son époux au motif de contribution aux frais d'entretien et d'éducation
+            des enfants et à titre d'aide au logement;</p>
+            <p>Que l'appelante s'insurge contre un tel jugement;</p>
+            <p>Attendu que le salaire mensuel de l'appelante avoisine à peine 130.000 F CFA;</p>
+            <p>Qu'elle a pris en outre plusieurs engagements sur son salaire, si bien qu'elle reçoit moins de 100.000 F CFA par mois;</p>
+            <p>Attendu par ailleurs, que l'exposante à désormais acquis un local de trois 03 pièces sis à Yopougon ananeraie, tandis que Monsieur ............
+            occupe un local de deux 02 pièces sis à Yopougon cité verte;</p>
+            <p>Qu''il vit avec plus de six (06) personnes, dont sa concubine enceinte qu'il a fait venir à la maison avant même.....................................
+                .....................................................................................................................................................
+                ........................................................................................................</p>
+            <p>Par consèqueneet la cour infirmera purement et simplement le jugement civil ............. N°.../ADD, RG N°..../.... du ............, le
+                tribunal de premiere instance de ............ en toutes ces dispositions;</p>
+            <p align="center"><b><u>PAR CES MOTIFS</u></b></p>
+            <p>Et tous autres à déduire ou à développer ulterieurement s'il y'a lieu;</p>
+            <p><b><u>EN LA FORME</u></b></p>
+            <p>Attendu que la cour déclarera l'appel relevé par Madame ............... épouse ............... recevable pour être intervenus dans les
+            formes et délais légaux;</p></br>
+            <p><b><u>AU FOND</u></b></p>
+            <p>L'y dire bien fondée;</p>
+            <p>Attendu que la cour infirmera purement et simplement le jugement civil ............. N°.../ADD, RG N°..../.... du ............, le
+                tribunal de premiere instance de ............ ;</p>
+            <p>Voir condamner l'intimé aux entiers dépens à ce que nul n'en ignore</p>
+            <p style="text-align: center"><b><u>SOUS TOUTES RESERVES A CE QUE NUL N'EN IGNORE</u></b></p>
+            <p>Et je leur ai étant et parlant comme ci-dessous, remis et laissé copie, du présent exploit dont le coût est de cinquante et un mille (51.000) F CFA.</p>
+        </div>
+    </div>
+    <div class="col-xs-12" ng-if="editAppel" style="margin-top: 20px; margin-left: 0px">
+        <a href="javascript:printActeAppel()" class="btn btn-danger"><i class="fa fa-print"></i> Imprimer l'acte d'appel</a>
+    </div>
+
+
+
+    <!--///////////////////////////////////*****************CERTIFICAT DE NON APPEL*****************/////////////////////////////////////-->
+
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 " style="border : 1px solid #cccccc; padding: 20px" id="certificat"  ng-if="editCertificat == true">
+
+        <div>
+            <div style="text-align: right">
+                <span>REPUBLIQUE DE CÔTE D'IVOIRE <br/>Union - Discipline - Travail</span>
+            </div>
+            <div style="text-align: left">
+                <p>COUR D'APPEL ............... </p>
+                <p>TRIBUNAL DE PREMIERE <br/>INSTANCE .............. </p>
+                <p>GREFFE ..............</p>
+            </div>
+            <div style="padding-top: 20px">
+                <span><strong>N° </strong></span><br/>
+            </div>
+            <div style="padding-top: 20px">
+                <span><strong>DU </strong></span><br/>
+            </div>
+            <div style="padding-top: 30px; text-align: center">
+                <span><u>CERTIFICAT DE NON APPEL</u></span>
+            </div>
+        </div>
+
+
+        <div>
+            <div style="padding-top: 40px">
+                <span><b>Le Greffier en Chef du Tribunal de Premiere Instance de ..........</b> soussigné, certifie qu'après vérification du registre des appels
+                et oppositions tenu au Greffe de céans, il n'existe aucune transcription d'appel dans le délais d'un (01) mois à compter du dis-sept
+                février deux mille quatorsze à l'encontre de l'acte de notorété N°301 rendu le ............. par la Chambre des Tutelles;</span>
+            </div>
+            <div style="padding-top: 45px">
+                <span>Lequel acte détermine la qualité des héritiers de feu .................., décédé le vingt-trois octobre deux mille treize à la
+                ......................</span>
+            </div>
+
+            <div style="padding-top: 40px">
+                <span>En foi de quoi, le présent certificat est délivré à madame ................... pour servir et valoir ce que de droit.</span>
+            </div>
+            <div style="padding-top: 50px; margin-left: 450px">
+                <span>Fair à ..............., le ................</span>
+            </div>
+            <div style="padding-top: 80px">
+                <div>
+                    <span><b><u>LE RESPONSABLE</u></b></span>
+                </div>
+                <div style="margin-left: 400px;">
+                    <span><b><u>LE GREFFIER EN CHEF ADJOINT</u></b></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12" ng-if="editCertificat" style="margin-top: 20px; margin-left: 0px">
+        <a href="javascript:printCertificat()" class="btn btn-danger"><i class="fa fa-print"></i> Imprimer le certificat</a>
+    </div>
+
+
+    <!-- /.content -->
+    <div class="clearfix"></div>
+</section>
+
+
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<script type="text/javascript" src="/ng-file-upload/dist/ng-file-upload.min.js"></script>
+<script type="text/javascript" src="/ng-file-upload/dist/ng-file-upload-shim.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
+<script src="/javascripts/app/jugement/jugementController.js"></script>

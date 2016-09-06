@@ -1,0 +1,95 @@
+<div class="row" xmlns="http://www.w3.org/1999/html">
+    <div class="col-xs-12">
+        <div class="modal-header" style="background-color:#357ca5; color:#fff">
+            <span><i class="fa fa-info-circle"></i> FORMULAIRE D'APPEL</span>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div ng-show="message" class="alert {{message.class}}">{{message.msg}}</div>
+    </div>
+    <!-- /.col -->
+</div>
+
+<div class="row">
+    <div class="modal-body">
+        <div class="col-md-12 pull-left alert bg-warning">
+            <table align="center">
+                <tr>
+                    <td align="right"><b>Affaire numéro : </b></td>
+                    <td align="left" style="padding-left: 3px">{{listeIndividusAuJugement.numero_ordre}}</td>
+                </tr>
+                <tr>
+                    <td align="right"><b>Jugement numéro :</b></td>
+                    <td align="left" style="padding-left: 3px">{{listeIndividusAuJugement.numero_jugement}}</td>
+                </tr>
+                <tr>
+                    <td align="right"><b>Date jugement :</b></td>
+                    <td align="left" style="padding-left: 3px">{{listeIndividusAuJugement.date_enregistrement | date:'dd/MM/yyyy'}}</td>
+                </tr>
+                <tr>
+                    <td align="right"><b>Objet affaire :</b></td>
+                    <td align="left" style="padding-left: 3px">{{listeIndividusAuJugement.objet_affaire}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-12">
+            <div role="form">
+                <form class="form-horizontal" name="form.individuAuJugement" role="form" method="post" novalidate>
+
+                    <div>
+                        <div class="form-group">
+                            <label for="typeAffaire" class="col-sm-5 control-label">Partie faisant l'appel <span style="color:#dd4b39">(*)</span></label>
+                            <div class="col-sm-6">
+                                <select class="form-control" style="width: 100%;"  name="individu" id="typeAffaire" class="select"
+                                        ng-model="listeIndividusAuJugement.id_individu" required>
+                                    <option></option>
+                                    <option ng-repeat="liste in listeIndividusAuJugement" value="{{liste.id_individu}}">
+                                        {{liste.nom_individu | uppercase}} {{liste.prenom_individu}} -- {{liste.libelle_typeIndividu}}
+                                    </option>
+                                </select>
+                                <span ng-show="form.individuAuJugement.individu.$invalid && !form.individuAuJugement.individu.$pristine" class="help-block" style="color:#dd4b39">Champ requis</span>
+                            </div>
+                        </div>
+
+                        <!-- /.box-body -->
+                        <div class="row">
+                            <div class="modal-footer" style="background-color:#357ca5; color:#fff">
+                                <button ng-click="cancel()" class="btn btn-danger"><i class="fa fa-close"></i> Fermer</button>
+                                <button type="button" class="btn btn-outline pull-right" ng-disabled="form.individuAuJugement.$invalid"
+                                        ng-click="form.individuAuJugement.$valid && faireAppel_FC(listeIndividusAuJugement)">
+                                    <i class="fa fa-save"></i> Enregistrer
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
+<!--<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.9.0.js"></script>-->
+<script src="/javascripts/app/jugement/jugementController.js"></script>
+
+<script src="/plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<!-- jQuery UI 1.11.4-->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script src="/plugins/datepicker/bootstrap-datepicker.js"></script>
+<script src="/plugins/datepicker/locales/bootstrap-datepicker.fr.js"></script>
+<script>
+    $(function () {
+
+        $('#datepicker').datepicker({
+            autoClose : true
+        });
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    });
+</script>

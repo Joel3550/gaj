@@ -1,0 +1,164 @@
+<% layout('layout') %>
+
+<section class="invoice" ng-app="app" ng-controller="individuController" xmlns="http://www.w3.org/1999/html">
+    <div class="row">
+        <div class="col-md-12">
+            <div role="form">
+                <div class="box-header with-border" style="padding-bottom: 30px">
+                    <h3 class="box-title">FORMULAIRE D'AJOUT DE DEMANDEURS / DEFENDEURS</h3>
+                </div>
+
+                <div class="col-xs-12">
+                    <div ng-show="message" class="alert {{message.class}}">{{message.msg}}</div>
+                </div>
+
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#formAjoutDemandeur" data-toggle="tab">AJOUT DEMANDEUR</a></li>
+                        <li><a href="#formAjoutDefendeur" data-toggle="tab">AJOUT DEFENDEUR</a></li>
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="formAjoutDemandeur">
+                        <form class="form-horizontal" name="formDemandeur" role="form" method="post" novalidate>
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="id_affaire" class="col-sm-4 control-label">Numero ordre affaire</label>
+
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" style="width:100%" name="id_affaire" id="id_affaire"
+                                               ng-model="numeroAffaire.numero_ordre" disabled="disabled">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom_individu" class="col-sm-4 control-label">Nom</label>
+
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" style="width:100%" name="nom_individu" id="nom_individu"
+                                               placeholder="Entrer le nom" ng-model="individuFormItems.nom_individu"
+                                               ng-minlength="3" required>
+                                        <span ng-show="formDemandeur.nom_individu.$error.minlength" class="help-block" style="color:#dd4b39">Le nom du demandeur doit avoir 3 caracteres minimum</span>
+                                        <span ng-show="formDemandeur.nom_individu.$invalid && !formDemandeur.nom_individu.$pristine" class="help-block" style="color:#dd4b39">Champ requis</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="prenom_individu" class="col-sm-4 control-label">Prenom</label>
+
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" style="width:100%" name="prenom_individu" id="prenom_individu"
+                                               placeholder="Entrer le prennom" ng-model="individuFormItems.prenom_individu"
+                                               ng-minlength="3" required>
+                                        <span ng-show="formDemandeur.prenom_individu.$error.minlength" class="help-block" style="color:#dd4b39">Le prennom du demandeur doit avoir 3 caracteres minimum</span>
+                                        <span ng-show="formDemandeur.prenom_individu.$invalid && !formDemandeur.prenom_individu.$pristine" class="help-block" style="color:#dd4b39">Champ requis</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="age" class="col-sm-4 control-label">Age</label>
+
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" style="width:100%" name="age" id="age"
+                                               placeholder="Entrer l'age" ng-model="individuFormItems.age">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-6">
+                                        <input type="hidden" class="form-control" style="width:100%" name="id_typeIndividu" id="id_typeIndividu"
+                                               ng-model="individuFormItems.id_typeIndividu_demandeur"  disabled="disabled" value="individuFormItems.id_typeIndividu_individu">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-6">
+                                        <input type="hidden" class="form-control" style="width:100%" name="lierAffaire" id="lierAffaire" ng-model="individuFormItems.lierAffaire"
+                                               value="{{individuFormItems.lierAffaire}}" disabled="disabled">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="box-footer">
+                                <div class="col-xs-12">
+                                    <a href="/formAjoutAffaire" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Retour a la liste</a>
+                                    <a href="/formAjoutReglement" class="btn btn-success pull-right" ng-show="suivantStatut">Suivant <i class="fa fa-arrow-right"></i></a>
+                                    <button ng-disabled="formDemandeur.$invalid" type="button" class="btn btn-primary" ng-click="formDemandeur.$valid && ajouterDemandeur_FC(individuFormItems)"><i class="fa fa-send"></i> Ajouter
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!--DEFENDEUR-->
+                    <div class="tab-pane" id="formAjoutDefendeur">
+                        <form class="form-horizontal" name="formDefendeur" role="form" method="post" novalidate>
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="id_affaire" class="col-sm-4 control-label">Numero ordre affaire</label>
+
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" style="width:100%" name="id_affaire" id="id_affaire"
+                                               ng-model="numeroAffaire.numero_ordre" disabled="disabled">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom_individu" class="col-sm-4 control-label">Nom</label>
+
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" style="width:100%" name="nom_individu" id="nom_individu"
+                                               placeholder="Entrer le nom" ng-model="individuFormItems.nom_individu"
+                                               ng-minlength="3" required>
+                                        <span ng-show="formDefendeur.nom_individu.$error.minlength" class="help-block" style="color:#dd4b39">Le nom du defendeur doit avoir 3 caracteres minimum</span>
+                                        <span ng-show="formDefendeur.nom_individu.$invalid && !formDefendeur.nom_individu.$pristine" class="help-block" style="color:#dd4b39">Champ requis</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="prenom_individu" class="col-sm-4 control-label">Prenom</label>
+
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" style="width:100%" name="prenom_individu" id="prenom_individu"
+                                               placeholder="Entrer le prennom" ng-model="individuFormItems.prenom_individu"
+                                               ng-minlength="3" required>
+                                        <span ng-show="formDefendeur.prenom_individu.$error.minlength" class="help-block" style="color:#dd4b39">Le prennom du defendeur doit avoir 3 caracteres minimum</span>
+                                        <span ng-show="formDefendeur.prenom_individu.$invalid && !formDefendeur.prenom_individu.$pristine" class="help-block" style="color:#dd4b39">Champ requis</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="age" class="col-sm-4 control-label">Age</label>
+
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" style="width:100%" name="age" id="age"
+                                               placeholder="Entrer l'age" ng-model="individuFormItems.age">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-6">
+                                        <input type="hidden" class="form-control" style="width:100%" name="id_typeIndividu" id="id_typeIndividu"
+                                               ng-model="individuFormItems.id_typeIndividu_defendeur"  disabled="disabled" value="individuFormItems.id_typeIndividu_individu">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-6">
+                                        <input type="hidden" class="form-control" style="width:100%" name="lierAffaire" id="lierAffaire" ng-model="individuFormItems.lierAffaire"
+                                               value="{{individuFormItems.lierAffaire}}" disabled="disabled">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="box-footer">
+                                <div class="col-xs-12">
+                                    <a href="/formAjoutAffaire" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Retour a la liste</a>
+                                    <a href="/formAjoutReglement2/{{numeroAffaire.id_affaire}}" class="btn btn-success pull-right" ng-show="suivantStatut">Suivant <i class="fa fa-arrow-right"></i></a>
+                                    <button ng-disabled="formDefendeur.$invalid" type="button" class="btn btn-primary" ng-click="formDefendeur.$valid && ajouterDefendeur_FC(individuFormItems)"><i class="fa fa-send"></i> Ajouter
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
+<script src="/javascripts/app/individu/individuController.js"></script>

@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="modal-header" style="background-color:#357ca5; color:#fff">
+            <span><i class="fa fa-info-circle"> FORMULAIRE D'AJOUT DU MOTIF DE REJET DE L'AFFAIRE</i></span>
+            <span><strong>N° {{affaireRetour.numero_ordre}}</strong></span>
+        </div>
+    </div>
+</div>
+<div class="row" ng-if="message">
+    <div class="col-sm-12">
+        <span class="alert {{message.class}}">{{message.msg}}</span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="modal-body">
+            <div role="form">
+                <form name="form.affaireForm" method="post" novalidate>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="motif_retour" class="control-label">Motif de rejet</label>
+                            <div>
+                                <textarea class="form-control" rows="3" placeholder="Ajouter un motif" ng-model="coursFormItems.motif_retour" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="modal-footer" style="background-color:#357ca5; color:#fff">
+            <button type="button" class="btn btn-danger" ng-click="cancel()"><i class="fa fa-close"></i> Fermer</button>
+            <!--<button type="submit" class="btn btn-primary pull-right" ng-disabled="form.coursForm.$invalid" ng-click="form.coursForm.$valid && ajouterCours_FC(coursFormItems)"><i class="fa fa-save"></i> Enregistrer-->
+            <button type="submit" class="btn btn-outline pull-right" ng-disabled="form.affaireForm.$invalid" ng-click="form.affaireForm.$valid && retourAffaire_FC(coursFormItems)"><i class="fa fa-send-o"></i> Envoyer
+            </button>
+        </div>
+    </div>
+</div>

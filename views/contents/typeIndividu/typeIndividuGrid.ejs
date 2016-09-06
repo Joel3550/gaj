@@ -1,0 +1,26 @@
+<table id="example1" class="table table-bordered table-striped" role="grid" aria-describedby="example1_info">
+    <thead>
+        <tr role="row">
+            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                aria-label="Libelle type individu: active to sort column ascending">Libelle type individu</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr role="row" class="odd" ng-repeat="typeIndividu in typeIndividus | limitTo : limit | filter:filter.libelle_typeIndividu">
+            <td>{{typeIndividu.libelle_typeIndividu}}</td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Modifier la categorie<span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/formModifTypeIndividu_url/{{typeIndividu.id_typeIndividu}}">Modifier le type individu</a></li>
+                        <li class="divider"></li>
+                        <li><a href="/supprimerTypeIndividu_url/{{typeIndividu.id_typeIndividu}}" class="danger">Supprimer le type individu</a></li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+
+</table>

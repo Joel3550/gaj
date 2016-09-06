@@ -1,0 +1,142 @@
+<% layout('layout') %>
+
+<section class="invoice" ng-app="app" ng-controller="roleAudienceController">
+      <!-- title row -->
+    <div id="testcase" style="width: 800px;" class="container">
+        <div style="font-size: 10px">
+            <div style="text-align: right">
+                <span>REPUBLIQUE DE CÔTE D'IVOIRE <br/>Union - Discipline - Travail</span>
+            </div>
+            <div style="text-align: left">
+                <p>COUR D'APPEL ............... </p>
+                <p>TRIBUNAL DE PREMIERE <br/>INSTANCE .............. </p>
+                <p>CHAMBRE ....................</p>
+            </div>
+        </div>
+        <!-- info row -->
+        <div style="font-size: 10px">
+            <div style="text-align: center">
+                <div style="margin-bottom: 15px; margin-top: 130px">
+                    <div class="col-xs-12 invoice-col">
+                        <address>
+                            <p><strong>{{listeAffairesPublie.commentaire | uppercase}}</strong></p>
+                        </address>
+                    </div>
+                    <div>
+                        <p><strong ng-show="listeAffairesPublie.libelle_nature == 'Affaire civile'">ROLE D'AUDIENCE {{listeAffairesPublie.libelle_nature | uppercase}}
+                                DU {{listeAffairesPublie.date_audience | date:'dd/MM/yyyy'}}</strong></p>
+                        <p><strong>PRESIDENT : {{listeAffairesPublie.president | uppercase}}</strong></p>
+                        <p><strong>GREFFIER : {{listeAffairesPublie.greffier | uppercase}}</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="font-size: 10px">
+            <div style="text-align: center">
+                <p><u>{{listeAffairesPublie.libelle_salleAudience | uppercase}}</u></p><br>
+            </div>
+        </div>
+
+        <!-- Table row -->
+
+        <table style="border: 1px solid #ccc; font-size: 9px" class="table table-bordered table-striped table-condensed table-hover">
+            <thead>
+                <tr>
+                    <td>N°</td>
+                    <td>RG</td>
+                    <td>Demandeur(s)</td>
+                    <td>Defendeur(s)</td>
+                    <td>Objet</td>
+                    <td>Type d'affaire</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="liste in listeAffairesPublie" ng-if="liste.id_user_affaire == id_user">
+                    <td></td>
+                    <td>{{liste.numero_ordre | limitTo : -4}}</td>
+                    <td>
+                        <div ng-repeat="liste2 in parties">
+                            <span ng-if="liste2.id_affaire_individu == liste.id_affaire && liste2.id_typeIndividu == 1">{{liste2.nom_individu | uppercase}} {{liste2.prenom_individu}}</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div ng-repeat="liste2 in parties">
+                            <span ng-if="liste2.id_affaire_individu == liste.id_affaire && liste2.id_typeIndividu == 2">{{liste2.nom_individu | uppercase}} {{liste2.prenom_individu}}</span>
+                        </div>
+                    </td>
+                    <td>{{liste.objet_affaire}}</td>
+                    <td>
+                        <span ng-if="liste.reporte">ANCIENNE</span>
+                        <span ng-if="!liste.reporte">NOUVELLE</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--<div>-->
+            <!--<table style="width: 800px; margin-left: 100px">-->
+                <!--<tr>-->
+                    <!--<td>N°</td>-->
+                    <!--<td style="width: 60px">RG</td>-->
+                    <!--<td>Demandeur(s)</td>-->
+                    <!--<td>Defendeur(s)</td>-->
+                    <!--<td>Objet</td>-->
+                    <!--<td>Type d'affaire</td>-->
+                <!--</tr>-->
+                <!--<tr ng-repeat="liste in listeAffairesPublie">-->
+                    <!--<td></td>-->
+                    <!--<td>{{liste.numero_ordre | limitTo : -4}}</td>-->
+                    <!--<td>-->
+                        <!--<div ng-repeat="liste2 in parties">-->
+                        <!--<span ng-if="liste2.id_affaire_individu == liste.id_affaire && liste2.id_typeIndividu == 1">{{liste2.nom_individu | uppercase}} {{liste2.prenom_individu}}</span>-->
+                        <!--</div>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--<div ng-repeat="liste2 in parties">-->
+                        <!--<span ng-if="liste2.id_affaire_individu == liste.id_affaire && liste2.id_typeIndividu == 2">{{liste2.nom_individu | uppercase}} {{liste2.prenom_individu}}</span>-->
+                        <!--</div>-->
+                    <!--</td>-->
+                    <!--<td>{{liste.objet_affaire}}</td>-->
+                    <!--<td>-->
+                        <!--<span ng-if="liste.reporte">ANCIENNE</span>-->
+                        <!--<span ng-if="!liste.reporte">NOUVELLE</span>-->
+                    <!--</td>-->
+                <!--</tr>-->
+            <!--</table>-->
+        <!--</div>-->
+
+    </div>
+    <!-- this row will not appear when printing -->
+    <div class="box-footer">
+        <div class="col-xs-12">
+            <a href="/listeAffairesPlumitif_url" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Aller au plumitif</a>
+            <a href="javascript:printPublication()" class="btn btn-danger"><i class="fa fa-print"></i> Impression</a>
+            <!--<a href="" class="btn btn-danger" target="_blank"-->
+            <!--onClick ="$('#publication').tableExport({type:'pdf', pdfFontSize:'10', escape:'false'});">-->
+            <!--<i class="fa fa-print"></i>-->
+            <!--Impression-->
+            <!--</a>-->
+            <p align="right">Yopougon, le {{date | date:'dd/MM/yyyy'}} A </p>
+        </div>
+    </div>
+    <!-- /.content -->
+    <div class="clearfix"></div>
+</section>
+  <!-- Control Sidebar -->
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+
+
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
+<!--<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.9.0.js"></script>-->
+<script src="/javascripts/app/roleAudience/roleAudienceController.js"></script>
+
+
+
+
+
+

@@ -1,0 +1,1389 @@
+2016-08-08T00:07:49.855Z - info: Initializing jsreport in development mode using configuration file dev.config.json
+2016-08-08T00:07:49.858Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2016-08-08T00:07:49.881Z - info: Searching for available extensions in S:\Appli\gaj\
+2016-08-08T00:07:49.975Z - info: Extensions location cache doesn't contain entry yet, crawling
+2016-08-08T00:07:56.302Z - info: Found 25 extensions
+2016-08-08T00:07:56.334Z - debug: Writing extension locations cache to C:\Users\ADMINW~1\AppData\Local\Temp\jsreport-temp\extensions\locations.json
+2016-08-08T00:07:56.349Z - debug: Discovered 25 extensions
+2016-08-08T00:07:56.349Z - info: Using extension jsrender
+2016-08-08T00:07:56.349Z - info: Using extension authentication
+2016-08-08T00:07:56.928Z - debug: Extension authentication was disabled
+2016-08-08T00:07:56.929Z - info: Using extension browser-client
+2016-08-08T00:07:57.419Z - info: Using extension templates
+2016-08-08T00:07:57.474Z - info: Using extension studio
+2016-08-08T00:07:58.119Z - info: Using extension debug
+2016-08-08T00:07:58.136Z - info: Using extension express
+2016-08-08T00:07:58.946Z - info: Using extension fop-pdf
+2016-08-08T00:07:59.019Z - info: Using extension handlebars
+2016-08-08T00:07:59.023Z - info: Using extension resources
+2016-08-08T00:07:59.145Z - info: Using extension fs-store
+2016-08-08T00:08:04.139Z - info: Using extension images
+2016-08-08T00:08:04.406Z - info: Using extension authorization
+2016-08-08T00:08:04.484Z - debug: Extension authorization was disabled
+2016-08-08T00:08:04.484Z - info: Using extension licensing
+2016-08-08T00:08:05.047Z - info: Using extension phantom-pdf
+2016-08-08T00:08:05.062Z - info: Using extension text
+2016-08-08T00:08:05.062Z - info: Using extension reports
+2016-08-08T00:08:05.203Z - info: Using extension html-to-xlsx
+2016-08-08T00:08:05.328Z - info: Using extension child-templates
+2016-08-08T00:08:05.469Z - info: Using extension data
+2016-08-08T00:08:05.500Z - info: Using extension scripts
+2016-08-08T00:08:05.516Z - info: Using extension scheduling
+2016-08-08T00:08:06.078Z - info: Using extension xlsx
+2016-08-08T00:08:06.994Z - info: Using extension sample-template
+2016-08-08T00:08:07.048Z - info: Using extension public-templates
+2016-08-08T00:08:07.204Z - debug: Extension public-templates was disabled
+2016-08-08T00:08:07.204Z - info: Initializing fs storage at S:\Appli\gaj\data
+2016-08-08T00:08:07.732Z - info: Creating default express app.
+2016-08-08T00:08:09.753Z - info: jsreport server successfully started on http port: 1337
+2016-08-08T00:08:09.763Z - warn: License not found, using free
+2016-08-08T00:08:09.977Z - info: reporter initialized
+2016-08-08T00:08:31.279Z - debug: OData query on templates
+2016-08-08T00:08:31.288Z - debug: OData query on images
+2016-08-08T00:08:31.290Z - debug: OData query on data
+2016-08-08T00:08:31.292Z - debug: OData query on scripts
+2016-08-08T00:08:31.293Z - debug: OData query on xlsxTemplates
+2016-08-08T00:08:31.295Z - debug: OData query on schedules
+2016-08-08T00:08:31.366Z - debug: OData query on settings
+2016-08-08T00:08:31.690Z - debug: OData query on templates
+2016-08-08T00:08:31.721Z - debug: OData query on settings
+2016-08-08T00:08:56.801Z - debug: OData query on data
+2016-08-08T00:08:56.825Z - debug: OData query on templates
+2016-08-08T00:08:57.136Z - debug: OData query on settings
+2016-08-08T00:08:59.253Z - debug: OData query on templates
+2016-08-08T00:09:01.939Z - info: Starting rendering request 1 (user: null) requestId=1
+2016-08-08T00:09:01.948Z - info: Rendering template {shortid:B1Gd6rrF, recipe:phantom-pdf,engine:handlebars} requestId=1
+2016-08-08T00:09:01.949Z - debug: Inline data specified. requestId=1
+2016-08-08T00:09:01.958Z - debug: Executing script S1M_6SBK requestId=1
+2016-08-08T00:09:02.174Z - debug: Resources not defined for this template. requestId=1
+2016-08-08T00:09:02.182Z - debug: Rendering engine handlebars requestId=1
+2016-08-08T00:09:02.581Z - debug: Compiled template not found in the cache, compiling timestamp=Mon Aug 08 2016 00:09:02 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-08T00:09:02.588Z - debug: Replaced images [] requestId=1
+2016-08-08T00:09:02.590Z - debug: Executing recipe phantom-pdf requestId=1
+2016-08-08T00:09:02.591Z - debug: Starting child request to render pdf header requestId=1
+2016-08-08T00:09:02.599Z - info: Starting rendering request 2 (user: null) requestId=2
+2016-08-08T00:09:02.604Z - info: Rendering template {shortid:B1Gd6rrF, recipe:html,engine:handlebars} requestId=2
+2016-08-08T00:09:02.604Z - debug: Inline data specified. requestId=2
+2016-08-08T00:09:02.608Z - debug: Executing script S1M_6SBK requestId=2
+2016-08-08T00:09:02.815Z - debug: Resources not defined for this template. requestId=2
+2016-08-08T00:09:02.818Z - debug: Rendering engine handlebars requestId=2
+2016-08-08T00:09:03.166Z - debug: Compiled template not found in the cache, compiling timestamp=Mon Aug 08 2016 00:09:03 GMT+0000 (Temps universel coordonné), requestId=2
+2016-08-08T00:09:03.170Z - debug: Replaced images [] requestId=2
+2016-08-08T00:09:03.172Z - debug: Executing recipe html requestId=2
+2016-08-08T00:09:03.182Z - debug: Skipping storing report. requestId=2
+2016-08-08T00:09:03.420Z - info: Rendering request 2 finished in 820 ms requestId=2
+2016-08-08T00:09:03.422Z - debug: Starting child request to render pdf footer requestId=1
+2016-08-08T00:09:03.426Z - info: Starting rendering request 3 (user: null) requestId=3
+2016-08-08T00:09:03.431Z - info: Rendering template {shortid:B1Gd6rrF, recipe:html,engine:handlebars} requestId=3
+2016-08-08T00:09:03.432Z - debug: Inline data specified. requestId=3
+2016-08-08T00:09:03.434Z - debug: Executing script S1M_6SBK requestId=3
+2016-08-08T00:09:03.668Z - debug: Resources not defined for this template. requestId=3
+2016-08-08T00:09:03.670Z - debug: Rendering engine handlebars requestId=3
+2016-08-08T00:09:04.078Z - debug: Compiled template not found in the cache, compiling timestamp=Mon Aug 08 2016 00:09:04 GMT+0000 (Temps universel coordonné), requestId=3
+2016-08-08T00:09:04.080Z - debug: Replaced images [] requestId=3
+2016-08-08T00:09:04.083Z - debug: Executing recipe html requestId=3
+2016-08-08T00:09:04.095Z - debug: Skipping storing report. requestId=3
+2016-08-08T00:09:04.288Z - info: Rendering request 3 finished in 862 ms requestId=3
+2016-08-08T00:09:12.958Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Mon Aug 08 2016 00:09:12 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-08T00:09:12.959Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C5110ac60-5cfc-11e6-931e-05d6f79c6c54html.html timestamp=Mon Aug 08 2016 00:09:12 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-08T00:09:12.960Z - debug: Request http://code.jquery.com/jquery-1.11.0.min.js timestamp=Mon Aug 08 2016 00:09:12 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-08T00:09:12.962Z - debug: Request http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js timestamp=Mon Aug 08 2016 00:09:12 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-08T00:09:12.963Z - debug: Request http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js timestamp=Mon Aug 08 2016 00:09:12 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-08T00:09:12.964Z - warn: Unable to load resource (#3URL:http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js) timestamp=Mon Aug 08 2016 00:09:12 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-08T00:09:12.966Z - warn: Error code: 3. Description: Host cdnjs.cloudflare.com not found timestamp=Mon Aug 08 2016 00:09:12 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-08T00:09:12.967Z - warn: Unable to load resource (#2URL:http://code.jquery.com/jquery-1.11.0.min.js) timestamp=Mon Aug 08 2016 00:09:12 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-08T00:09:12.967Z - warn: Error code: 3. Description: Host code.jquery.com not found timestamp=Mon Aug 08 2016 00:09:12 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-08T00:09:12.968Z - warn: Unable to load resource (#4URL:http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js) timestamp=Mon Aug 08 2016 00:09:12 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-08T00:09:12.969Z - warn: Error code: 3. Description: Host cdnjs.cloudflare.com not found timestamp=Mon Aug 08 2016 00:09:12 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-08T00:09:12.969Z - warn: ReferenceError: Can't find variable: $ timestamp=Mon Aug 08 2016 00:09:12 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-08T00:09:12.970Z - warn:    file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C5110ac60-5cfc-11e6-931e-05d6f79c6c54html.html : 52 timestamp=Mon Aug 08 2016 00:09:12 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-08T00:09:12.974Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=1
+2016-08-08T00:09:12.982Z - debug: Skipping storing report. requestId=1
+2016-08-08T00:09:13.251Z - info: Rendering request 3 finished in 11313 ms requestId=1
+2016-08-09T15:54:17.113Z - info: Initializing jsreport in development mode using configuration file dev.config.json
+2016-08-09T15:54:17.113Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2016-08-09T15:54:17.144Z - info: Searching for available extensions in S:\Appli\gaj\
+2016-08-09T15:54:17.207Z - info: Extensions location cache contains up to date information, skipping crawling in S:\Appli\gaj\node_modules\jsreport\node_modules\
+2016-08-09T15:54:19.733Z - info: Found 25 extensions
+2016-08-09T15:54:19.826Z - debug: Writing extension locations cache to C:\Users\ADMINW~1\AppData\Local\Temp\jsreport-temp\extensions\locations.json
+2016-08-09T15:54:19.842Z - debug: Discovered 25 extensions
+2016-08-09T15:54:19.842Z - info: Using extension jsrender
+2016-08-09T15:54:19.858Z - info: Using extension authentication
+2016-08-09T15:54:20.363Z - debug: Extension authentication was disabled
+2016-08-09T15:54:20.363Z - info: Using extension browser-client
+2016-08-09T15:54:20.801Z - info: Using extension templates
+2016-08-09T15:54:20.926Z - info: Using extension studio
+2016-08-09T15:54:21.893Z - info: Using extension debug
+2016-08-09T15:54:21.909Z - info: Using extension express
+2016-08-09T15:54:22.535Z - info: Using extension fop-pdf
+2016-08-09T15:54:22.993Z - info: Using extension handlebars
+2016-08-09T15:54:23.008Z - info: Using extension resources
+2016-08-09T15:54:23.086Z - info: Using extension fs-store
+2016-08-09T15:54:27.367Z - info: Using extension images
+2016-08-09T15:54:28.086Z - info: Using extension authorization
+2016-08-09T15:54:28.168Z - debug: Extension authorization was disabled
+2016-08-09T15:54:28.169Z - info: Using extension licensing
+2016-08-09T15:54:28.624Z - info: Using extension phantom-pdf
+2016-08-09T15:54:28.881Z - info: Using extension text
+2016-08-09T15:54:28.910Z - info: Using extension reports
+2016-08-09T15:54:29.002Z - info: Using extension html-to-xlsx
+2016-08-09T15:54:29.697Z - info: Using extension child-templates
+2016-08-09T15:54:29.806Z - info: Using extension data
+2016-08-09T15:54:29.884Z - info: Using extension scripts
+2016-08-09T15:54:29.949Z - info: Using extension scheduling
+2016-08-09T15:54:30.402Z - info: Using extension xlsx
+2016-08-09T15:54:35.907Z - info: Using extension sample-template
+2016-08-09T15:54:35.939Z - info: Using extension public-templates
+2016-08-09T15:54:36.048Z - debug: Extension public-templates was disabled
+2016-08-09T15:54:36.048Z - info: Initializing fs storage at S:\Appli\gaj\data
+2016-08-09T15:54:36.615Z - info: Creating default express app.
+2016-08-09T15:54:38.722Z - info: jsreport server successfully started on http port: 1337
+2016-08-09T15:54:38.739Z - warn: License not found, using free
+2016-08-09T15:54:38.760Z - info: reporter initialized
+2016-08-09T15:55:50.190Z - debug: OData query on schedules
+2016-08-09T15:55:50.200Z - debug: OData query on templates
+2016-08-09T15:55:50.204Z - debug: OData query on images
+2016-08-09T15:55:50.207Z - debug: OData query on data
+2016-08-09T15:55:50.210Z - debug: OData query on scripts
+2016-08-09T15:55:50.213Z - debug: OData query on xlsxTemplates
+2016-08-09T15:55:50.260Z - debug: OData query on settings
+2016-08-09T15:55:51.721Z - debug: OData query on templates
+2016-08-09T15:55:51.765Z - debug: OData query on settings
+2016-08-09T15:56:19.474Z - debug: OData query on templates
+2016-08-09T15:56:19.496Z - debug: OData query on templates
+2016-08-09T15:56:20.129Z - debug: OData query on settings
+2016-08-09T15:56:22.041Z - info: Starting rendering request 1 (user: null) requestId=1
+2016-08-09T15:56:22.048Z - info: Rendering template {shortid:B1Gd6rrF, recipe:phantom-pdf,engine:handlebars} requestId=1
+2016-08-09T15:56:22.053Z - debug: Adding sample data B1fu6rrt requestId=1
+2016-08-09T15:56:22.061Z - debug: Executing script S1M_6SBK requestId=1
+2016-08-09T15:56:22.333Z - debug: Resources not defined for this template. requestId=1
+2016-08-09T15:56:22.340Z - debug: Rendering engine handlebars requestId=1
+2016-08-09T15:56:23.605Z - debug: Compiled template not found in the cache, compiling timestamp=Tue Aug 09 2016 15:56:23 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-09T15:56:23.614Z - debug: Replaced images [] requestId=1
+2016-08-09T15:56:23.616Z - debug: Executing recipe phantom-pdf requestId=1
+2016-08-09T15:56:23.619Z - debug: Starting child request to render pdf header requestId=1
+2016-08-09T15:56:23.633Z - info: Starting rendering request 2 (user: null) requestId=2
+2016-08-09T15:56:23.644Z - info: Rendering template {shortid:B1Gd6rrF, recipe:html,engine:handlebars} requestId=2
+2016-08-09T15:56:23.645Z - debug: Inline data specified. requestId=2
+2016-08-09T15:56:23.653Z - debug: Executing script S1M_6SBK requestId=2
+2016-08-09T15:56:23.884Z - debug: Resources not defined for this template. requestId=2
+2016-08-09T15:56:23.888Z - debug: Rendering engine handlebars requestId=2
+2016-08-09T15:56:24.327Z - debug: Compiled template not found in the cache, compiling timestamp=Tue Aug 09 2016 15:56:24 GMT+0000 (Temps universel coordonné), requestId=2
+2016-08-09T15:56:24.330Z - debug: Replaced images [] requestId=2
+2016-08-09T15:56:24.333Z - debug: Executing recipe html requestId=2
+2016-08-09T15:56:24.346Z - debug: Skipping storing report. requestId=2
+2016-08-09T15:56:24.586Z - info: Rendering request 2 finished in 953 ms requestId=2
+2016-08-09T15:56:24.587Z - debug: Starting child request to render pdf footer requestId=1
+2016-08-09T15:56:24.591Z - info: Starting rendering request 3 (user: null) requestId=3
+2016-08-09T15:56:24.596Z - info: Rendering template {shortid:B1Gd6rrF, recipe:html,engine:handlebars} requestId=3
+2016-08-09T15:56:24.597Z - debug: Inline data specified. requestId=3
+2016-08-09T15:56:24.600Z - debug: Executing script S1M_6SBK requestId=3
+2016-08-09T15:56:24.825Z - debug: Resources not defined for this template. requestId=3
+2016-08-09T15:56:24.827Z - debug: Rendering engine handlebars requestId=3
+2016-08-09T15:56:25.246Z - debug: Compiled template not found in the cache, compiling timestamp=Tue Aug 09 2016 15:56:25 GMT+0000 (Temps universel coordonné), requestId=3
+2016-08-09T15:56:25.248Z - debug: Replaced images [] requestId=3
+2016-08-09T15:56:25.252Z - debug: Executing recipe html requestId=3
+2016-08-09T15:56:25.261Z - debug: Skipping storing report. requestId=3
+2016-08-09T15:56:25.503Z - info: Rendering request 3 finished in 911 ms requestId=3
+2016-08-09T15:56:35.974Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Tue Aug 09 2016 15:56:35 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-09T15:56:35.986Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5Cd37b8550-5e49-11e6-ae14-ab2695fe286fhtml.html timestamp=Tue Aug 09 2016 15:56:35 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-09T15:56:35.987Z - debug: Request http://code.jquery.com/jquery-1.11.0.min.js timestamp=Tue Aug 09 2016 15:56:35 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-09T15:56:35.988Z - debug: Request http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js timestamp=Tue Aug 09 2016 15:56:35 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-09T15:56:35.990Z - debug: Request http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js timestamp=Tue Aug 09 2016 15:56:35 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-09T15:56:35.990Z - warn: Unable to load resource (#3URL:http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js) timestamp=Tue Aug 09 2016 15:56:35 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-09T15:56:35.991Z - warn: Error code: 3. Description: Host cdnjs.cloudflare.com not found timestamp=Tue Aug 09 2016 15:56:35 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-09T15:56:35.992Z - warn: Unable to load resource (#2URL:http://code.jquery.com/jquery-1.11.0.min.js) timestamp=Tue Aug 09 2016 15:56:35 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-09T15:56:35.993Z - warn: Error code: 3. Description: Host code.jquery.com not found timestamp=Tue Aug 09 2016 15:56:35 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-09T15:56:35.995Z - warn: Unable to load resource (#4URL:http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js) timestamp=Tue Aug 09 2016 15:56:35 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-09T15:56:35.995Z - warn: Error code: 3. Description: Host cdnjs.cloudflare.com not found timestamp=Tue Aug 09 2016 15:56:35 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-09T15:56:35.996Z - warn: ReferenceError: Can't find variable: $ timestamp=Tue Aug 09 2016 15:56:35 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-09T15:56:35.997Z - warn:    file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5Cd37b8550-5e49-11e6-ae14-ab2695fe286fhtml.html : 52 timestamp=Tue Aug 09 2016 15:56:35 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-09T15:56:36.002Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=1
+2016-08-09T15:56:36.015Z - debug: Skipping storing report. requestId=1
+2016-08-09T15:56:36.276Z - info: Rendering request 3 finished in 14235 ms requestId=1
+2016-08-09T17:15:47.211Z - debug: OData query on reports
+2016-08-09T18:30:33.907Z - info: Starting rendering request 4 (user: null) requestId=4
+2016-08-09T18:30:33.979Z - info: Rendering template {shortid:B1Gd6rrF, recipe:phantom-pdf,engine:jsrender} requestId=4
+2016-08-09T18:30:33.983Z - debug: Adding sample data B1fu6rrt requestId=4
+2016-08-09T18:30:34.008Z - debug: Executing script S1M_6SBK requestId=4
+2016-08-09T18:30:34.649Z - debug: Rendering engine jsrender requestId=4
+2016-08-09T18:30:37.141Z - error: Error when processing render request Error during rendering report: Syntax error
+{{sales}} block has {{/each}} without {{each}}, in template:
+<h2>Book sales</h2>
+<table style=\'border-style:solid\'>
+    <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Sales</th>
+    </tr>
+    {{#each books}}
+    <tr>
+        <td>{{name}}</td>
+        <td>{{author}}</td>
+        <td>{{sales}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+<h2>The book of the month</h2>
+<span>{{mostSelling books}}</span>
+
+
+<h2>Book sales chart</h2>
+<script src=\"http://code.jquery.com/jquery-1.11.0.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js\"></script>
+<div id=\"placeholder\" style=\"width:700px;height:350px\"></div>
+
+<script>
+    $(function () {
+        // stringified input data are later in browser interpretted as real object
+        var data = {{{toJSON books}}}
+        var books = data.map(function(b) { return [ b.name, b.sales ]});
+        $.plot(\"#placeholder\", [ books ],
+        {
+            series: {
+                bars: { show: true, barWidth: 0.6, align: \"center\" }
+            },
+            xaxis: {   mode: \"categories\", tickLength: 0 }
+        });
+    });
+</script> Error
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:200:27
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:2274:2)
+    at require (internal/module.js:12:17)
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\lib\jsrenderEngine.js:6:16)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17) requestId=4
+2016-08-09T18:30:37.536Z - error: Error during processing request: http://localhost:1337/api/report details: Error during rendering report: Syntax error
+{{sales}} block has {{/each}} without {{each}}, in template:
+<h2>Book sales</h2>
+<table style=\'border-style:solid\'>
+    <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Sales</th>
+    </tr>
+    {{#each books}}
+    <tr>
+        <td>{{name}}</td>
+        <td>{{author}}</td>
+        <td>{{sales}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+<h2>The book of the month</h2>
+<span>{{mostSelling books}}</span>
+
+
+<h2>Book sales chart</h2>
+<script src=\"http://code.jquery.com/jquery-1.11.0.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js\"></script>
+<div id=\"placeholder\" style=\"width:700px;height:350px\"></div>
+
+<script>
+    $(function () {
+        // stringified input data are later in browser interpretted as real object
+        var data = {{{toJSON books}}}
+        var books = data.map(function(b) { return [ b.name, b.sales ]});
+        $.plot(\"#placeholder\", [ books ],
+        {
+            series: {
+                bars: { show: true, barWidth: 0.6, align: \"center\" }
+            },
+            xaxis: {   mode: \"categories\", tickLength: 0 }
+        });
+    });
+</script> Error
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:200:27
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:2274:2)
+    at require (internal/module.js:12:17)
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\lib\jsrenderEngine.js:6:16)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17)
+2016-08-09T18:31:41.553Z - info: Starting rendering request 5 (user: null) requestId=5
+2016-08-09T18:31:41.559Z - info: Rendering template {shortid:B1Gd6rrF, recipe:phantom-pdf,engine:jsrender} requestId=5
+2016-08-09T18:31:41.561Z - debug: Data item not defined for this template. requestId=5
+2016-08-09T18:31:41.587Z - debug: Executing script S1M_6SBK requestId=5
+2016-08-09T18:31:41.848Z - debug: Rendering engine jsrender requestId=5
+2016-08-09T18:31:42.331Z - error: Error when processing render request Error during rendering report: Syntax error
+{{sales}} block has {{/each}} without {{each}}, in template:
+<h2>Book sales</h2>
+<table style=\'border-style:solid\'>
+    <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Sales</th>
+    </tr>
+    {{#each books}}
+    <tr>
+        <td>{{name}}</td>
+        <td>{{author}}</td>
+        <td>{{sales}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+<h2>The book of the month</h2>
+<span>{{mostSelling books}}</span>
+
+
+<h2>Book sales chart</h2>
+<script src=\"http://code.jquery.com/jquery-1.11.0.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js\"></script>
+<div id=\"placeholder\" style=\"width:700px;height:350px\"></div>
+
+<script>
+    $(function () {
+        // stringified input data are later in browser interpretted as real object
+        var data = {{{toJSON books}}}
+        var books = data.map(function(b) { return [ b.name, b.sales ]});
+        $.plot(\"#placeholder\", [ books ],
+        {
+            series: {
+                bars: { show: true, barWidth: 0.6, align: \"center\" }
+            },
+            xaxis: {   mode: \"categories\", tickLength: 0 }
+        });
+    });
+</script> Error
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:200:27
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:2274:2)
+    at require (internal/module.js:12:17)
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\lib\jsrenderEngine.js:6:16)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17) requestId=5
+2016-08-09T18:31:42.399Z - error: Error during processing request: http://localhost:1337/api/report details: Error during rendering report: Syntax error
+{{sales}} block has {{/each}} without {{each}}, in template:
+<h2>Book sales</h2>
+<table style=\'border-style:solid\'>
+    <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Sales</th>
+    </tr>
+    {{#each books}}
+    <tr>
+        <td>{{name}}</td>
+        <td>{{author}}</td>
+        <td>{{sales}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+<h2>The book of the month</h2>
+<span>{{mostSelling books}}</span>
+
+
+<h2>Book sales chart</h2>
+<script src=\"http://code.jquery.com/jquery-1.11.0.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js\"></script>
+<div id=\"placeholder\" style=\"width:700px;height:350px\"></div>
+
+<script>
+    $(function () {
+        // stringified input data are later in browser interpretted as real object
+        var data = {{{toJSON books}}}
+        var books = data.map(function(b) { return [ b.name, b.sales ]});
+        $.plot(\"#placeholder\", [ books ],
+        {
+            series: {
+                bars: { show: true, barWidth: 0.6, align: \"center\" }
+            },
+            xaxis: {   mode: \"categories\", tickLength: 0 }
+        });
+    });
+</script> Error
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:200:27
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:2274:2)
+    at require (internal/module.js:12:17)
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\lib\jsrenderEngine.js:6:16)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17)
+2016-08-09T18:32:12.949Z - info: Starting rendering request 6 (user: null) requestId=6
+2016-08-09T18:32:12.958Z - info: Rendering template {shortid:B1Gd6rrF, recipe:phantom-pdf,engine:jsrender} requestId=6
+2016-08-09T18:32:12.961Z - debug: Data item not defined for this template. requestId=6
+2016-08-09T18:32:12.966Z - debug: Executing script S1M_6SBK requestId=6
+2016-08-09T18:32:13.226Z - debug: Rendering engine jsrender requestId=6
+2016-08-09T18:32:13.670Z - error: Error when processing render request Error during rendering report: Syntax error
+{{sales}} block has {{/each}} without {{each}}, in template:
+<h2>Book sales</h2>
+<table style=\'border-style:solid\'>
+    <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Sales</th>
+    </tr>
+    {{#each books}}
+    <tr>
+        <td>{{name}}</td>
+        <td>{{author}}</td>
+        <td>{{sales}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+<h2>The book of the month</h2>
+<span>{{mostSelling books}}</span>
+
+
+<h2>Book sales chart</h2>
+<script src=\"http://code.jquery.com/jquery-1.11.0.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js\"></script>
+<div id=\"placeholder\" style=\"width:700px;height:350px\"></div>
+
+<script>
+    $(function () {
+        // stringified input data are later in browser interpretted as real object
+        var data = {{{toJSON books}}}
+        var books = data.map(function(b) { return [ b.name, b.sales ]});
+        $.plot(\"#placeholder\", [ books ],
+        {
+            series: {
+                bars: { show: true, barWidth: 0.6, align: \"center\" }
+            },
+            xaxis: {   mode: \"categories\", tickLength: 0 }
+        });
+    });
+</script> Error
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:200:27
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:2274:2)
+    at require (internal/module.js:12:17)
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\lib\jsrenderEngine.js:6:16)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17) requestId=6
+2016-08-09T18:32:13.671Z - error: Error during processing request: http://localhost:1337/api/report details: Error during rendering report: Syntax error
+{{sales}} block has {{/each}} without {{each}}, in template:
+<h2>Book sales</h2>
+<table style=\'border-style:solid\'>
+    <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Sales</th>
+    </tr>
+    {{#each books}}
+    <tr>
+        <td>{{name}}</td>
+        <td>{{author}}</td>
+        <td>{{sales}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+<h2>The book of the month</h2>
+<span>{{mostSelling books}}</span>
+
+
+<h2>Book sales chart</h2>
+<script src=\"http://code.jquery.com/jquery-1.11.0.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js\"></script>
+<div id=\"placeholder\" style=\"width:700px;height:350px\"></div>
+
+<script>
+    $(function () {
+        // stringified input data are later in browser interpretted as real object
+        var data = {{{toJSON books}}}
+        var books = data.map(function(b) { return [ b.name, b.sales ]});
+        $.plot(\"#placeholder\", [ books ],
+        {
+            series: {
+                bars: { show: true, barWidth: 0.6, align: \"center\" }
+            },
+            xaxis: {   mode: \"categories\", tickLength: 0 }
+        });
+    });
+</script> Error
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:200:27
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:2274:2)
+    at require (internal/module.js:12:17)
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\lib\jsrenderEngine.js:6:16)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17)
+2016-08-09T18:32:23.370Z - debug: OData query on images
+2016-08-09T18:32:23.374Z - debug: OData query on templates
+2016-08-09T18:32:23.377Z - debug: OData query on data
+2016-08-09T18:32:23.379Z - debug: OData query on scripts
+2016-08-09T18:32:23.381Z - debug: OData query on xlsxTemplates
+2016-08-09T18:32:23.384Z - debug: OData query on schedules
+2016-08-09T18:32:23.424Z - debug: OData query on settings
+2016-08-09T18:32:24.213Z - debug: OData query on templates
+2016-08-09T18:32:24.270Z - debug: OData query on settings
+2016-08-09T18:32:25.706Z - debug: OData query on templates
+2016-08-09T18:32:25.710Z - debug: OData query on templates
+2016-08-09T18:32:26.071Z - debug: OData query on settings
+2016-08-09T18:32:31.615Z - info: Starting rendering request 7 (user: null) requestId=7
+2016-08-09T18:32:31.619Z - info: Rendering template {shortid:B1Gd6rrF, recipe:phantom-pdf,engine:handlebars} requestId=7
+2016-08-09T18:32:31.621Z - debug: Adding sample data B1fu6rrt requestId=7
+2016-08-09T18:32:31.625Z - debug: Executing script S1M_6SBK requestId=7
+2016-08-09T18:32:31.865Z - debug: Resources not defined for this template. requestId=7
+2016-08-09T18:32:31.866Z - debug: Rendering engine handlebars requestId=7
+2016-08-09T18:32:32.348Z - debug: Compiled template not found in the cache, compiling timestamp=Tue Aug 09 2016 18:32:32 GMT+0000 (Temps universel coordonné), requestId=7
+2016-08-09T18:32:32.375Z - debug: Replaced images [] requestId=7
+2016-08-09T18:32:32.378Z - debug: Executing recipe phantom-pdf requestId=7
+2016-08-09T18:32:32.380Z - debug: Starting child request to render pdf header requestId=7
+2016-08-09T18:32:32.407Z - info: Starting rendering request 8 (user: null) requestId=8
+2016-08-09T18:32:32.412Z - info: Rendering template {shortid:B1Gd6rrF, recipe:html,engine:handlebars} requestId=8
+2016-08-09T18:32:32.413Z - debug: Inline data specified. requestId=8
+2016-08-09T18:32:32.415Z - debug: Executing script S1M_6SBK requestId=8
+2016-08-09T18:32:32.659Z - debug: Resources not defined for this template. requestId=8
+2016-08-09T18:32:32.661Z - debug: Rendering engine handlebars requestId=8
+2016-08-09T18:32:33.134Z - debug: Compiled template not found in the cache, compiling timestamp=Tue Aug 09 2016 18:32:33 GMT+0000 (Temps universel coordonné), requestId=8
+2016-08-09T18:32:33.136Z - debug: Replaced images [] requestId=8
+2016-08-09T18:32:33.138Z - debug: Executing recipe html requestId=8
+2016-08-09T18:32:33.444Z - debug: Skipping storing report. requestId=8
+2016-08-09T18:32:33.870Z - info: Rendering request 8 finished in 1462 ms requestId=8
+2016-08-09T18:32:33.871Z - debug: Starting child request to render pdf footer requestId=7
+2016-08-09T18:32:33.874Z - info: Starting rendering request 9 (user: null) requestId=9
+2016-08-09T18:32:33.879Z - info: Rendering template {shortid:B1Gd6rrF, recipe:html,engine:handlebars} requestId=9
+2016-08-09T18:32:33.879Z - debug: Inline data specified. requestId=9
+2016-08-09T18:32:33.882Z - debug: Executing script S1M_6SBK requestId=9
+2016-08-09T18:32:34.100Z - debug: Resources not defined for this template. requestId=9
+2016-08-09T18:32:34.102Z - debug: Rendering engine handlebars requestId=9
+2016-08-09T18:32:34.502Z - debug: Compiled template not found in the cache, compiling timestamp=Tue Aug 09 2016 18:32:34 GMT+0000 (Temps universel coordonné), requestId=9
+2016-08-09T18:32:34.504Z - debug: Replaced images [] requestId=9
+2016-08-09T18:32:34.505Z - debug: Executing recipe html requestId=9
+2016-08-09T18:32:34.516Z - debug: Skipping storing report. requestId=9
+2016-08-09T18:32:34.741Z - info: Rendering request 9 finished in 866 ms requestId=9
+2016-08-09T18:32:50.163Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Tue Aug 09 2016 18:32:38 GMT+0000 (Temps universel coordonné), requestId=7
+2016-08-09T18:32:50.167Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5Ca413e490-5e5f-11e6-ae14-ab2695fe286fhtml.html timestamp=Tue Aug 09 2016 18:32:38 GMT+0000 (Temps universel coordonné), requestId=7
+2016-08-09T18:32:50.168Z - debug: Request http://code.jquery.com/jquery-1.11.0.min.js timestamp=Tue Aug 09 2016 18:32:38 GMT+0000 (Temps universel coordonné), requestId=7
+2016-08-09T18:32:50.168Z - debug: Request http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js timestamp=Tue Aug 09 2016 18:32:38 GMT+0000 (Temps universel coordonné), requestId=7
+2016-08-09T18:32:50.169Z - debug: Request http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js timestamp=Tue Aug 09 2016 18:32:38 GMT+0000 (Temps universel coordonné), requestId=7
+2016-08-09T18:32:50.170Z - warn: Unable to load resource (#2URL:http://code.jquery.com/jquery-1.11.0.min.js) timestamp=Tue Aug 09 2016 18:32:48 GMT+0000 (Temps universel coordonné), requestId=7
+2016-08-09T18:32:50.171Z - warn: Error code: 5. Description: Operation canceled timestamp=Tue Aug 09 2016 18:32:48 GMT+0000 (Temps universel coordonné), requestId=7
+2016-08-09T18:32:50.172Z - warn: Unable to load resource (#3URL:http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js) timestamp=Tue Aug 09 2016 18:32:48 GMT+0000 (Temps universel coordonné), requestId=7
+2016-08-09T18:32:50.172Z - warn: Error code: 5. Description: Operation canceled timestamp=Tue Aug 09 2016 18:32:48 GMT+0000 (Temps universel coordonné), requestId=7
+2016-08-09T18:32:50.175Z - warn: ReferenceError: Can't find variable: jQuery timestamp=Tue Aug 09 2016 18:32:48 GMT+0000 (Temps universel coordonné), requestId=7
+2016-08-09T18:32:50.181Z - warn:    http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js : 44 timestamp=Tue Aug 09 2016 18:32:48 GMT+0000 (Temps universel coordonné), requestId=7
+2016-08-09T18:32:50.183Z - warn: ReferenceError: Can't find variable: $ timestamp=Tue Aug 09 2016 18:32:48 GMT+0000 (Temps universel coordonné), requestId=7
+2016-08-09T18:32:50.184Z - warn:    file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5Ca413e490-5e5f-11e6-ae14-ab2695fe286fhtml.html : 52 timestamp=Tue Aug 09 2016 18:32:48 GMT+0000 (Temps universel coordonné), requestId=7
+2016-08-09T18:32:50.193Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=7
+2016-08-09T18:32:50.209Z - debug: Skipping storing report. requestId=7
+2016-08-09T18:32:50.493Z - info: Rendering request 9 finished in 18877 ms requestId=7
+2016-08-09T18:42:37.245Z - debug: OData query on data
+2016-08-09T19:01:39.318Z - debug: OData insert into templates
+2016-08-09T19:02:31.140Z - debug: OData query on templates
+2016-08-09T19:03:08.423Z - debug: OData update on templates
+2016-08-09T19:03:10.010Z - info: Starting rendering request 10 (user: null) requestId=10
+2016-08-09T19:03:10.021Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=10
+2016-08-09T19:03:10.022Z - debug: Data item not defined for this template. requestId=10
+2016-08-09T19:03:10.025Z - debug: Resources not defined for this template. requestId=10
+2016-08-09T19:03:10.029Z - debug: Rendering engine handlebars requestId=10
+2016-08-09T19:03:10.490Z - debug: Compiled template not found in the cache, compiling timestamp=Tue Aug 09 2016 19:03:10 GMT+0000 (Temps universel coordonné), requestId=10
+2016-08-09T19:03:10.495Z - debug: Replaced images [] requestId=10
+2016-08-09T19:03:10.497Z - debug: Executing recipe phantom-pdf requestId=10
+2016-08-09T19:03:11.473Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Tue Aug 09 2016 19:03:11 GMT+0000 (Temps universel coordonné), requestId=10
+2016-08-09T19:03:11.473Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5Cea2d7640-5e63-11e6-ae14-ab2695fe286fhtml.html timestamp=Tue Aug 09 2016 19:03:11 GMT+0000 (Temps universel coordonné), requestId=10
+2016-08-09T19:03:11.476Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=10
+2016-08-09T19:03:11.489Z - debug: Skipping storing report. requestId=10
+2016-08-09T19:03:11.490Z - info: Rendering request 10 finished in 1481 ms requestId=10
+2016-08-09T19:09:56.296Z - debug: OData query on reports
+2016-08-09T19:27:21.489Z - info: Starting rendering request 11 (user: null) requestId=11
+2016-08-09T19:27:21.497Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=11
+2016-08-09T19:27:21.500Z - debug: Data item not defined for this template. requestId=11
+2016-08-09T19:27:21.503Z - debug: Resources not defined for this template. requestId=11
+2016-08-09T19:27:21.507Z - debug: Rendering engine handlebars requestId=11
+2016-08-09T19:27:21.905Z - debug: Compiled template not found in the cache, compiling timestamp=Tue Aug 09 2016 19:27:21 GMT+0000 (Temps universel coordonné), requestId=11
+2016-08-09T19:27:21.912Z - debug: Replaced images [] requestId=11
+2016-08-09T19:27:21.914Z - debug: Executing recipe phantom-pdf requestId=11
+2016-08-09T19:27:22.851Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Tue Aug 09 2016 19:27:22 GMT+0000 (Temps universel coordonné), requestId=11
+2016-08-09T19:27:22.851Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C4b49d0b0-5e67-11e6-ae14-ab2695fe286fhtml.html timestamp=Tue Aug 09 2016 19:27:22 GMT+0000 (Temps universel coordonné), requestId=11
+2016-08-09T19:27:22.854Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=11
+2016-08-09T19:27:22.864Z - debug: Skipping storing report. requestId=11
+2016-08-09T19:27:22.865Z - info: Rendering request 11 finished in 1378 ms requestId=11
+2016-08-09T19:27:57.074Z - debug: OData query on templates
+2016-08-09T19:27:57.124Z - debug: OData query on settings
+2016-08-20T00:15:13.406Z - info: Initializing jsreport in development mode using configuration file dev.config.json
+2016-08-20T00:15:13.410Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2016-08-20T00:15:13.449Z - info: Searching for available extensions in S:\Appli\gaj\
+2016-08-20T00:15:13.595Z - info: Extensions location cache contains up to date information, skipping crawling in S:\Appli\gaj\node_modules\jsreport\node_modules\
+2016-08-20T00:15:22.541Z - info: Found 25 extensions
+2016-08-20T00:15:22.776Z - debug: Writing extension locations cache to C:\Users\ADMINW~1\AppData\Local\Temp\jsreport-temp\extensions\locations.json
+2016-08-20T00:15:22.776Z - debug: Discovered 25 extensions
+2016-08-20T00:15:22.792Z - info: Using extension jsrender
+2016-08-20T00:15:22.824Z - info: Using extension authentication
+2016-08-20T00:15:24.347Z - debug: Extension authentication was disabled
+2016-08-20T00:15:24.347Z - info: Using extension browser-client
+2016-08-20T00:15:25.307Z - info: Using extension templates
+2016-08-20T00:15:25.553Z - info: Using extension studio
+2016-08-20T00:15:27.060Z - info: Using extension debug
+2016-08-20T00:15:27.091Z - info: Using extension express
+2016-08-20T00:15:28.061Z - info: Using extension fop-pdf
+2016-08-20T00:15:28.733Z - info: Using extension handlebars
+2016-08-20T00:15:28.748Z - info: Using extension resources
+2016-08-20T00:15:28.863Z - info: Using extension fs-store
+2016-08-20T00:15:37.149Z - info: Using extension images
+2016-08-20T00:15:39.109Z - info: Using extension authorization
+2016-08-20T00:15:39.397Z - debug: Extension authorization was disabled
+2016-08-20T00:15:39.397Z - info: Using extension licensing
+2016-08-20T00:15:40.451Z - info: Using extension phantom-pdf
+2016-08-20T00:15:40.795Z - info: Using extension text
+2016-08-20T00:15:40.812Z - info: Using extension reports
+2016-08-20T00:15:40.952Z - info: Using extension html-to-xlsx
+2016-08-20T00:15:42.341Z - info: Using extension child-templates
+2016-08-20T00:15:42.544Z - info: Using extension data
+2016-08-20T00:15:42.654Z - info: Using extension scripts
+2016-08-20T00:15:42.763Z - info: Using extension scheduling
+2016-08-20T00:15:43.483Z - info: Using extension xlsx
+2016-08-20T00:15:54.205Z - info: Using extension sample-template
+2016-08-20T00:15:54.236Z - info: Using extension public-templates
+2016-08-20T00:15:54.384Z - debug: Extension public-templates was disabled
+2016-08-20T00:15:54.400Z - info: Initializing fs storage at S:\Appli\gaj\data
+2016-08-20T00:15:55.349Z - info: Creating default express app.
+2016-08-20T00:15:58.622Z - info: jsreport server successfully started on http port: 1337
+2016-08-20T00:15:58.633Z - warn: License not found, using free
+2016-08-20T00:15:58.645Z - info: reporter initialized
+2016-08-20T00:16:55.664Z - debug: OData query on templates
+2016-08-20T00:16:55.754Z - debug: OData query on images
+2016-08-20T00:16:55.757Z - debug: OData query on data
+2016-08-20T00:16:55.760Z - debug: OData query on scripts
+2016-08-20T00:16:55.764Z - debug: OData query on xlsxTemplates
+2016-08-20T00:16:55.767Z - debug: OData query on schedules
+2016-08-20T00:16:56.241Z - debug: OData query on settings
+2016-08-20T00:16:59.360Z - debug: OData query on templates
+2016-08-20T00:16:59.456Z - debug: OData query on settings
+2016-08-20T00:17:03.270Z - debug: OData query on templates
+2016-08-20T00:17:03.277Z - debug: OData query on templates
+2016-08-20T00:17:04.179Z - debug: OData query on settings
+2016-08-20T00:17:16.128Z - info: Starting rendering request 1 (user: null) requestId=1
+2016-08-20T00:17:16.135Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=1
+2016-08-20T00:17:16.138Z - debug: Data item not defined for this template. requestId=1
+2016-08-20T00:17:16.147Z - debug: Resources not defined for this template. requestId=1
+2016-08-20T00:17:16.157Z - debug: Rendering engine handlebars requestId=1
+2016-08-20T00:17:21.543Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 00:17:21 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-20T00:17:21.550Z - debug: Replaced images [] requestId=1
+2016-08-20T00:17:21.552Z - debug: Executing recipe phantom-pdf requestId=1
+2016-08-20T00:18:01.348Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 00:17:42 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-20T00:18:01.348Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C766a2360-666b-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 00:17:42 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-20T00:18:01.354Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=1
+2016-08-20T00:18:01.482Z - debug: Skipping storing report. requestId=1
+2016-08-20T00:18:01.488Z - info: Rendering request 1 finished in 45361 ms requestId=1
+2016-08-20T00:46:53.721Z - info: Starting rendering request 2 (user: null) requestId=2
+2016-08-20T00:46:53.727Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=2
+2016-08-20T00:46:53.728Z - debug: Data item not defined for this template. requestId=2
+2016-08-20T00:46:53.732Z - debug: Resources not defined for this template. requestId=2
+2016-08-20T00:46:53.737Z - debug: Rendering engine handlebars requestId=2
+2016-08-20T00:46:57.563Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 00:46:57 GMT+0000 (Temps universel coordonné), requestId=2
+2016-08-20T00:46:57.566Z - debug: Replaced images [] requestId=2
+2016-08-20T00:46:57.568Z - debug: Executing recipe phantom-pdf requestId=2
+2016-08-20T00:47:07.641Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 00:47:06 GMT+0000 (Temps universel coordonné), requestId=2
+2016-08-20T00:47:07.642Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C99001020-666f-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 00:47:06 GMT+0000 (Temps universel coordonné), requestId=2
+2016-08-20T00:47:07.646Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=2
+2016-08-20T00:47:07.717Z - debug: Skipping storing report. requestId=2
+2016-08-20T00:47:07.719Z - info: Rendering request 2 finished in 14012 ms requestId=2
+2016-08-20T00:51:42.376Z - info: Starting rendering request 3 (user: null) requestId=3
+2016-08-20T00:51:42.382Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=3
+2016-08-20T00:51:42.383Z - debug: Data item not defined for this template. requestId=3
+2016-08-20T00:51:42.386Z - debug: Resources not defined for this template. requestId=3
+2016-08-20T00:51:42.389Z - debug: Rendering engine handlebars requestId=3
+2016-08-20T00:51:42.768Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 00:51:42 GMT+0000 (Temps universel coordonné), requestId=3
+2016-08-20T00:51:42.770Z - debug: Replaced images [] requestId=3
+2016-08-20T00:51:42.775Z - debug: Executing recipe phantom-pdf requestId=3
+2016-08-20T00:51:43.889Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 00:51:43 GMT+0000 (Temps universel coordonné), requestId=3
+2016-08-20T00:51:43.891Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C42ff0b80-6670-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 00:51:43 GMT+0000 (Temps universel coordonné), requestId=3
+2016-08-20T00:51:43.894Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=3
+2016-08-20T00:51:43.907Z - debug: Skipping storing report. requestId=3
+2016-08-20T00:51:43.909Z - info: Rendering request 3 finished in 1534 ms requestId=3
+2016-08-20T00:51:56.511Z - debug: OData query on templates
+2016-08-20T00:52:00.738Z - info: Starting rendering request 4 (user: null) requestId=4
+2016-08-20T00:52:00.745Z - info: Rendering template {shortid:B1Gd6rrF, recipe:phantom-pdf,engine:handlebars} requestId=4
+2016-08-20T00:52:00.749Z - debug: Adding sample data B1fu6rrt requestId=4
+2016-08-20T00:52:00.755Z - debug: Executing script S1M_6SBK requestId=4
+2016-08-20T00:52:01.074Z - debug: Resources not defined for this template. requestId=4
+2016-08-20T00:52:01.078Z - debug: Rendering engine handlebars requestId=4
+2016-08-20T00:52:01.573Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 00:52:01 GMT+0000 (Temps universel coordonné), requestId=4
+2016-08-20T00:52:01.578Z - debug: Replaced images [] requestId=4
+2016-08-20T00:52:01.581Z - debug: Executing recipe phantom-pdf requestId=4
+2016-08-20T00:52:01.582Z - debug: Starting child request to render pdf header requestId=4
+2016-08-20T00:52:01.595Z - info: Starting rendering request 5 (user: null) requestId=5
+2016-08-20T00:52:01.599Z - info: Rendering template {shortid:B1Gd6rrF, recipe:html,engine:handlebars} requestId=5
+2016-08-20T00:52:01.603Z - debug: Inline data specified. requestId=5
+2016-08-20T00:52:01.606Z - debug: Executing script S1M_6SBK requestId=5
+2016-08-20T00:52:01.834Z - debug: Resources not defined for this template. requestId=5
+2016-08-20T00:52:01.836Z - debug: Rendering engine handlebars requestId=5
+2016-08-20T00:52:02.230Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 00:52:02 GMT+0000 (Temps universel coordonné), requestId=5
+2016-08-20T00:52:02.233Z - debug: Replaced images [] requestId=5
+2016-08-20T00:52:02.236Z - debug: Executing recipe html requestId=5
+2016-08-20T00:52:02.251Z - debug: Skipping storing report. requestId=5
+2016-08-20T00:52:02.468Z - info: Rendering request 5 finished in 875 ms requestId=5
+2016-08-20T00:52:02.470Z - debug: Starting child request to render pdf footer requestId=4
+2016-08-20T00:52:02.478Z - info: Starting rendering request 6 (user: null) requestId=6
+2016-08-20T00:52:02.483Z - info: Rendering template {shortid:B1Gd6rrF, recipe:html,engine:handlebars} requestId=6
+2016-08-20T00:52:02.484Z - debug: Inline data specified. requestId=6
+2016-08-20T00:52:02.487Z - debug: Executing script S1M_6SBK requestId=6
+2016-08-20T00:52:02.702Z - debug: Resources not defined for this template. requestId=6
+2016-08-20T00:52:02.709Z - debug: Rendering engine handlebars requestId=6
+2016-08-20T00:52:03.167Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 00:52:03 GMT+0000 (Temps universel coordonné), requestId=6
+2016-08-20T00:52:03.170Z - debug: Replaced images [] requestId=6
+2016-08-20T00:52:03.173Z - debug: Executing recipe html requestId=6
+2016-08-20T00:52:03.199Z - debug: Skipping storing report. requestId=6
+2016-08-20T00:52:03.416Z - info: Rendering request 6 finished in 940 ms requestId=6
+2016-08-20T00:52:05.729Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 00:52:04 GMT+0000 (Temps universel coordonné), requestId=4
+2016-08-20T00:52:05.730Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C4f4c7580-6670-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 00:52:04 GMT+0000 (Temps universel coordonné), requestId=4
+2016-08-20T00:52:05.734Z - debug: Request http://code.jquery.com/jquery-1.11.0.min.js timestamp=Sat Aug 20 2016 00:52:04 GMT+0000 (Temps universel coordonné), requestId=4
+2016-08-20T00:52:05.738Z - debug: Request http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js timestamp=Sat Aug 20 2016 00:52:04 GMT+0000 (Temps universel coordonné), requestId=4
+2016-08-20T00:52:05.741Z - debug: Request http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js timestamp=Sat Aug 20 2016 00:52:04 GMT+0000 (Temps universel coordonné), requestId=4
+2016-08-20T00:52:05.745Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=4
+2016-08-20T00:52:05.756Z - debug: Skipping storing report. requestId=4
+2016-08-20T00:52:05.994Z - info: Rendering request 6 finished in 5257 ms requestId=4
+2016-08-20T00:54:14.798Z - info: Starting rendering request 7 (user: null) requestId=7
+2016-08-20T00:54:14.801Z - info: Rendering template {shortid:B1Gd6rrF, recipe:phantom-pdf,engine:handlebars} requestId=7
+2016-08-20T00:54:14.806Z - debug: Adding sample data B1fu6rrt requestId=7
+2016-08-20T00:54:14.809Z - debug: Executing script S1M_6SBK requestId=7
+2016-08-20T00:54:15.015Z - debug: Resources not defined for this template. requestId=7
+2016-08-20T00:54:15.018Z - debug: Rendering engine handlebars requestId=7
+2016-08-20T00:54:15.396Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 00:54:15 GMT+0000 (Temps universel coordonné), requestId=7
+2016-08-20T00:54:15.401Z - debug: Replaced images [] requestId=7
+2016-08-20T00:54:15.403Z - debug: Executing recipe phantom-pdf requestId=7
+2016-08-20T00:54:15.405Z - debug: Starting child request to render pdf header requestId=7
+2016-08-20T00:54:15.410Z - info: Starting rendering request 8 (user: null) requestId=8
+2016-08-20T00:54:15.415Z - info: Rendering template {shortid:B1Gd6rrF, recipe:html,engine:handlebars} requestId=8
+2016-08-20T00:54:15.416Z - debug: Inline data specified. requestId=8
+2016-08-20T00:54:15.419Z - debug: Executing script S1M_6SBK requestId=8
+2016-08-20T00:54:15.623Z - debug: Resources not defined for this template. requestId=8
+2016-08-20T00:54:15.626Z - debug: Rendering engine handlebars requestId=8
+2016-08-20T00:54:16.003Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 00:54:15 GMT+0000 (Temps universel coordonné), requestId=8
+2016-08-20T00:54:16.009Z - debug: Replaced images [] requestId=8
+2016-08-20T00:54:16.013Z - debug: Executing recipe html requestId=8
+2016-08-20T00:54:16.024Z - debug: Skipping storing report. requestId=8
+2016-08-20T00:54:16.264Z - info: Rendering request 8 finished in 854 ms requestId=8
+2016-08-20T00:54:16.265Z - debug: Starting child request to render pdf footer requestId=7
+2016-08-20T00:54:16.270Z - info: Starting rendering request 9 (user: null) requestId=9
+2016-08-20T00:54:16.275Z - info: Rendering template {shortid:B1Gd6rrF, recipe:html,engine:handlebars} requestId=9
+2016-08-20T00:54:16.275Z - debug: Inline data specified. requestId=9
+2016-08-20T00:54:16.282Z - debug: Executing script S1M_6SBK requestId=9
+2016-08-20T00:54:16.509Z - debug: Resources not defined for this template. requestId=9
+2016-08-20T00:54:16.511Z - debug: Rendering engine handlebars requestId=9
+2016-08-20T00:54:16.922Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 00:54:16 GMT+0000 (Temps universel coordonné), requestId=9
+2016-08-20T00:54:16.925Z - debug: Replaced images [] requestId=9
+2016-08-20T00:54:16.927Z - debug: Executing recipe html requestId=9
+2016-08-20T00:54:16.941Z - debug: Skipping storing report. requestId=9
+2016-08-20T00:54:17.180Z - info: Rendering request 9 finished in 911 ms requestId=9
+2016-08-20T00:54:19.243Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 00:54:17 GMT+0000 (Temps universel coordonné), requestId=7
+2016-08-20T00:54:19.244Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C9f0760d0-6670-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 00:54:17 GMT+0000 (Temps universel coordonné), requestId=7
+2016-08-20T00:54:19.247Z - debug: Request http://code.jquery.com/jquery-1.11.0.min.js timestamp=Sat Aug 20 2016 00:54:17 GMT+0000 (Temps universel coordonné), requestId=7
+2016-08-20T00:54:19.249Z - debug: Request http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js timestamp=Sat Aug 20 2016 00:54:17 GMT+0000 (Temps universel coordonné), requestId=7
+2016-08-20T00:54:19.251Z - debug: Request http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js timestamp=Sat Aug 20 2016 00:54:17 GMT+0000 (Temps universel coordonné), requestId=7
+2016-08-20T00:54:19.254Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=7
+2016-08-20T00:54:19.264Z - debug: Skipping storing report. requestId=7
+2016-08-20T00:54:19.484Z - info: Rendering request 9 finished in 4686 ms requestId=7
+2016-08-20T01:12:18.687Z - debug: OData query on schedules
+2016-08-20T01:12:19.329Z - debug: OData query on templates
+2016-08-20T01:12:19.482Z - debug: OData query on images
+2016-08-20T01:12:19.487Z - debug: OData query on data
+2016-08-20T01:12:19.711Z - debug: OData query on scripts
+2016-08-20T01:12:20.043Z - debug: OData query on xlsxTemplates
+2016-08-20T01:12:21.927Z - debug: OData query on settings
+2016-08-20T01:12:45.507Z - debug: OData query on templates
+2016-08-20T01:12:51.598Z - debug: OData query on templates
+2016-08-20T01:25:17.791Z - debug: OData query on data
+2016-08-20T01:27:34.625Z - debug: OData update on templates
+2016-08-20T01:27:44.652Z - info: Starting rendering request 10 (user: null) requestId=10
+2016-08-20T01:27:44.677Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=10
+2016-08-20T01:27:44.678Z - debug: Data item not defined for this template. requestId=10
+2016-08-20T01:27:44.682Z - debug: Resources not defined for this template. requestId=10
+2016-08-20T01:27:44.685Z - debug: Rendering engine handlebars requestId=10
+2016-08-20T01:27:52.629Z - error: Error when processing render request Error during rendering report: Parse error on line 22:
+...sJuge.date_audience | date : 'dd/MM/yyyy
+-----------------------^
+Expecting 'CLOSE_RAW_BLOCK', 'CLOSE', 'CLOSE_UNESCAPED', 'OPEN_SEXPR', 'CLOSE_SEXPR', 'ID', 'OPEN_BLOCK_PARAMS', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', 'SEP', got 'CLOSE_BLOCK_PARAMS' Error: Parse error on line 22:
+...sJuge.date_audience | date : 'dd/MM/yyyy
+-----------------------^
+Expecting 'CLOSE_RAW_BLOCK', 'CLOSE', 'CLOSE_UNESCAPED', 'OPEN_SEXPR', 'CLOSE_SEXPR', 'ID', 'OPEN_BLOCK_PARAMS', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', 'SEP', got 'CLOSE_BLOCK_PARAMS'
+    at Object.parseError (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:267:19)
+    at Object.parse (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:336:30)
+    at HandlebarsEnvironment.parse (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:46:43)
+    at compileInput (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:514:19)
+    at ret (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:523:18)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\lib\handlebarsEngine.js:26:14
+    at evalmachine.<anonymous>:1:41
+    at ContextifyScript.Script.runInNewContext (vm.js:18:15)
+    at Object.exports.runInNewContext (vm.js:49:17)
+    at module.exports (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\engineScript.js:168:8)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17) requestId=10
+2016-08-20T01:27:52.657Z - error: Error during processing request: http://localhost:1337/api/report details: Error during rendering report: Parse error on line 22:
+...sJuge.date_audience | date : 'dd/MM/yyyy
+-----------------------^
+Expecting 'CLOSE_RAW_BLOCK', 'CLOSE', 'CLOSE_UNESCAPED', 'OPEN_SEXPR', 'CLOSE_SEXPR', 'ID', 'OPEN_BLOCK_PARAMS', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', 'SEP', got 'CLOSE_BLOCK_PARAMS' Error: Parse error on line 22:
+...sJuge.date_audience | date : 'dd/MM/yyyy
+-----------------------^
+Expecting 'CLOSE_RAW_BLOCK', 'CLOSE', 'CLOSE_UNESCAPED', 'OPEN_SEXPR', 'CLOSE_SEXPR', 'ID', 'OPEN_BLOCK_PARAMS', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', 'SEP', got 'CLOSE_BLOCK_PARAMS'
+    at Object.parseError (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:267:19)
+    at Object.parse (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:336:30)
+    at HandlebarsEnvironment.parse (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:46:43)
+    at compileInput (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:514:19)
+    at ret (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:523:18)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\lib\handlebarsEngine.js:26:14
+    at evalmachine.<anonymous>:1:41
+    at ContextifyScript.Script.runInNewContext (vm.js:18:15)
+    at Object.exports.runInNewContext (vm.js:49:17)
+    at module.exports (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\engineScript.js:168:8)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17)
+2016-08-20T01:40:56.329Z - debug: OData update on templates
+2016-08-20T01:42:28.715Z - debug: OData update on templates
+2016-08-20T01:42:30.541Z - info: Starting rendering request 11 (user: null) requestId=11
+2016-08-20T01:42:30.702Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=11
+2016-08-20T01:42:30.703Z - debug: Data item not defined for this template. requestId=11
+2016-08-20T01:42:30.706Z - debug: Resources not defined for this template. requestId=11
+2016-08-20T01:42:30.799Z - debug: Rendering engine handlebars requestId=11
+2016-08-20T01:42:32.787Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 01:42:32 GMT+0000 (Temps universel coordonné), requestId=11
+2016-08-20T01:42:32.791Z - debug: Replaced images [] requestId=11
+2016-08-20T01:42:32.808Z - debug: Executing recipe phantom-pdf requestId=11
+2016-08-20T01:42:45.876Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 01:42:43 GMT+0000 (Temps universel coordonné), requestId=11
+2016-08-20T01:42:45.878Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C5cf54ca0-6677-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 01:42:43 GMT+0000 (Temps universel coordonné), requestId=11
+2016-08-20T01:42:45.895Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=11
+2016-08-20T01:42:45.910Z - debug: Skipping storing report. requestId=11
+2016-08-20T01:42:45.915Z - info: Rendering request 11 finished in 15374 ms requestId=11
+2016-08-20T01:42:57.413Z - debug: OData update on templates
+2016-08-20T01:43:05.199Z - debug: OData update on templates
+2016-08-20T01:43:34.687Z - info: Starting rendering request 12 (user: null) requestId=12
+2016-08-20T01:43:34.691Z - info: Rendering template {shortid:B1Gd6rrF, recipe:phantom-pdf,engine:handlebars} requestId=12
+2016-08-20T01:43:34.692Z - debug: Adding sample data B1fu6rrt requestId=12
+2016-08-20T01:43:34.697Z - debug: Executing script S1M_6SBK requestId=12
+2016-08-20T01:43:35.023Z - debug: Resources not defined for this template. requestId=12
+2016-08-20T01:43:35.041Z - debug: Rendering engine handlebars requestId=12
+2016-08-20T01:43:35.465Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 01:43:35 GMT+0000 (Temps universel coordonné), requestId=12
+2016-08-20T01:43:35.467Z - debug: Replaced images [] requestId=12
+2016-08-20T01:43:35.469Z - debug: Executing recipe phantom-pdf requestId=12
+2016-08-20T01:43:35.470Z - debug: Starting child request to render pdf header requestId=12
+2016-08-20T01:43:35.474Z - info: Starting rendering request 13 (user: null) requestId=13
+2016-08-20T01:43:35.480Z - info: Rendering template {shortid:B1Gd6rrF, recipe:html,engine:handlebars} requestId=13
+2016-08-20T01:43:35.481Z - debug: Inline data specified. requestId=13
+2016-08-20T01:43:35.483Z - debug: Executing script S1M_6SBK requestId=13
+2016-08-20T01:43:35.725Z - debug: Resources not defined for this template. requestId=13
+2016-08-20T01:43:35.727Z - debug: Rendering engine handlebars requestId=13
+2016-08-20T01:43:36.098Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 01:43:36 GMT+0000 (Temps universel coordonné), requestId=13
+2016-08-20T01:43:36.100Z - debug: Replaced images [] requestId=13
+2016-08-20T01:43:36.101Z - debug: Executing recipe html requestId=13
+2016-08-20T01:43:36.115Z - debug: Skipping storing report. requestId=13
+2016-08-20T01:43:36.322Z - info: Rendering request 13 finished in 848 ms requestId=13
+2016-08-20T01:43:36.325Z - debug: Starting child request to render pdf footer requestId=12
+2016-08-20T01:43:36.329Z - info: Starting rendering request 14 (user: null) requestId=14
+2016-08-20T01:43:36.331Z - info: Rendering template {shortid:B1Gd6rrF, recipe:html,engine:handlebars} requestId=14
+2016-08-20T01:43:36.333Z - debug: Inline data specified. requestId=14
+2016-08-20T01:43:36.335Z - debug: Executing script S1M_6SBK requestId=14
+2016-08-20T01:43:36.543Z - debug: Resources not defined for this template. requestId=14
+2016-08-20T01:43:36.548Z - debug: Rendering engine handlebars requestId=14
+2016-08-20T01:43:36.926Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 01:43:36 GMT+0000 (Temps universel coordonné), requestId=14
+2016-08-20T01:43:36.929Z - debug: Replaced images [] requestId=14
+2016-08-20T01:43:36.932Z - debug: Executing recipe html requestId=14
+2016-08-20T01:43:36.944Z - debug: Skipping storing report. requestId=14
+2016-08-20T01:43:37.187Z - info: Rendering request 14 finished in 859 ms requestId=14
+2016-08-20T01:43:39.789Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 01:43:37 GMT+0000 (Temps universel coordonné), requestId=12
+2016-08-20T01:43:39.790Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C83549a40-6677-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 01:43:37 GMT+0000 (Temps universel coordonné), requestId=12
+2016-08-20T01:43:39.790Z - debug: Request http://code.jquery.com/jquery-1.11.0.min.js timestamp=Sat Aug 20 2016 01:43:37 GMT+0000 (Temps universel coordonné), requestId=12
+2016-08-20T01:43:39.791Z - debug: Request http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js timestamp=Sat Aug 20 2016 01:43:38 GMT+0000 (Temps universel coordonné), requestId=12
+2016-08-20T01:43:39.792Z - debug: Request http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js timestamp=Sat Aug 20 2016 01:43:38 GMT+0000 (Temps universel coordonné), requestId=12
+2016-08-20T01:43:39.793Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=12
+2016-08-20T01:43:39.803Z - debug: Skipping storing report. requestId=12
+2016-08-20T01:43:40.046Z - info: Rendering request 14 finished in 5343 ms requestId=12
+2016-08-20T01:46:37.347Z - info: Starting rendering request 15 (user: null) requestId=15
+2016-08-20T01:46:37.352Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=15
+2016-08-20T01:46:37.354Z - debug: Inline data specified. requestId=15
+2016-08-20T01:46:37.357Z - debug: Resources not defined for this template. requestId=15
+2016-08-20T01:46:37.363Z - debug: Rendering engine handlebars requestId=15
+2016-08-20T01:46:37.839Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 01:46:37 GMT+0000 (Temps universel coordonné), requestId=15
+2016-08-20T01:46:37.845Z - debug: Replaced images [] requestId=15
+2016-08-20T01:46:37.847Z - debug: Executing recipe phantom-pdf requestId=15
+2016-08-20T01:46:39.343Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 01:46:39 GMT+0000 (Temps universel coordonné), requestId=15
+2016-08-20T01:46:39.345Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5Cef032180-6677-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 01:46:39 GMT+0000 (Temps universel coordonné), requestId=15
+2016-08-20T01:46:39.347Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=15
+2016-08-20T01:46:39.360Z - debug: Skipping storing report. requestId=15
+2016-08-20T01:46:39.361Z - info: Rendering request 15 finished in 2015 ms requestId=15
+2016-08-20T01:51:56.786Z - info: Starting rendering request 16 (user: null) requestId=16
+2016-08-20T01:51:56.790Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=16
+2016-08-20T01:51:56.791Z - debug: Inline data specified. requestId=16
+2016-08-20T01:51:56.793Z - debug: Resources not defined for this template. requestId=16
+2016-08-20T01:51:56.795Z - debug: Rendering engine handlebars requestId=16
+2016-08-20T01:51:57.298Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 01:51:57 GMT+0000 (Temps universel coordonné), requestId=16
+2016-08-20T01:51:57.299Z - debug: Replaced images [] requestId=16
+2016-08-20T01:51:57.301Z - debug: Executing recipe phantom-pdf requestId=16
+2016-08-20T01:51:58.503Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 01:51:58 GMT+0000 (Temps universel coordonné), requestId=16
+2016-08-20T01:51:58.504Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5Cad6bf160-6678-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 01:51:58 GMT+0000 (Temps universel coordonné), requestId=16
+2016-08-20T01:51:58.506Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=16
+2016-08-20T01:51:58.540Z - debug: Skipping storing report. requestId=16
+2016-08-20T01:51:58.542Z - info: Rendering request 16 finished in 1756 ms requestId=16
+2016-08-20T01:52:44.480Z - info: Starting rendering request 17 (user: null) requestId=17
+2016-08-20T01:52:44.484Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=17
+2016-08-20T01:52:44.486Z - debug: Inline data specified. requestId=17
+2016-08-20T01:52:44.488Z - debug: Resources not defined for this template. requestId=17
+2016-08-20T01:52:44.490Z - debug: Rendering engine handlebars requestId=17
+2016-08-20T01:52:44.956Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 01:52:44 GMT+0000 (Temps universel coordonné), requestId=17
+2016-08-20T01:52:44.958Z - debug: Replaced images [] requestId=17
+2016-08-20T01:52:44.959Z - debug: Executing recipe phantom-pdf requestId=17
+2016-08-20T01:52:46.157Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 01:52:45 GMT+0000 (Temps universel coordonné), requestId=17
+2016-08-20T01:52:46.158Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5Cc9d3fa00-6678-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 01:52:45 GMT+0000 (Temps universel coordonné), requestId=17
+2016-08-20T01:52:46.161Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=17
+2016-08-20T01:52:46.176Z - debug: Skipping storing report. requestId=17
+2016-08-20T01:52:46.178Z - info: Rendering request 17 finished in 1698 ms requestId=17
+2016-08-20T01:53:35.275Z - info: Starting rendering request 18 (user: null) requestId=18
+2016-08-20T01:53:35.278Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=18
+2016-08-20T01:53:35.279Z - debug: Inline data specified. requestId=18
+2016-08-20T01:53:35.282Z - debug: Resources not defined for this template. requestId=18
+2016-08-20T01:53:35.284Z - debug: Rendering engine handlebars requestId=18
+2016-08-20T01:53:35.681Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 01:53:35 GMT+0000 (Temps universel coordonné), requestId=18
+2016-08-20T01:53:35.683Z - debug: Replaced images [] requestId=18
+2016-08-20T01:53:35.685Z - debug: Executing recipe phantom-pdf requestId=18
+2016-08-20T01:53:36.705Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 01:53:36 GMT+0000 (Temps universel coordonné), requestId=18
+2016-08-20T01:53:36.706Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5Ce8102660-6678-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 01:53:36 GMT+0000 (Temps universel coordonné), requestId=18
+2016-08-20T01:53:36.708Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=18
+2016-08-20T01:53:36.721Z - debug: Skipping storing report. requestId=18
+2016-08-20T01:53:36.723Z - info: Rendering request 18 finished in 1448 ms requestId=18
+2016-08-20T01:54:58.153Z - debug: OData update on templates
+2016-08-20T01:55:02.746Z - info: Starting rendering request 19 (user: null) requestId=19
+2016-08-20T01:55:02.749Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=19
+2016-08-20T01:55:02.750Z - debug: Inline data specified. requestId=19
+2016-08-20T01:55:02.752Z - debug: Resources not defined for this template. requestId=19
+2016-08-20T01:55:02.755Z - debug: Rendering engine handlebars requestId=19
+2016-08-20T01:55:03.285Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 01:55:03 GMT+0000 (Temps universel coordonné), requestId=19
+2016-08-20T01:55:03.303Z - debug: Replaced images [] requestId=19
+2016-08-20T01:55:03.315Z - debug: Executing recipe phantom-pdf requestId=19
+2016-08-20T01:55:04.352Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 01:55:04 GMT+0000 (Temps universel coordonné), requestId=19
+2016-08-20T01:55:04.353Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C1c4b9450-6679-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 01:55:04 GMT+0000 (Temps universel coordonné), requestId=19
+2016-08-20T01:55:04.354Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=19
+2016-08-20T01:55:04.459Z - debug: Skipping storing report. requestId=19
+2016-08-20T01:55:04.462Z - info: Rendering request 19 finished in 1716 ms requestId=19
+2016-08-20T01:55:18.101Z - debug: OData update on templates
+2016-08-20T01:55:21.338Z - info: Starting rendering request 20 (user: null) requestId=20
+2016-08-20T01:55:21.341Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=20
+2016-08-20T01:55:21.342Z - debug: Inline data specified. requestId=20
+2016-08-20T01:55:21.345Z - debug: Resources not defined for this template. requestId=20
+2016-08-20T01:55:21.346Z - debug: Rendering engine handlebars requestId=20
+2016-08-20T01:55:21.871Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 01:55:21 GMT+0000 (Temps universel coordonné), requestId=20
+2016-08-20T01:55:21.873Z - debug: Replaced images [] requestId=20
+2016-08-20T01:55:21.875Z - debug: Executing recipe phantom-pdf requestId=20
+2016-08-20T01:55:22.894Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 01:55:22 GMT+0000 (Temps universel coordonné), requestId=20
+2016-08-20T01:55:22.895Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C275b7540-6679-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 01:55:22 GMT+0000 (Temps universel coordonné), requestId=20
+2016-08-20T01:55:22.899Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=20
+2016-08-20T01:55:22.928Z - debug: Skipping storing report. requestId=20
+2016-08-20T01:55:22.930Z - info: Rendering request 20 finished in 1592 ms requestId=20
+2016-08-20T01:55:30.520Z - debug: OData update on templates
+2016-08-20T01:58:29.673Z - debug: OData update on templates
+2016-08-20T01:58:33.988Z - info: Starting rendering request 21 (user: null) requestId=21
+2016-08-20T01:58:33.992Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=21
+2016-08-20T01:58:33.993Z - debug: Inline data specified. requestId=21
+2016-08-20T01:58:33.995Z - debug: Resources not defined for this template. requestId=21
+2016-08-20T01:58:33.996Z - debug: Rendering engine handlebars requestId=21
+2016-08-20T01:58:34.449Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 01:58:34 GMT+0000 (Temps universel coordonné), requestId=21
+2016-08-20T01:58:34.452Z - debug: Replaced images [] requestId=21
+2016-08-20T01:58:34.454Z - debug: Executing recipe phantom-pdf requestId=21
+2016-08-20T01:58:35.737Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 01:58:35 GMT+0000 (Temps universel coordonné), requestId=21
+2016-08-20T01:58:35.738Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C9a24ae70-6679-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 01:58:35 GMT+0000 (Temps universel coordonné), requestId=21
+2016-08-20T01:58:35.740Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=21
+2016-08-20T01:58:35.767Z - debug: Skipping storing report. requestId=21
+2016-08-20T01:58:35.769Z - info: Rendering request 21 finished in 1781 ms requestId=21
+2016-08-20T01:59:05.189Z - debug: OData update on templates
+2016-08-20T01:59:36.271Z - debug: OData update on templates
+2016-08-20T01:59:50.555Z - info: Starting rendering request 22 (user: null) requestId=22
+2016-08-20T01:59:50.559Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=22
+2016-08-20T01:59:50.560Z - debug: Inline data specified. requestId=22
+2016-08-20T01:59:50.561Z - debug: Resources not defined for this template. requestId=22
+2016-08-20T01:59:50.571Z - debug: Rendering engine handlebars requestId=22
+2016-08-20T01:59:51.116Z - error: Error when processing render request Error during rendering report: Parse error on line 9:
+...td>    </tr>    {{/each}}</table>
+---------------------^
+Expecting 'EOF', got 'OPEN_ENDBLOCK' Error: Parse error on line 9:
+...td>    </tr>    {{/each}}</table>
+---------------------^
+Expecting 'EOF', got 'OPEN_ENDBLOCK'
+    at Object.parseError (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:267:19)
+    at Object.parse (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:336:30)
+    at HandlebarsEnvironment.parse (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:46:43)
+    at compileInput (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:514:19)
+    at ret (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:523:18)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\lib\handlebarsEngine.js:26:14
+    at evalmachine.<anonymous>:1:41
+    at ContextifyScript.Script.runInNewContext (vm.js:18:15)
+    at Object.exports.runInNewContext (vm.js:49:17)
+    at module.exports (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\engineScript.js:168:8)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17) requestId=22
+2016-08-20T01:59:51.132Z - error: Error during processing request: http://localhost:1337/api/report details: Error during rendering report: Parse error on line 9:
+...td>    </tr>    {{/each}}</table>
+---------------------^
+Expecting 'EOF', got 'OPEN_ENDBLOCK' Error: Parse error on line 9:
+...td>    </tr>    {{/each}}</table>
+---------------------^
+Expecting 'EOF', got 'OPEN_ENDBLOCK'
+    at Object.parseError (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:267:19)
+    at Object.parse (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:336:30)
+    at HandlebarsEnvironment.parse (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:46:43)
+    at compileInput (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:514:19)
+    at ret (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:523:18)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\lib\handlebarsEngine.js:26:14
+    at evalmachine.<anonymous>:1:41
+    at ContextifyScript.Script.runInNewContext (vm.js:18:15)
+    at Object.exports.runInNewContext (vm.js:49:17)
+    at module.exports (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\engineScript.js:168:8)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17)
+2016-08-20T02:00:06.191Z - debug: OData update on templates
+2016-08-20T02:00:09.213Z - info: Starting rendering request 23 (user: null) requestId=23
+2016-08-20T02:00:09.218Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=23
+2016-08-20T02:00:09.219Z - debug: Inline data specified. requestId=23
+2016-08-20T02:00:09.220Z - debug: Resources not defined for this template. requestId=23
+2016-08-20T02:00:09.221Z - debug: Rendering engine handlebars requestId=23
+2016-08-20T02:00:09.653Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 02:00:09 GMT+0000 (Temps universel coordonné), requestId=23
+2016-08-20T02:00:09.657Z - debug: Replaced images [] requestId=23
+2016-08-20T02:00:09.659Z - debug: Executing recipe phantom-pdf requestId=23
+2016-08-20T02:00:10.739Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 02:00:10 GMT+0000 (Temps universel coordonné), requestId=23
+2016-08-20T02:00:10.740Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5Cd2e3cfc0-6679-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 02:00:10 GMT+0000 (Temps universel coordonné), requestId=23
+2016-08-20T02:00:10.749Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=23
+2016-08-20T02:00:10.759Z - debug: Skipping storing report. requestId=23
+2016-08-20T02:00:10.760Z - info: Rendering request 23 finished in 1546 ms requestId=23
+2016-08-20T02:00:24.964Z - debug: OData query on reports
+2016-08-20T02:03:02.206Z - info: Starting rendering request 24 (user: null) requestId=24
+2016-08-20T02:03:02.209Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=24
+2016-08-20T02:03:02.209Z - debug: Inline data specified. requestId=24
+2016-08-20T02:03:02.210Z - debug: Resources not defined for this template. requestId=24
+2016-08-20T02:03:02.212Z - debug: Rendering engine handlebars requestId=24
+2016-08-20T02:03:02.628Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 02:03:02 GMT+0000 (Temps universel coordonné), requestId=24
+2016-08-20T02:03:02.631Z - debug: Replaced images [] requestId=24
+2016-08-20T02:03:02.634Z - debug: Executing recipe phantom-pdf requestId=24
+2016-08-20T02:03:03.959Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 02:03:03 GMT+0000 (Temps universel coordonné), requestId=24
+2016-08-20T02:03:03.960Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C39fdb3b0-667a-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 02:03:03 GMT+0000 (Temps universel coordonné), requestId=24
+2016-08-20T02:03:03.961Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=24
+2016-08-20T02:03:03.973Z - debug: Skipping storing report. requestId=24
+2016-08-20T02:03:03.975Z - info: Rendering request 24 finished in 1769 ms requestId=24
+2016-08-20T02:03:22.173Z - info: Starting rendering request 25 (user: null) requestId=25
+2016-08-20T02:03:22.220Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=25
+2016-08-20T02:03:22.221Z - debug: Inline data specified. requestId=25
+2016-08-20T02:03:22.222Z - debug: Resources not defined for this template. requestId=25
+2016-08-20T02:03:22.224Z - debug: Rendering engine handlebars requestId=25
+2016-08-20T02:03:22.640Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 02:03:22 GMT+0000 (Temps universel coordonné), requestId=25
+2016-08-20T02:03:22.645Z - debug: Replaced images [] requestId=25
+2016-08-20T02:03:22.647Z - debug: Executing recipe phantom-pdf requestId=25
+2016-08-20T02:03:23.710Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 02:03:23 GMT+0000 (Temps universel coordonné), requestId=25
+2016-08-20T02:03:23.713Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C45ebbfa0-667a-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 02:03:23 GMT+0000 (Temps universel coordonné), requestId=25
+2016-08-20T02:03:23.715Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=25
+2016-08-20T02:03:23.742Z - debug: Skipping storing report. requestId=25
+2016-08-20T02:03:23.746Z - info: Rendering request 25 finished in 1572 ms requestId=25
+2016-08-20T02:05:32.932Z - info: Starting rendering request 26 (user: null) requestId=26
+2016-08-20T02:05:32.935Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=26
+2016-08-20T02:05:32.936Z - debug: Inline data specified. requestId=26
+2016-08-20T02:05:32.938Z - debug: Resources not defined for this template. requestId=26
+2016-08-20T02:05:32.940Z - debug: Rendering engine handlebars requestId=26
+2016-08-20T02:05:33.334Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 02:05:33 GMT+0000 (Temps universel coordonné), requestId=26
+2016-08-20T02:05:33.337Z - debug: Replaced images [] requestId=26
+2016-08-20T02:05:33.339Z - debug: Executing recipe phantom-pdf requestId=26
+2016-08-20T02:05:34.475Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 02:05:34 GMT+0000 (Temps universel coordonné), requestId=26
+2016-08-20T02:05:34.476Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C93d19cd0-667a-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 02:05:34 GMT+0000 (Temps universel coordonné), requestId=26
+2016-08-20T02:05:34.479Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=26
+2016-08-20T02:05:34.495Z - debug: Skipping storing report. requestId=26
+2016-08-20T02:05:34.497Z - info: Rendering request 26 finished in 1565 ms requestId=26
+2016-08-20T02:06:00.377Z - info: Starting rendering request 27 (user: null) requestId=27
+2016-08-20T02:06:00.380Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=27
+2016-08-20T02:06:00.381Z - debug: Inline data specified. requestId=27
+2016-08-20T02:06:00.383Z - debug: Resources not defined for this template. requestId=27
+2016-08-20T02:06:00.384Z - debug: Rendering engine handlebars requestId=27
+2016-08-20T02:06:00.769Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 02:06:00 GMT+0000 (Temps universel coordonné), requestId=27
+2016-08-20T02:06:00.771Z - debug: Replaced images [] requestId=27
+2016-08-20T02:06:00.773Z - debug: Executing recipe phantom-pdf requestId=27
+2016-08-20T02:06:01.892Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 02:06:01 GMT+0000 (Temps universel coordonné), requestId=27
+2016-08-20T02:06:01.893Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5Ca42b8e60-667a-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 02:06:01 GMT+0000 (Temps universel coordonné), requestId=27
+2016-08-20T02:06:01.897Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=27
+2016-08-20T02:06:01.907Z - debug: Skipping storing report. requestId=27
+2016-08-20T02:06:01.909Z - info: Rendering request 27 finished in 1532 ms requestId=27
+2016-08-20T02:06:19.386Z - info: Starting rendering request 28 (user: null) requestId=28
+2016-08-20T02:06:19.391Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=28
+2016-08-20T02:06:19.392Z - debug: Inline data specified. requestId=28
+2016-08-20T02:06:19.395Z - debug: Resources not defined for this template. requestId=28
+2016-08-20T02:06:19.425Z - debug: Rendering engine handlebars requestId=28
+2016-08-20T02:06:19.908Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 02:06:19 GMT+0000 (Temps universel coordonné), requestId=28
+2016-08-20T02:06:19.913Z - debug: Replaced images [] requestId=28
+2016-08-20T02:06:19.914Z - debug: Executing recipe phantom-pdf requestId=28
+2016-08-20T02:06:20.972Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 02:06:20 GMT+0000 (Temps universel coordonné), requestId=28
+2016-08-20T02:06:20.973Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5Caf943db0-667a-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 02:06:20 GMT+0000 (Temps universel coordonné), requestId=28
+2016-08-20T02:06:20.976Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=28
+2016-08-20T02:06:20.991Z - debug: Skipping storing report. requestId=28
+2016-08-20T02:06:20.996Z - info: Rendering request 28 finished in 1607 ms requestId=28
+2016-08-20T02:39:01.903Z - debug: OData update on templates
+2016-08-20T02:39:03.234Z - info: Starting rendering request 29 (user: null) requestId=29
+2016-08-20T02:39:03.237Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=29
+2016-08-20T02:39:03.238Z - debug: Data item not defined for this template. requestId=29
+2016-08-20T02:39:03.240Z - debug: Resources not defined for this template. requestId=29
+2016-08-20T02:39:03.246Z - debug: Rendering engine handlebars requestId=29
+2016-08-20T02:39:03.918Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 02:39:03 GMT+0000 (Temps universel coordonné), requestId=29
+2016-08-20T02:39:03.922Z - debug: Replaced images [] requestId=29
+2016-08-20T02:39:03.924Z - debug: Executing recipe phantom-pdf requestId=29
+2016-08-20T02:39:05.436Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 02:39:05 GMT+0000 (Temps universel coordonné), requestId=29
+2016-08-20T02:39:05.437Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C4238d780-667f-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 02:39:05 GMT+0000 (Temps universel coordonné), requestId=29
+2016-08-20T02:39:05.440Z - debug: phantom-pdf recipe finished with 3 pages generated requestId=29
+2016-08-20T02:39:05.451Z - debug: Skipping storing report. requestId=29
+2016-08-20T02:39:05.453Z - info: Rendering request 29 finished in 2219 ms requestId=29
+2016-08-20T02:39:56.124Z - info: Starting rendering request 30 (user: null) requestId=30
+2016-08-20T02:39:56.129Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=30
+2016-08-20T02:39:56.129Z - debug: Data item not defined for this template. requestId=30
+2016-08-20T02:39:56.130Z - debug: Resources not defined for this template. requestId=30
+2016-08-20T02:39:56.132Z - debug: Rendering engine handlebars requestId=30
+2016-08-20T02:39:56.573Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 02:39:56 GMT+0000 (Temps universel coordonné), requestId=30
+2016-08-20T02:39:56.575Z - debug: Replaced images [] requestId=30
+2016-08-20T02:39:56.577Z - debug: Executing recipe phantom-pdf requestId=30
+2016-08-20T02:39:57.816Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 02:39:57 GMT+0000 (Temps universel coordonné), requestId=30
+2016-08-20T02:39:57.817Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C619a9820-667f-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 02:39:57 GMT+0000 (Temps universel coordonné), requestId=30
+2016-08-20T02:39:57.819Z - debug: phantom-pdf recipe finished with 3 pages generated requestId=30
+2016-08-20T02:39:57.830Z - debug: Skipping storing report. requestId=30
+2016-08-20T02:39:57.831Z - info: Rendering request 30 finished in 1706 ms requestId=30
+2016-08-20T02:42:32.342Z - debug: OData update on templates
+2016-08-20T02:42:52.074Z - debug: OData update on templates
+2016-08-20T02:43:01.089Z - info: Starting rendering request 31 (user: null) requestId=31
+2016-08-20T02:43:01.092Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=31
+2016-08-20T02:43:01.093Z - debug: Data item not defined for this template. requestId=31
+2016-08-20T02:43:01.095Z - debug: Resources not defined for this template. requestId=31
+2016-08-20T02:43:01.098Z - debug: Rendering engine handlebars requestId=31
+2016-08-20T02:43:01.575Z - debug: Compiled template not found in the cache, compiling timestamp=Sat Aug 20 2016 02:43:01 GMT+0000 (Temps universel coordonné), requestId=31
+2016-08-20T02:43:01.579Z - debug: Replaced images [] requestId=31
+2016-08-20T02:43:01.581Z - debug: Executing recipe phantom-pdf requestId=31
+2016-08-20T02:43:03.579Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Sat Aug 20 2016 02:43:02 GMT+0000 (Temps universel coordonné), requestId=31
+2016-08-20T02:43:03.580Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5Ccfdff6e0-667f-11e6-a25c-592ae65ddcb3html.html timestamp=Sat Aug 20 2016 02:43:02 GMT+0000 (Temps universel coordonné), requestId=31
+2016-08-20T02:43:03.581Z - debug: phantom-pdf recipe finished with 3 pages generated requestId=31
+2016-08-20T02:43:03.589Z - debug: Skipping storing report. requestId=31
+2016-08-20T02:43:03.592Z - info: Rendering request 31 finished in 2502 ms requestId=31
+2016-08-22T12:09:10.409Z - info: Initializing jsreport in development mode using configuration file dev.config.json
+2016-08-22T12:09:10.425Z - info: Setting process based strategy for rendering. Please visit http://jsreport.net/learn/configuration for information how to get more performance.
+2016-08-22T12:09:10.456Z - info: Searching for available extensions in S:\Appli\gaj\
+2016-08-22T12:09:10.756Z - info: Extensions location cache contains up to date information, skipping crawling in S:\Appli\gaj\node_modules\jsreport\node_modules\
+2016-08-22T12:09:25.320Z - info: Found 25 extensions
+2016-08-22T12:09:25.507Z - debug: Writing extension locations cache to C:\Users\ADMINW~1\AppData\Local\Temp\jsreport-temp\extensions\locations.json
+2016-08-22T12:09:25.522Z - debug: Discovered 25 extensions
+2016-08-22T12:09:25.522Z - info: Using extension jsrender
+2016-08-22T12:09:25.571Z - info: Using extension authentication
+2016-08-22T12:09:26.764Z - debug: Extension authentication was disabled
+2016-08-22T12:09:26.764Z - info: Using extension browser-client
+2016-08-22T12:09:28.019Z - info: Using extension templates
+2016-08-22T12:09:28.332Z - info: Using extension studio
+2016-08-22T12:09:30.178Z - info: Using extension debug
+2016-08-22T12:09:30.209Z - info: Using extension express
+2016-08-22T12:09:31.381Z - info: Using extension fop-pdf
+2016-08-22T12:09:32.100Z - info: Using extension handlebars
+2016-08-22T12:09:32.131Z - info: Using extension resources
+2016-08-22T12:09:32.365Z - info: Using extension fs-store
+2016-08-22T12:09:42.006Z - info: Using extension images
+2016-08-22T12:09:43.756Z - info: Using extension authorization
+2016-08-22T12:09:43.913Z - debug: Extension authorization was disabled
+2016-08-22T12:09:43.913Z - info: Using extension licensing
+2016-08-22T12:09:44.694Z - info: Using extension phantom-pdf
+2016-08-22T12:09:45.053Z - info: Using extension text
+2016-08-22T12:09:45.069Z - info: Using extension reports
+2016-08-22T12:09:45.194Z - info: Using extension html-to-xlsx
+2016-08-22T12:09:47.147Z - info: Using extension child-templates
+2016-08-22T12:09:47.397Z - info: Using extension data
+2016-08-22T12:09:47.569Z - info: Using extension scripts
+2016-08-22T12:09:47.647Z - info: Using extension scheduling
+2016-08-22T12:09:48.304Z - info: Using extension xlsx
+2016-08-22T12:10:04.680Z - info: Using extension sample-template
+2016-08-22T12:10:04.711Z - info: Using extension public-templates
+2016-08-22T12:10:04.868Z - debug: Extension public-templates was disabled
+2016-08-22T12:10:04.868Z - info: Initializing fs storage at S:\Appli\gaj\data
+2016-08-22T12:10:06.993Z - info: Creating default express app.
+2016-08-22T12:10:11.368Z - info: jsreport server successfully started on http port: 1337
+2016-08-22T12:10:11.384Z - warn: License not found, using free
+2016-08-22T12:10:11.399Z - info: reporter initialized
+2016-08-22T12:10:38.142Z - debug: OData query on templates
+2016-08-22T12:10:38.173Z - debug: OData query on images
+2016-08-22T12:10:38.180Z - debug: OData query on data
+2016-08-22T12:10:38.199Z - debug: OData query on scripts
+2016-08-22T12:10:38.216Z - debug: OData query on schedules
+2016-08-22T12:10:38.219Z - debug: OData query on xlsxTemplates
+2016-08-22T12:10:38.275Z - debug: OData query on settings
+2016-08-22T12:10:41.713Z - debug: OData query on templates
+2016-08-22T12:10:42.159Z - debug: OData query on settings
+2016-08-22T12:10:46.449Z - debug: OData query on templates
+2016-08-22T12:10:46.475Z - debug: OData query on templates
+2016-08-22T12:10:47.523Z - debug: OData query on settings
+2016-08-22T12:10:50.900Z - info: Starting rendering request 1 (user: null) requestId=1
+2016-08-22T12:10:50.909Z - info: Rendering template {shortid:B1Gd6rrF, recipe:phantom-pdf,engine:handlebars} requestId=1
+2016-08-22T12:10:50.913Z - debug: Adding sample data B1fu6rrt requestId=1
+2016-08-22T12:10:50.923Z - debug: Executing script S1M_6SBK requestId=1
+2016-08-22T12:10:51.452Z - debug: Resources not defined for this template. requestId=1
+2016-08-22T12:10:51.460Z - debug: Rendering engine handlebars requestId=1
+2016-08-22T12:10:54.098Z - debug: Compiled template not found in the cache, compiling timestamp=Mon Aug 22 2016 12:10:53 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-22T12:10:54.104Z - debug: Replaced images [] requestId=1
+2016-08-22T12:10:54.108Z - debug: Executing recipe phantom-pdf requestId=1
+2016-08-22T12:10:54.109Z - debug: Starting child request to render pdf header requestId=1
+2016-08-22T12:10:54.138Z - info: Starting rendering request 2 (user: null) requestId=2
+2016-08-22T12:10:54.147Z - info: Rendering template {shortid:B1Gd6rrF, recipe:html,engine:handlebars} requestId=2
+2016-08-22T12:10:54.148Z - debug: Inline data specified. requestId=2
+2016-08-22T12:10:54.156Z - debug: Executing script S1M_6SBK requestId=2
+2016-08-22T12:10:54.416Z - debug: Resources not defined for this template. requestId=2
+2016-08-22T12:10:54.420Z - debug: Rendering engine handlebars requestId=2
+2016-08-22T12:10:54.980Z - debug: Compiled template not found in the cache, compiling timestamp=Mon Aug 22 2016 12:10:54 GMT+0000 (Temps universel coordonné), requestId=2
+2016-08-22T12:10:54.983Z - debug: Replaced images [] requestId=2
+2016-08-22T12:10:54.986Z - debug: Executing recipe html requestId=2
+2016-08-22T12:10:55.013Z - debug: Skipping storing report. requestId=2
+2016-08-22T12:10:55.301Z - info: Rendering request 2 finished in 1164 ms requestId=2
+2016-08-22T12:10:55.304Z - debug: Starting child request to render pdf footer requestId=1
+2016-08-22T12:10:55.309Z - info: Starting rendering request 3 (user: null) requestId=3
+2016-08-22T12:10:55.314Z - info: Rendering template {shortid:B1Gd6rrF, recipe:html,engine:handlebars} requestId=3
+2016-08-22T12:10:55.315Z - debug: Inline data specified. requestId=3
+2016-08-22T12:10:55.319Z - debug: Executing script S1M_6SBK requestId=3
+2016-08-22T12:10:55.647Z - debug: Resources not defined for this template. requestId=3
+2016-08-22T12:10:55.649Z - debug: Rendering engine handlebars requestId=3
+2016-08-22T12:10:56.125Z - debug: Compiled template not found in the cache, compiling timestamp=Mon Aug 22 2016 12:10:56 GMT+0000 (Temps universel coordonné), requestId=3
+2016-08-22T12:10:56.128Z - debug: Replaced images [] requestId=3
+2016-08-22T12:10:56.133Z - debug: Executing recipe html requestId=3
+2016-08-22T12:10:56.156Z - debug: Skipping storing report. requestId=3
+2016-08-22T12:10:56.456Z - info: Rendering request 3 finished in 1147 ms requestId=3
+2016-08-22T12:11:32.435Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Mon Aug 22 2016 12:11:21 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-22T12:11:32.442Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C7ae986e0-6861-11e6-b044-875ed173dd86html.html timestamp=Mon Aug 22 2016 12:11:21 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-22T12:11:32.444Z - debug: Request http://code.jquery.com/jquery-1.11.0.min.js timestamp=Mon Aug 22 2016 12:11:21 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-22T12:11:32.447Z - debug: Request http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js timestamp=Mon Aug 22 2016 12:11:21 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-22T12:11:32.454Z - debug: Request http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js timestamp=Mon Aug 22 2016 12:11:21 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-22T12:11:32.460Z - warn: Unable to load resource (#3URL:http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js) timestamp=Mon Aug 22 2016 12:11:21 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-22T12:11:32.465Z - warn: Error code: 3. Description: Host cdnjs.cloudflare.com not found timestamp=Mon Aug 22 2016 12:11:21 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-22T12:11:32.466Z - warn: Unable to load resource (#4URL:http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js) timestamp=Mon Aug 22 2016 12:11:21 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-22T12:11:32.467Z - warn: Error code: 3. Description: Host cdnjs.cloudflare.com not found timestamp=Mon Aug 22 2016 12:11:21 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-22T12:11:32.470Z - warn: Unable to load resource (#2URL:http://code.jquery.com/jquery-1.11.0.min.js) timestamp=Mon Aug 22 2016 12:11:21 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-22T12:11:32.472Z - warn: Error code: 3. Description: Host code.jquery.com not found timestamp=Mon Aug 22 2016 12:11:21 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-22T12:11:32.474Z - warn: ReferenceError: Can't find variable: $ timestamp=Mon Aug 22 2016 12:11:21 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-22T12:11:32.477Z - warn:    file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C7ae986e0-6861-11e6-b044-875ed173dd86html.html : 79 timestamp=Mon Aug 22 2016 12:11:21 GMT+0000 (Temps universel coordonné), requestId=1
+2016-08-22T12:11:32.482Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=1
+2016-08-22T12:11:32.557Z - debug: Skipping storing report. requestId=1
+2016-08-22T12:11:33.110Z - info: Rendering request 3 finished in 42212 ms requestId=1
+2016-08-22T12:12:20.608Z - debug: OData query on templates
+2016-08-22T12:12:27.795Z - info: Starting rendering request 4 (user: null) requestId=4
+2016-08-22T12:12:27.805Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=4
+2016-08-22T12:12:27.806Z - debug: Data item not defined for this template. requestId=4
+2016-08-22T12:12:27.808Z - debug: Resources not defined for this template. requestId=4
+2016-08-22T12:12:27.812Z - debug: Rendering engine handlebars requestId=4
+2016-08-22T12:12:40.656Z - error: Error when processing render request Error during rendering report: Timeout error during executing script Error: Timeout error during executing script
+    at null._onTimeout (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\script-manager\lib\manager-processes.js:67:12)
+    at Timer.unrefdHandle (timers.js:312:14)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17) requestId=4
+2016-08-22T12:12:40.661Z - error: Error during processing request: http://localhost:1337/api/report details: Error during rendering report: Timeout error during executing script Error: Timeout error during executing script
+    at null._onTimeout (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\script-manager\lib\manager-processes.js:67:12)
+    at Timer.unrefdHandle (timers.js:312:14)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17)
+2016-08-22T12:12:51.032Z - info: Starting rendering request 5 (user: null) requestId=5
+2016-08-22T12:12:51.037Z - info: Rendering template {shortid:SJgt_iPt, recipe:phantom-pdf,engine:handlebars} requestId=5
+2016-08-22T12:12:51.038Z - debug: Data item not defined for this template. requestId=5
+2016-08-22T12:12:51.042Z - debug: Resources not defined for this template. requestId=5
+2016-08-22T12:12:51.045Z - debug: Rendering engine handlebars requestId=5
+2016-08-22T12:12:52.574Z - debug: Compiled template not found in the cache, compiling timestamp=Mon Aug 22 2016 12:12:52 GMT+0000 (Temps universel coordonné), requestId=5
+2016-08-22T12:12:52.577Z - debug: Replaced images [] requestId=5
+2016-08-22T12:12:52.579Z - debug: Executing recipe phantom-pdf requestId=5
+2016-08-22T12:12:55.990Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Mon Aug 22 2016 12:12:54 GMT+0000 (Temps universel coordonné), requestId=5
+2016-08-22T12:12:55.991Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5Cc01fe150-6861-11e6-b044-875ed173dd86html.html timestamp=Mon Aug 22 2016 12:12:54 GMT+0000 (Temps universel coordonné), requestId=5
+2016-08-22T12:12:55.994Z - debug: phantom-pdf recipe finished with 3 pages generated requestId=5
+2016-08-22T12:12:56.305Z - debug: Skipping storing report. requestId=5
+2016-08-22T12:12:56.307Z - info: Rendering request 5 finished in 5276 ms requestId=5
+2016-08-22T12:14:42.989Z - info: Starting rendering request 6 (user: null) requestId=6
+2016-08-22T12:14:42.998Z - info: Rendering template {shortid:B1Gd6rrF, recipe:phantom-pdf,engine:handlebars} requestId=6
+2016-08-22T12:14:43.002Z - debug: Adding sample data B1fu6rrt requestId=6
+2016-08-22T12:14:43.009Z - debug: Executing script S1M_6SBK requestId=6
+2016-08-22T12:14:43.249Z - debug: Resources not defined for this template. requestId=6
+2016-08-22T12:14:43.253Z - debug: Rendering engine handlebars requestId=6
+2016-08-22T12:14:43.695Z - debug: Compiled template not found in the cache, compiling timestamp=Mon Aug 22 2016 12:14:43 GMT+0000 (Temps universel coordonné), requestId=6
+2016-08-22T12:14:43.698Z - debug: Replaced images [] requestId=6
+2016-08-22T12:14:43.703Z - debug: Executing recipe phantom-pdf requestId=6
+2016-08-22T12:14:43.705Z - debug: Starting child request to render pdf header requestId=6
+2016-08-22T12:14:43.709Z - info: Starting rendering request 7 (user: null) requestId=7
+2016-08-22T12:14:43.715Z - info: Rendering template {shortid:B1Gd6rrF, recipe:html,engine:handlebars} requestId=7
+2016-08-22T12:14:43.716Z - debug: Inline data specified. requestId=7
+2016-08-22T12:14:43.721Z - debug: Executing script S1M_6SBK requestId=7
+2016-08-22T12:14:43.923Z - debug: Resources not defined for this template. requestId=7
+2016-08-22T12:14:43.925Z - debug: Rendering engine handlebars requestId=7
+2016-08-22T12:14:44.637Z - debug: Compiled template not found in the cache, compiling timestamp=Mon Aug 22 2016 12:14:44 GMT+0000 (Temps universel coordonné), requestId=7
+2016-08-22T12:14:44.640Z - debug: Replaced images [] requestId=7
+2016-08-22T12:14:44.643Z - debug: Executing recipe html requestId=7
+2016-08-22T12:14:44.772Z - debug: Skipping storing report. requestId=7
+2016-08-22T12:14:45.009Z - info: Rendering request 7 finished in 1300 ms requestId=7
+2016-08-22T12:14:45.011Z - debug: Starting child request to render pdf footer requestId=6
+2016-08-22T12:14:45.015Z - info: Starting rendering request 8 (user: null) requestId=8
+2016-08-22T12:14:45.019Z - info: Rendering template {shortid:B1Gd6rrF, recipe:html,engine:handlebars} requestId=8
+2016-08-22T12:14:45.020Z - debug: Inline data specified. requestId=8
+2016-08-22T12:14:45.026Z - debug: Executing script S1M_6SBK requestId=8
+2016-08-22T12:14:45.271Z - debug: Resources not defined for this template. requestId=8
+2016-08-22T12:14:45.278Z - debug: Rendering engine handlebars requestId=8
+2016-08-22T12:14:46.119Z - debug: Compiled template not found in the cache, compiling timestamp=Mon Aug 22 2016 12:14:46 GMT+0000 (Temps universel coordonné), requestId=8
+2016-08-22T12:14:46.123Z - debug: Replaced images [] requestId=8
+2016-08-22T12:14:46.125Z - debug: Executing recipe html requestId=8
+2016-08-22T12:14:46.139Z - debug: Skipping storing report. requestId=8
+2016-08-22T12:14:46.371Z - info: Rendering request 8 finished in 1356 ms requestId=8
+2016-08-22T12:14:47.728Z - debug: Converting in dedicated phantomjs 1.9.8 timestamp=Mon Aug 22 2016 12:14:47 GMT+0000 (Temps universel coordonné), requestId=6
+2016-08-22T12:14:47.730Z - debug: Request file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C03f30240-6862-11e6-b044-875ed173dd86html.html timestamp=Mon Aug 22 2016 12:14:47 GMT+0000 (Temps universel coordonné), requestId=6
+2016-08-22T12:14:47.733Z - debug: Request http://code.jquery.com/jquery-1.11.0.min.js timestamp=Mon Aug 22 2016 12:14:47 GMT+0000 (Temps universel coordonné), requestId=6
+2016-08-22T12:14:47.736Z - debug: Request http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js timestamp=Mon Aug 22 2016 12:14:47 GMT+0000 (Temps universel coordonné), requestId=6
+2016-08-22T12:14:47.738Z - debug: Request http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js timestamp=Mon Aug 22 2016 12:14:47 GMT+0000 (Temps universel coordonné), requestId=6
+2016-08-22T12:14:47.739Z - warn: Unable to load resource (#3URL:http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js) timestamp=Mon Aug 22 2016 12:14:47 GMT+0000 (Temps universel coordonné), requestId=6
+2016-08-22T12:14:47.741Z - warn: Error code: 3. Description: Host cdnjs.cloudflare.com not found timestamp=Mon Aug 22 2016 12:14:47 GMT+0000 (Temps universel coordonné), requestId=6
+2016-08-22T12:14:47.743Z - warn: Unable to load resource (#4URL:http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js) timestamp=Mon Aug 22 2016 12:14:47 GMT+0000 (Temps universel coordonné), requestId=6
+2016-08-22T12:14:47.744Z - warn: Error code: 3. Description: Host cdnjs.cloudflare.com not found timestamp=Mon Aug 22 2016 12:14:47 GMT+0000 (Temps universel coordonné), requestId=6
+2016-08-22T12:14:47.745Z - warn: Unable to load resource (#2URL:http://code.jquery.com/jquery-1.11.0.min.js) timestamp=Mon Aug 22 2016 12:14:47 GMT+0000 (Temps universel coordonné), requestId=6
+2016-08-22T12:14:47.746Z - warn: Error code: 3. Description: Host code.jquery.com not found timestamp=Mon Aug 22 2016 12:14:47 GMT+0000 (Temps universel coordonné), requestId=6
+2016-08-22T12:14:47.748Z - warn: ReferenceError: Can't find variable: $ timestamp=Mon Aug 22 2016 12:14:47 GMT+0000 (Temps universel coordonné), requestId=6
+2016-08-22T12:14:47.749Z - warn:    file:///C%3A%5CUsers%5CADMINW~1%5CAppData%5CLocal%5CTemp%5Cjsreport-temp%5C03f30240-6862-11e6-b044-875ed173dd86html.html : 79 timestamp=Mon Aug 22 2016 12:14:47 GMT+0000 (Temps universel coordonné), requestId=6
+2016-08-22T12:14:47.751Z - debug: phantom-pdf recipe finished with 1 pages generated requestId=6
+2016-08-22T12:14:47.770Z - debug: Skipping storing report. requestId=6
+2016-08-22T12:14:48.044Z - info: Rendering request 8 finished in 5055 ms requestId=6
+2016-08-22T12:15:10.248Z - debug: OData query on data

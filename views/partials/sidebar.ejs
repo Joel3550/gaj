@@ -1,0 +1,86 @@
+<aside class="main-sidebar" style="position: fixed">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="/dist/img/profil_default.png" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p id="infoUserSidebar"></p>
+                <a href="#"><i class="fa fa-circle text-success"></i> Vous etes connecte</a>
+            </div>
+        </div>
+        <!-- search form -->
+        <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Rechercher...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+        </form>
+        <!-- /.search form -->
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <li class="header" style="font-size: 10px">SECTION CIVILE, COMMERCIALE & ADMIN</li>
+            <li class="treeview">
+                <a href="">
+                    <i class="fa fa-pie-chart"></i>
+                    <span>Parametrage</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <!--<li><a href="/listeTypeIndividus"><i class="fa fa-circle-o"></i> Type individu</a></li>-->
+                    <!--<li><a href="/listeIndividus"><i class="fa fa-circle-o"></i> Individu</a></li>-->
+                    <li><a href="/listeAgents"><i class="fa fa-circle-o"></i> Agent</a></li>
+                    <li><a href="/listeChambres"><i class="fa fa-circle-o"></i> Chambre</a></li>
+                    <li><a href="/listeNatures"><i class="fa fa-circle-o"></i> Nature</a></li>
+                    <li><a href="/listeSalleAudiences"><i class="fa fa-circle-o"></i> Salle d'audience</a></li>
+                    <li><a href="/listeJuridictions"><i class="fa fa-circle-o"></i> Juridiction</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="">
+                    <i class="fa fa-folder"></i>
+                    <span>General</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/listeAffaires"><i class="fa fa-circle-o"></i> Role general</a></li>
+                    <li><a href="/consultationAffaires"><i class="fa fa-circle-o"></i> Cahier de transmission</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> <span>Reglement</span></a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="">
+                    <i class="fa fa-folder"></i>
+                    <span>Audience</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <!--<li><a href="/listeAudiences"><i class="fa fa-circle-o"></i> Registre RA</a></li>-->
+                    <li><a href="/consultationAffairesAudience_url"><i class="fa fa-circle-o"></i> liste affaires transmisent</a></li>
+                    <li><a href="/compositionCours_url"><i class="fa fa-circle-o"></i> Publication</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview">
+                <a href="">
+                    <i class="fa fa-folder"></i>
+                    <span>Jugement</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <!--<li><a href="/jugementAffaire"><i class="fa fa-circle-o"></i> Repertoire du plumitif</a></li>-->
+                    <li><a href="/listeAffairesPlumitif_url"><i class="fa fa-circle-o"></i> Plumitif</a></li>
+                    <li><a href="/repertoirJugement_url"><i class="fa fa-circle-o"></i> Repertoire de jugement</a></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>

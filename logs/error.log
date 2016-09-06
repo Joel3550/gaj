@@ -1,0 +1,434 @@
+2016-08-09T18:30:37.141Z - error: Error when processing render request Error during rendering report: Syntax error
+{{sales}} block has {{/each}} without {{each}}, in template:
+<h2>Book sales</h2>
+<table style=\'border-style:solid\'>
+    <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Sales</th>
+    </tr>
+    {{#each books}}
+    <tr>
+        <td>{{name}}</td>
+        <td>{{author}}</td>
+        <td>{{sales}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+<h2>The book of the month</h2>
+<span>{{mostSelling books}}</span>
+
+
+<h2>Book sales chart</h2>
+<script src=\"http://code.jquery.com/jquery-1.11.0.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js\"></script>
+<div id=\"placeholder\" style=\"width:700px;height:350px\"></div>
+
+<script>
+    $(function () {
+        // stringified input data are later in browser interpretted as real object
+        var data = {{{toJSON books}}}
+        var books = data.map(function(b) { return [ b.name, b.sales ]});
+        $.plot(\"#placeholder\", [ books ],
+        {
+            series: {
+                bars: { show: true, barWidth: 0.6, align: \"center\" }
+            },
+            xaxis: {   mode: \"categories\", tickLength: 0 }
+        });
+    });
+</script> Error
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:200:27
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:2274:2)
+    at require (internal/module.js:12:17)
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\lib\jsrenderEngine.js:6:16)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17) requestId=4
+2016-08-09T18:30:37.537Z - error: Error during processing request: http://localhost:1337/api/report details: Error during rendering report: Syntax error
+{{sales}} block has {{/each}} without {{each}}, in template:
+<h2>Book sales</h2>
+<table style=\'border-style:solid\'>
+    <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Sales</th>
+    </tr>
+    {{#each books}}
+    <tr>
+        <td>{{name}}</td>
+        <td>{{author}}</td>
+        <td>{{sales}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+<h2>The book of the month</h2>
+<span>{{mostSelling books}}</span>
+
+
+<h2>Book sales chart</h2>
+<script src=\"http://code.jquery.com/jquery-1.11.0.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js\"></script>
+<div id=\"placeholder\" style=\"width:700px;height:350px\"></div>
+
+<script>
+    $(function () {
+        // stringified input data are later in browser interpretted as real object
+        var data = {{{toJSON books}}}
+        var books = data.map(function(b) { return [ b.name, b.sales ]});
+        $.plot(\"#placeholder\", [ books ],
+        {
+            series: {
+                bars: { show: true, barWidth: 0.6, align: \"center\" }
+            },
+            xaxis: {   mode: \"categories\", tickLength: 0 }
+        });
+    });
+</script> Error
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:200:27
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:2274:2)
+    at require (internal/module.js:12:17)
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\lib\jsrenderEngine.js:6:16)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17)
+2016-08-09T18:31:42.331Z - error: Error when processing render request Error during rendering report: Syntax error
+{{sales}} block has {{/each}} without {{each}}, in template:
+<h2>Book sales</h2>
+<table style=\'border-style:solid\'>
+    <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Sales</th>
+    </tr>
+    {{#each books}}
+    <tr>
+        <td>{{name}}</td>
+        <td>{{author}}</td>
+        <td>{{sales}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+<h2>The book of the month</h2>
+<span>{{mostSelling books}}</span>
+
+
+<h2>Book sales chart</h2>
+<script src=\"http://code.jquery.com/jquery-1.11.0.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js\"></script>
+<div id=\"placeholder\" style=\"width:700px;height:350px\"></div>
+
+<script>
+    $(function () {
+        // stringified input data are later in browser interpretted as real object
+        var data = {{{toJSON books}}}
+        var books = data.map(function(b) { return [ b.name, b.sales ]});
+        $.plot(\"#placeholder\", [ books ],
+        {
+            series: {
+                bars: { show: true, barWidth: 0.6, align: \"center\" }
+            },
+            xaxis: {   mode: \"categories\", tickLength: 0 }
+        });
+    });
+</script> Error
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:200:27
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:2274:2)
+    at require (internal/module.js:12:17)
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\lib\jsrenderEngine.js:6:16)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17) requestId=5
+2016-08-09T18:31:42.400Z - error: Error during processing request: http://localhost:1337/api/report details: Error during rendering report: Syntax error
+{{sales}} block has {{/each}} without {{each}}, in template:
+<h2>Book sales</h2>
+<table style=\'border-style:solid\'>
+    <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Sales</th>
+    </tr>
+    {{#each books}}
+    <tr>
+        <td>{{name}}</td>
+        <td>{{author}}</td>
+        <td>{{sales}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+<h2>The book of the month</h2>
+<span>{{mostSelling books}}</span>
+
+
+<h2>Book sales chart</h2>
+<script src=\"http://code.jquery.com/jquery-1.11.0.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js\"></script>
+<div id=\"placeholder\" style=\"width:700px;height:350px\"></div>
+
+<script>
+    $(function () {
+        // stringified input data are later in browser interpretted as real object
+        var data = {{{toJSON books}}}
+        var books = data.map(function(b) { return [ b.name, b.sales ]});
+        $.plot(\"#placeholder\", [ books ],
+        {
+            series: {
+                bars: { show: true, barWidth: 0.6, align: \"center\" }
+            },
+            xaxis: {   mode: \"categories\", tickLength: 0 }
+        });
+    });
+</script> Error
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:200:27
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:2274:2)
+    at require (internal/module.js:12:17)
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\lib\jsrenderEngine.js:6:16)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17)
+2016-08-09T18:32:13.670Z - error: Error when processing render request Error during rendering report: Syntax error
+{{sales}} block has {{/each}} without {{each}}, in template:
+<h2>Book sales</h2>
+<table style=\'border-style:solid\'>
+    <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Sales</th>
+    </tr>
+    {{#each books}}
+    <tr>
+        <td>{{name}}</td>
+        <td>{{author}}</td>
+        <td>{{sales}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+<h2>The book of the month</h2>
+<span>{{mostSelling books}}</span>
+
+
+<h2>Book sales chart</h2>
+<script src=\"http://code.jquery.com/jquery-1.11.0.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js\"></script>
+<div id=\"placeholder\" style=\"width:700px;height:350px\"></div>
+
+<script>
+    $(function () {
+        // stringified input data are later in browser interpretted as real object
+        var data = {{{toJSON books}}}
+        var books = data.map(function(b) { return [ b.name, b.sales ]});
+        $.plot(\"#placeholder\", [ books ],
+        {
+            series: {
+                bars: { show: true, barWidth: 0.6, align: \"center\" }
+            },
+            xaxis: {   mode: \"categories\", tickLength: 0 }
+        });
+    });
+</script> Error
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:200:27
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:2274:2)
+    at require (internal/module.js:12:17)
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\lib\jsrenderEngine.js:6:16)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17) requestId=6
+2016-08-09T18:32:13.671Z - error: Error during processing request: http://localhost:1337/api/report details: Error during rendering report: Syntax error
+{{sales}} block has {{/each}} without {{each}}, in template:
+<h2>Book sales</h2>
+<table style=\'border-style:solid\'>
+    <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Sales</th>
+    </tr>
+    {{#each books}}
+    <tr>
+        <td>{{name}}</td>
+        <td>{{author}}</td>
+        <td>{{sales}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+<h2>The book of the month</h2>
+<span>{{mostSelling books}}</span>
+
+
+<h2>Book sales chart</h2>
+<script src=\"http://code.jquery.com/jquery-1.11.0.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.min.js\"></script>
+<script src=\"http://cdnjs.cloudflare.com/ajax/libs/flot/0.8.1/jquery.flot.categories.min.js\"></script>
+<div id=\"placeholder\" style=\"width:700px;height:350px\"></div>
+
+<script>
+    $(function () {
+        // stringified input data are later in browser interpretted as real object
+        var data = {{{toJSON books}}}
+        var books = data.map(function(b) { return [ b.name, b.sales ]});
+        $.plot(\"#placeholder\", [ books ],
+        {
+            series: {
+                bars: { show: true, barWidth: 0.6, align: \"center\" }
+            },
+            xaxis: {   mode: \"categories\", tickLength: 0 }
+        });
+    });
+</script> Error
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:200:27
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\node_modules\jsrender\jsrender-node.js:2274:2)
+    at require (internal/module.js:12:17)
+    at Object.<anonymous> (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-jsrender\lib\jsrenderEngine.js:6:16)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17)
+2016-08-20T01:27:52.630Z - error: Error when processing render request Error during rendering report: Parse error on line 22:
+...sJuge.date_audience | date : 'dd/MM/yyyy
+-----------------------^
+Expecting 'CLOSE_RAW_BLOCK', 'CLOSE', 'CLOSE_UNESCAPED', 'OPEN_SEXPR', 'CLOSE_SEXPR', 'ID', 'OPEN_BLOCK_PARAMS', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', 'SEP', got 'CLOSE_BLOCK_PARAMS' Error: Parse error on line 22:
+...sJuge.date_audience | date : 'dd/MM/yyyy
+-----------------------^
+Expecting 'CLOSE_RAW_BLOCK', 'CLOSE', 'CLOSE_UNESCAPED', 'OPEN_SEXPR', 'CLOSE_SEXPR', 'ID', 'OPEN_BLOCK_PARAMS', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', 'SEP', got 'CLOSE_BLOCK_PARAMS'
+    at Object.parseError (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:267:19)
+    at Object.parse (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:336:30)
+    at HandlebarsEnvironment.parse (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:46:43)
+    at compileInput (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:514:19)
+    at ret (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:523:18)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\lib\handlebarsEngine.js:26:14
+    at evalmachine.<anonymous>:1:41
+    at ContextifyScript.Script.runInNewContext (vm.js:18:15)
+    at Object.exports.runInNewContext (vm.js:49:17)
+    at module.exports (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\engineScript.js:168:8)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17) requestId=10
+2016-08-20T01:27:52.657Z - error: Error during processing request: http://localhost:1337/api/report details: Error during rendering report: Parse error on line 22:
+...sJuge.date_audience | date : 'dd/MM/yyyy
+-----------------------^
+Expecting 'CLOSE_RAW_BLOCK', 'CLOSE', 'CLOSE_UNESCAPED', 'OPEN_SEXPR', 'CLOSE_SEXPR', 'ID', 'OPEN_BLOCK_PARAMS', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', 'SEP', got 'CLOSE_BLOCK_PARAMS' Error: Parse error on line 22:
+...sJuge.date_audience | date : 'dd/MM/yyyy
+-----------------------^
+Expecting 'CLOSE_RAW_BLOCK', 'CLOSE', 'CLOSE_UNESCAPED', 'OPEN_SEXPR', 'CLOSE_SEXPR', 'ID', 'OPEN_BLOCK_PARAMS', 'STRING', 'NUMBER', 'BOOLEAN', 'UNDEFINED', 'NULL', 'DATA', 'SEP', got 'CLOSE_BLOCK_PARAMS'
+    at Object.parseError (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:267:19)
+    at Object.parse (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:336:30)
+    at HandlebarsEnvironment.parse (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:46:43)
+    at compileInput (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:514:19)
+    at ret (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:523:18)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\lib\handlebarsEngine.js:26:14
+    at evalmachine.<anonymous>:1:41
+    at ContextifyScript.Script.runInNewContext (vm.js:18:15)
+    at Object.exports.runInNewContext (vm.js:49:17)
+    at module.exports (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\engineScript.js:168:8)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17)
+2016-08-20T01:59:51.116Z - error: Error when processing render request Error during rendering report: Parse error on line 9:
+...td>    </tr>    {{/each}}</table>
+---------------------^
+Expecting 'EOF', got 'OPEN_ENDBLOCK' Error: Parse error on line 9:
+...td>    </tr>    {{/each}}</table>
+---------------------^
+Expecting 'EOF', got 'OPEN_ENDBLOCK'
+    at Object.parseError (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:267:19)
+    at Object.parse (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:336:30)
+    at HandlebarsEnvironment.parse (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:46:43)
+    at compileInput (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:514:19)
+    at ret (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:523:18)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\lib\handlebarsEngine.js:26:14
+    at evalmachine.<anonymous>:1:41
+    at ContextifyScript.Script.runInNewContext (vm.js:18:15)
+    at Object.exports.runInNewContext (vm.js:49:17)
+    at module.exports (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\engineScript.js:168:8)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17) requestId=22
+2016-08-20T01:59:51.133Z - error: Error during processing request: http://localhost:1337/api/report details: Error during rendering report: Parse error on line 9:
+...td>    </tr>    {{/each}}</table>
+---------------------^
+Expecting 'EOF', got 'OPEN_ENDBLOCK' Error: Parse error on line 9:
+...td>    </tr>    {{/each}}</table>
+---------------------^
+Expecting 'EOF', got 'OPEN_ENDBLOCK'
+    at Object.parseError (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:267:19)
+    at Object.parse (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\parser.js:336:30)
+    at HandlebarsEnvironment.parse (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\base.js:46:43)
+    at compileInput (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:514:19)
+    at ret (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\node_modules\handlebars\dist\cjs\handlebars\compiler\compiler.js:523:18)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-handlebars\lib\handlebarsEngine.js:26:14
+    at evalmachine.<anonymous>:1:41
+    at ContextifyScript.Script.runInNewContext (vm.js:18:15)
+    at Object.exports.runInNewContext (vm.js:49:17)
+    at module.exports (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\engineScript.js:168:8)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17)
+2016-08-22T12:12:40.657Z - error: Error when processing render request Error during rendering report: Timeout error during executing script Error: Timeout error during executing script
+    at null._onTimeout (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\script-manager\lib\manager-processes.js:67:12)
+    at Timer.unrefdHandle (timers.js:312:14)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17) requestId=4
+2016-08-22T12:12:40.661Z - error: Error during processing request: http://localhost:1337/api/report details: Error during rendering report: Timeout error during executing script Error: Timeout error during executing script
+    at null._onTimeout (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\script-manager\lib\manager-processes.js:67:12)
+    at Timer.unrefdHandle (timers.js:312:14)
+From previous event:
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\lib\render\render.js:143:54
+    at _fulfilled (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:794:54)
+    at self.promiseDispatch.done (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:823:30)
+    at Promise.promise.promiseDispatch (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:756:13)
+    at S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:564:44
+    at flush (S:\Appli\gaj\node_modules\jsreport\node_modules\jsreport-core\node_modules\listener-collection\node_modules\q\q.js:110:17)

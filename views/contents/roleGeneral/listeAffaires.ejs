@@ -1,0 +1,100 @@
+<% layout('layout') %>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <a href="/formAjoutAffaire" class="btn btn-success"><i class="fa fa-plus"></i> Ajouter une affaire</a>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body" ng-app="app" ng-controller="roleGeneralController">
+
+                    <div class="row">
+                        <div id="msg">
+                            <div class="col-xs-12">
+                                <div ng-show="message" class="alert {{message.class}}">{{message.msg}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                        <div class="row">
+                            <div class=col-sm-6>
+                                <div class="dataTables_length" id="example1_length">
+                                    <label for="Vue">Vue
+                                        <select ng-init="limit = 10" ng-model="limit" name="example1_length" aria-controls="example1" class="form-control input-sm">
+                                            <option value="10">10</option>
+                                            <option value="20">20</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                            Lignes
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class=col-sm-6>
+                                <div id="example1_filter" class="dataTables_filter">
+                                    <label for="Rechercher">Rechercher
+                                        <input type="search" ng-model="recherche" class="form-control input-sm" placeholder="Par demandeur ..." aria-controls="example1"/>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-header with-border" style="border-left:3px solid #dd4b39">
+                            <h3 class="box-title">LISTE DES AFFAIRES</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12"> <!--id="testcase"-->
+                                <%- include affaireGrid %>
+                            </div>
+                        </div>
+                        <div>
+                            <a ng-click="transmettreAffaires()" class="btn btn-warning"><i class="fa fa-send"></i> Transmettre les affaires a l'audience</a>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
+                                    <ul class="pagination">
+                                        <li class="paginate_bottom previous disabled" id="example1_previous">
+                                            <a href="#" ng-disabled="isFirstPage()" ng-click="decPage()" aria-controls="example1" data-dt-idx="0" tabindex="0">Precedent</a>
+                                        </li>
+                                        <li class="paginate_bottom active">
+                                            <a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">{{paginator.currentPage+1}}/{{numberOfPages()}}</a>
+                                        </li>
+                                        <li class="paginate_bottom next" id="example1_next">
+                                            <a ng-disabled="isLastPage()" ng-click="incPage()" href="#" aria-controls="example1" data-dt-idx="6" tabindex="0">Suivant</a>
+                                        </li>
+                                    </ul>
+                                    <!--<button ng-disabled="isFirstPage()" ng-click="decPage()">Precedent</button>-->
+                                    <!--{{paginator.currentPage+1}}/{{numberOfPages()}}-->
+                                    <!--<button ng-disabled="isLastPage()" ng-click="incPage()">Suivant</button>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<script type="text/javascript" src="/ng-file-upload/dist/ng-file-upload.min.js"></script>
+<script type="text/javascript" src="/ng-file-upload/dist/ng-file-upload-shim.min.js"></script>
+<script src="/angular/angular-route.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
+<!--<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.9.0.js"></script>-->
+<script src="/javascripts/app/roleGeneral/roleGeneralService.js"></script>
+<script src="/javascripts/app/roleGeneral/roleGeneralController.js"></script>
+
+<script src="/plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<!-- jQuery UI 1.11.4-->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+

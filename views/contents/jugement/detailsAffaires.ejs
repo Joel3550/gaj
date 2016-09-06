@@ -1,0 +1,97 @@
+<% layout('layout') %>
+
+<section class="invoice" ng-app="app" ng-controller="jugementController">
+      <!-- title row -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-globe"></i> ROLE D'AUDIENCE {{jugementFormItems.libelle_nature | uppercase}}
+            <small class="pull-right">Date: {{jugementFormItems.date_jugement}} A {{jugementFormItems.heure_audience}}</small>
+          </h2>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- info row -->
+      <div class="row invoice-info" style="margin-bottom: 15px">
+        <div class="col-sm-4 invoice-col">
+          President
+          <address>
+            <strong>{{jugementFormItems.president | uppercase}}</strong><br>
+          </address>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+          Greffier
+          <address>
+            <strong>{{jugementFormItems.greffier | uppercase}}</strong><br>
+          </address>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-4 invoice-col">
+          <b>{{jugementFormItems.salle_audience | uppercase}}</b><br>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <!-- Table row -->
+      <div class="row">
+        <div class="col-xs-12 table-responsive">
+          <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th>Numero ordre</th>
+                  <th>Demandeur(s)</th>
+                  <th>Defendeur(s)</th>
+                  <th>Objet</th>
+                  <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="liste in listeAffairesPublication" ng-show="liste.report == 0">
+                  <td><strong>{{liste.numero_ordre}}</strong></td>
+                    <td>
+                        <div ng-repeat="liste2 in individusAJuger">
+                            <p ng-if="liste2.id_affaire_individu == liste.id_affaire && liste2.id_typeIndividu_individu == 1">{{liste2.nom_individu | uppercase}} {{liste2.prenom_individu}}</p>
+                        </div>
+                    </td>
+                    <td>
+                        <div ng-repeat="liste2 in individusAJuger">
+                            <p ng-if="liste2.id_affaire_individu == liste.id_affaire && liste2.id_typeIndividu_individu == 2">{{liste2.nom_individu | uppercase}} {{liste2.prenom_individu}}</p>
+                        </div>
+                    </td>
+                  <td>{{liste.objet_affaire}}</td>
+                  <td>{{liste.report == "0" ? "AFFAIRE NOUVELLE" : "AFFAIRE ANCIENNE"}}</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <!-- this row will not appear when printing -->
+      <div class="box-footer">
+        <div class="col-xs-12">
+            <a href="" target="_blank" class="btn btn-success pull-right" ng-show="listeAffairesPublication.length > 0"><i class="fa fa-print"></i> Imprimer</a>
+            <a href="/listeJugements" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Retour a la liste</a>
+        </div>
+      </div>
+    <!-- /.content -->
+    <div class="clearfix"></div>
+</section>
+  <!-- Control Sidebar -->
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+
+
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
+<!--<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.9.0.js"></script>-->
+<script src="/javascripts/app/jugement/jugementController.js"></script>
+
+

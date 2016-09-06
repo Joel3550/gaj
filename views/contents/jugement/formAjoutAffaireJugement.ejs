@@ -1,0 +1,80 @@
+<% layout('layout') %>
+
+<!-- Horizontal Form -->
+<!--<div ng-app="app" ng-controller="jugementController">-->
+<section class="invoice" ng-app="app" ng-controller="jugementController">
+    <div class="row">
+        <div class="col-md-12">
+            <div role="form">
+                <div class="box-header with-border">
+                    <h3 class="box-title">AJOUT D'AFFAIRES A L'AUDIENCE</h3>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="alert {{message.class}}">{{message.msg}}</div>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form role="formJugement" name="formJugement" novalidate>
+                    <div class="box-body">
+
+                        <div class="row">
+                            <div class="col-xs-12 table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Date du jugement</th>
+                                        <th>President</th>
+                                        <th>Greffier</th>
+                                        <th>Salle d'audience</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="liste in jugementJr">
+                                        <td>{{liste.date_jugement}}</td>
+                                        <td>{{liste.president | uppercase}}</td>
+                                        <td>{{liste.greffier | uppercase}}</td>
+                                        <td>{{liste.salle_audience}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!--<div>-->
+                            <!--<a href="/listeAffaireJugementJr_url/{{idJugementJr}}" class="btn btn-success">Ajouter les affaires au jugement</a>-->
+                        <!--</div>-->
+                        <div ng-show="affairesJugementJr.length > 0">
+                            <label for="id_affaire" class="col-sm-4 control-label">Choisir une Affaire</label>
+
+                            <div class="col-sm-6">
+                                <select class="form-control select2" style="width: 100%;" required name="id_affaire" ng-model="affaireJugementItems.id_affaire">
+                                    <option selected="selected"></option>
+                                    <!--<option ng-repeat="liste in affairesJugementJr" value="{{liste.id_affaire}}" ng-show="!liste.id_audience_affaire">{{liste.numero_ordre}}</option>-->
+                                    <option ng-repeat="liste in affairesJugementJr" value="{{liste.id_affaire}}">{{liste.numero_ordre}}</option>
+                                </select>
+                                <span ng-show="formJugement.id_affaire.$invalid && !formJugement.id_affaire.$pristine" class="help-block" style="color:#dd4b39">Champ requis</span>
+                            </div>
+                        </div>
+
+                        <div ng-show="affairesJugementJr.length == 0" class="col-xs-12">
+                            <div class="alert alert-warning">Aucune affaire n'a ete transmise au jugement pour etre ajouter a la liste.</div>
+                        </div>
+                    </div>
+                    <div class="box-footer">
+                        <button type="button" class="btn btn-success pull-right" ng-disabled="formJugement.$invalid" ng-click="formJugement.$valid && ajouterAffaireJugement_FC()"><i class="fa fa-save"></i> Ajouter</button>
+                        <a href="/listeJugements" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Retour a la liste</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
+<script src="/javascripts/app/jugement/jugementController.js"></script>

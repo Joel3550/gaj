@@ -1,0 +1,116 @@
+<% layout('layout') %>
+
+<section class="invoice" ng-app="app" ng-controller="modifierAffaireController">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header alert bg-info" style="padding: 10px">
+                <i class="fa fa-globe"></i> FORMULAIRE DE MODIFICATION D'UNE AFFAIRE
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="alert {{message.class}}">{{message.msg}}</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div role="form">
+                <form class="form-horizontal" name="formAffaire" role="form" method="post" novalidate>
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="numero_ordre" class="col-sm-4 control-label">Numero d'ordre <span style="color:#dd4b39">(*)</span></label>
+
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" style="width:100%" name="numero_ordre" id="numero_ordre"
+                                       placeholder="Entrer le numero d'ordre de l'affaire" ng-model="affaireModifItem.numero_ordre"
+                                       required value="affaireModifItem.numero_ordre" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Objet</label>
+                            <div class="col-sm-5">
+                                <textarea class="form-control" rows="3" ng-model="affaireModifItem.objet_affaire" required>{{affaireModifItem.objet_affaire}}</textarea>
+                                <span ng-show="formAffaire.objet_affaire.$invalid && !formAffaire.objet_affaire.$pristine" class="help-block danger" style="color:#dd4b39">Numero d'ordre requis</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-left: 8px">
+                            <label for="date_audience" class="col-sm-4 control-label">Date d'audience de l'affaire</label>
+
+                            <div class="col-sm-5 input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control"
+                                       name="date_audience" ng-model="affaireModifItem.date_audience"
+                                       style="width:362px" datepicker-popup="dd/MM/yyyy">
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-left: 8px">
+                            <label for="heure_audience" class="col-sm-4 control-label">Heure de l'audience <span style="color:#dd4b39">(*)</span></label>
+
+                            <div class="col-sm-5 input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-clock-o"></i>
+                                </div>
+                                <input type="text" class="form-control"
+                                       name="heure_audience" ng-model="affaireFormItems.heure_audience"
+                                       style="width:362px">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nature" class="col-sm-4 control-label">Nature de l'affaire <span style="color:#dd4b39">(*)</span></label>
+
+                            <div class="col-sm-5">
+                                <select class="form-control" style="width: 100%;" required ng-model="affaireModifItem.id_nature_affaire">
+                                    <option value="affaireModifItem.id_nature_affaire">{{affaireModifItem.libelle_nature}}</option>
+                                    <option ng-repeat="listeNature in natures" value="{{listeNature.id_nature}}">{{listeNature.libelle_nature}}</option>
+                                </select>
+                                <span ng-show="formAffaire.libelle_nature.$invalid && !formAffaire.libelle_nature.$pristine" class="help-block danger" style="color:#dd4b39">Champ requis</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="chambre" class="col-sm-4 control-label">Chambre <span style="color:#dd4b39">(*)</span></label>
+
+                            <div class="col-sm-5">
+                                <select class="form-control" role="combobox" style="width: 100%;" required ng-model="affaireModifItem.id_chambre_affaire">
+                                    <option value="{{affaireModifItem.id_chambre_affaire}}">{{affaireModifItem.libelle_chambre}}</option>
+                                    <option ng-repeat="listeChambre in chambres" value="{{listeChambre.id_chambre}}">{{listeChambre.libelle_chambre}}</option>
+                                </select>
+                                <span ng-show="formAffaire.libelle_chambre.$invalid && !formAffaire.libelle_chambre.$pristine" class="help-block danger" style="color:#dd4b39">Champ requis</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Observation</label>
+                            <div class="col-sm-5">
+                                <textarea class="form-control" rows="3" ng-model="affaireModifItem.observation">{{affaireModifItem.observation}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-footer">
+                        <div class="col-xs-12">
+                            <a href="/listeAffaires" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Retour a la liste</a>
+                            <button type="button" class="btn btn-primary pull-right" ng-disabled="formAffaire.$invalid" ng-click="formAffaire.$valid && modifierAffaire_FC()"><i class="fa fa-save"></i> Appliquer
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+<script src="/javascripts/app/roleGeneral/modifierAffaireController.js"></script>
+<!--<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.9.0.js"></script>-->

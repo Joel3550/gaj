@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="modal-header" style="background-color:#357ca5; color:#fff">
+            <i class="fa fa-info-circle"></i> FORMULAIRE DE MODIFICATION D'UNE CHAMBRE
+        </div>
+    </div>
+    <!-- /.col -->
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div ng-show="message" class="alert {{message.class}}">{{message.msg}}</div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <form class="form-horizontal" name="form.chambreModifForm" role="form" method="post" novalidate>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="libelle_chambre" class="col-sm-4 control-label">libelle chambre <span style="color: #dd4b39">(*)</span></label>
+
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" style="width:100%" name="libelle_chambre" id="libelle_chambre"
+                               placeholder="Entrer le libelle du type" ng-model="chambreModif.libelle_chambre"
+                               ng-minlength="3" required>
+                        <span ng-show="form.chambreModifForm.libelle_chambre.$error.minlength" class="help-block" style="color: #dd4b39">Le libelle du type doit avoir 3 caracteres minimum</span>
+                        <span ng-show="form.chambreModifForm.libelle_chambre.$invalid && !form.chambreModifForm.libelle_chambre.$pristine" class="help-block" style="color: #dd4b39">Champ requis</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-8">
+                        <input type="hidden" class="form-control" style="width:100%" name="id_chambre" id="id_chambre"
+                               ng-model="chambreModif.id_chambre">
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="modal-footer" style="background-color:#357ca5; color:#fff">
+                <button type="button" class="btn btn-danger" ng-click="cancel()"><i class="fa fa-close"></i> Fermer</button>
+                <button type="button" class="btn btn-outline" ng-disabled="form.chambreModifForm.$invalid" ng-click="form.chambreModifForm.$valid && modifierChambre_FC(chambreModif)"><i class="fa fa-refresh"></i> Appliquer</button>
+            </div>
+            <!-- /.box-footer -->
+        </form>
+    </div>
+</div>

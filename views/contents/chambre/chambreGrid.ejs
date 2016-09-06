@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-solid">
+            <div class="box-body">
+                <div class="box-group" id="accordion">
+                    <div class="panel box box-primary">
+                        <table class="table table-bordered table-condensed table-hover table-striped">
+                        <thead>
+                            <tr role="row" style="font-size: 12px">
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="Libelle chambre: active to sort column ascending">Libelle chambre</th>
+                                <th style="width: 100px"></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr role="row" class="odd" ng-repeat="chambre in chambres | limitTo : limit | filter:filter.libelle_chambre" style="font-size: 12px">
+                                <td>{{chambre.libelle_chambre}}</td>
+                                <td>
+                                    <span style="cursor:pointer;">
+                                        <a ng-click="modifierChambreModal_FC(chambre.id_chambre)"><i class="fa fa-edit"></i></a>
+                                        <a ng-click="supprimerChambre_FC(chambre.id_chambre)" style="color:#dd4b39"><i class="fa fa-trash"></i></a>
+                                    </span>
+                                    <!--<div class="btn-group">-->
+                                        <!--<button class="btn btn-warning dropdown-toggle btn-xs"  data-toggle="dropdown" aria-expanded="false" style="font-size: 11px">Choisir une Action<span class="caret"></span></button>-->
+                                        <!--<ul class="dropdown-menu" role="menu" style="font-size: 11px">-->
+                                            <!--<li><a href="/formModifChambre_url/{{chambre.id_chambre}}">Modifier la chambre</a></li>-->
+                                            <!--<li><a href="/detailsChambre/{{chambre.id_chambre}}">Voir les details</a></li>-->
+                                            <!--<li class="divider"></li>-->
+                                            <!--<li><a href="/supprimerChambre_url/{{chambre.id_chambre}}" class="danger">Supprimer la chambre</a></li>-->
+                                        <!--</ul>-->
+                                    <!--</div>-->
+                                </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,167 @@
+<!--<table class="table table-striped table-bordered table-hover table-condensed" style="border: 1px solid #1e282c">-->
+    <!--<tr role="row" style="font-size: 11px; background-color: #1e282c; color:#fff; border: 1px solid #1e282c">-->
+        <!--<th id="thBorder">-->
+            <!--<a ng-click="triAffaire('affaire.numero_ordre')" style="text-decoration: none; color:#fff; cursor: pointer">N° ordre</a>-->
+            <!--<span ng-class="cssChevronsTri('affaire.numero_ordre')"></span>-->
+        <!--</th>-->
+        <!--<th id="thBorder">-->
+            <!--<a ng-click="triAffaire('affaire.date_saisie_affaire')" style="text-decoration: none; color:#fff; cursor: pointer">Date d'enrolt.</a>-->
+            <!--<span ng-class="cssChevronsTri('affaire.date_saisie_affaire')"></span>-->
+        <!--</th>-->
+        <!--<th id="thBorder">-->
+            <!--<a ng-click="triAffaire('partie.nom_individu')" style="text-decoration: none; color:#fff; cursor: pointer">Demandeur(s)</a>-->
+            <!--<span ng-class="cssChevronsTri('partie.nom_individu')"></span>-->
+        <!--</th>-->
+        <!--<th id="thBorder">-->
+            <!--<a ng-click="triAffaire('partie.nom_individu')" style="text-decoration: none; color:#fff; cursor: pointer">Defendeur(s)</a>-->
+            <!--<span ng-class="cssChevronsTri('partie.nom_individu')"></span>-->
+        <!--</th>-->
+        <!--<th id="thBorder">-->
+            <!--<a ng-click="triAffaire('affaire.objet_affaire')" style="text-decoration: none; color:#fff; cursor: pointer">Objet</a>-->
+            <!--<span ng-class="cssChevronsTri('affaire.objet_affaire')"></span>-->
+        <!--</th>-->
+        <!--<th id="thBorder">-->
+            <!--<a ng-click="triAffaire('affaire.date_audience')" style="text-decoration: none; color:#fff; cursor: pointer">Date d'aud.</a>-->
+            <!--<span ng-class="cssChevronsTri('affaire.date_audience')"></span>-->
+        <!--</th>-->
+        <!--<th id="thBorder">-->
+            <!--<a ng-click="triAffaire('affaire.libelle_chambre')" style="text-decoration: none; color:#fff; cursor: pointer">Chambre</a>-->
+            <!--<span ng-class="cssChevronsTri('affaire.libelle_chambre')"></span>-->
+        <!--</th>-->
+        <!--<th id="thBorder">-->
+            <!--<a ng-click="triAffaire('affaire.libelle_nature')" style="text-decoration: none; color:#fff; cursor: pointer">Nature</a>-->
+            <!--<span ng-class="cssChevronsTri('affaire.libelle_nature')"></span>-->
+        <!--</th>-->
+        <!--<th id="thBorder">Trans. Au RA</th>-->
+        <!--<th id="thBorder"></th>-->
+    <!--</tr>-->
+    <!--<tr ng-show="affaires.length == 0">-->
+        <!--<td colspan="9"><p align="center">Aucune affaire enregistree a ce jour</p></td>-->
+    <!--</tr>-->
+    <!--<tr ng-repeat="affaire in affaires | filter:affaire.date_saisie_affaire | date:'dd/MM/yyyy' | orderBy:champTri:triDescendant" style="font-size: 11px;">-->
+        <!--<td id="tdBorder"><a href="">{{affaire.numero_ordre}}</a></td>-->
+        <!--<td id="tdBorder"><p align="center">{{affaire.date_saisie_affaire | date : 'dd/MM/yyyy'}}</p></td>-->
+        <!--<td id="tdBorder">-->
+            <!--<div ng-repeat="partie in listeIndividus | filter:recherche | orderBy:champTri:triDescendant">-->
+                <!--<p ng-if="partie.id_affaire_individu == affaire.id_affaire && partie.id_typeIndividu_individu == 1">-->
+                    <!--<span ng-bind-html="partie.nom_individu | uppercase | surbrillanceRecherche:recherche"></span> {{partie.prenom_individu}}-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</td>-->
+        <!--<td id="tdBorder">-->
+            <!--<div ng-repeat="partie in listeIndividus">-->
+                <!--<p ng-if="partie.id_affaire_individu == affaire.id_affaire && partie.id_typeIndividu_individu == 2">-->
+                    <!--<span ng-bind-html="partie.nom_individu | uppercase | surbrillanceRecherche:recherche"></span> {{partie.prenom_individu}}-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</td>-->
+        <!--<td id="tdBorder">{{affaire.objet_affaire | limitTo : 20}}...</td>-->
+        <!--<td id="tdBorder"><p align="center">{{affaire.date_audience | date : 'dd/MM/yyyy'}}</p></td>-->
+        <!--<td id="tdBorder">{{affaire.libelle_chambre}}</td>-->
+        <!--<td id="tdBorder">{{affaire.libelle_nature}}</td>-->
+        <!--&lt;!&ndash;<td>{{affaire.transmission == "1" ? "Oui" : "Non"}}</td>&ndash;&gt;-->
+        <!--<td ng-if="affaire.transmission == 1" id="tdBorder"><p align="center"><span class="badge bg-green" style="font-size: 11px">Oui</span></p></td>-->
+        <!--<td ng-if="!affaire.transmission" id="tdBorder"><p align="center"><span class="badge bg-red" style="font-size: 11px">Non</span></p></td>-->
+        <!--<td id="tdBorder" style="font-size: 11px">-->
+            <!--<div class="btn-group">-->
+                <!--<button class="btn btn-warning dropdown-toggle btn-xs" ng-disabled="affaire.transmission" data-toggle="dropdown" aria-expanded="false">Choisir une Action<span class="caret"></span></button>-->
+                <!--<ul class="dropdown-menu" role="menu">-->
+                    <!--<li><a href="/formModifAffaire_url/{{affaire.id_affaire}}">Modifier la saisie</a></li>-->
+                    <!--<li><a href="/supprimerAffaire_url/{{affaire.id_affaire}}">Supprimer l'affaire</a></li>-->
+                    <!--<li class="divider"></li>-->
+                    <!--<li><a href="/formAjoutIndividu2/{{affaire.id_affaire}}" class="danger">Ajouter les parties</a></li>-->
+                    <!--<li><a href="/formAjoutReglement/{{affaire.id_affaire}}" class="danger">Imprimer le recu</a></li>-->
+                    <!--<li><a href="/transmettreAffaire/{{affaire.id_affaire}}" class="danger">Trans. Au RA</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</td>-->
+    <!--</tr>-->
+
+<!--</table>-->
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box box-solid">
+            <div class="box-body">
+                <div class="box-group">
+                    <div class="panel box box-primary">
+                        <table class="table table-bordered table-condensed table-hover table-striped" name="affaire" id="affaire">
+                            <thead>
+                            <tr style="font-size: 11px; color:#fff">
+                                <th style="width: 75px">N°ordre</th>
+                                <th style="width: 105px">Date d'enrolement</th>
+                                <th style="width: 120px">Demandeur(s)</th>
+                                <th style="width: 120px">Defendeur(s)</th>
+                                <th style="width: 110px">Objet</th>
+                                <th style="width: 90px">Date d'audience</th>
+                                <th style="width: 60px">Chambre</th>
+                                <th style="width: 100px">Nature</th>
+                                <th style="width: 100px">Observation</th>
+                                <th style="width: 35px"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="liste in affaires | filter:recherche | orderBy : liste.id_affaire:true" class="panel-collapse collapse in"
+                                ng-if="liste.id_user_affaire == id_user && !liste.transmission" style="font-size: 11px; cursor: pointer">
+                                <!--<td>{{date}}</td>-->
+                                <td style="width: 70px">
+                                    <a href="/detailsAffaire/{{liste.id_affaire}}">
+                                        <i style="color:#dd4b39" ng-if="liste.motif_retour!=''" class="fa fa-warning" title="Affaire rejeter, voir le motif"></i>
+                                        <strong>{{liste.numero_ordre}}</strong>
+                                    </a>
+                                </td>
+                                <td style="width: 100px">
+                                    {{liste.date_saisie_affaire | date : 'dd/MM/yyyy'}}
+                                </td>
+                                <!--<td>-->
+                                    <!--<div ng-if="liste.id_typeIndividu_individu == 1">-->
+                                        <!--<span ng-bind-html="liste.nom_individu | uppercase | surbrillanceRecherche:recherche"></span>-->
+                                        <!--<span ng-bind-html="liste.prenom_individu | uppercase | surbrillanceRecherche:recherche"></span>-->
+                                    <!--</div>-->
+                                <!--</td>-->
+                                <!--<td>-->
+                                    <!--<div ng-if="liste.id_typeIndividu_individu == 2">-->
+                                        <!--<span ng-bind-html="liste.nom_individu | uppercase | surbrillanceRecherche:recherche"></span>-->
+                                        <!--<span ng-bind-html="liste.prenom_individu | uppercase | surbrillanceRecherche:recherche"></span>-->
+                                    <!--</div>-->
+                                <!--</td>-->
+                                <td style="width: 120px">
+                                    <div ng-repeat="partie in listeIndividus">
+                                        <div ng-if="partie.id_affaire_individu == liste.id_affaire && partie.id_typeIndividu_individu == 1">
+                                            <span ng-bind-html="partie.nom_individu | uppercase | surbrillanceRecherche:recherche"></span>
+                                            <span ng-bind-html="partie.prenom_individu | limitTo : 8 | uppercase | surbrillanceRecherche:recherche"></span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="width: 120px">
+                                    <div ng-repeat="partie in listeIndividus">
+                                        <div ng-if="partie.id_affaire_individu == liste.id_affaire && partie.id_typeIndividu_individu == 2">
+                                            <span ng-bind-html="partie.nom_individu | uppercase | surbrillanceRecherche:recherche"></span>
+                                            <span ng-bind-html="partie.prenom_individu | limitTo : 8 | uppercase | surbrillanceRecherche:recherche"></span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="width: 110px">{{liste.objet_affaire | limitTo : 20}}</td>
+                                <td style="width: 90px">{{liste.date_audience | date : 'dd/MM/yyyy'}}</td>
+                                <td style="width: 60px">{{liste.libelle_chambre}}</td>
+                                <td style="width: 100px">{{liste.libelle_nature | limitTo : 15}}</td>
+                                <td style="width: 100px">{{liste.observation | limitTo : 18}}</td>
+                                <td style="width: 20px; font-size: 12px">
+                                    <span style="padding-right: 3px"><a href="/formModifAffaire_url/{{liste.id_affaire}}"><i class="fa fa-edit"></i></a></span>
+                                    <span ng-click="transmettre = false"><a ng-click="annulerTransmettreAffaire_FC(liste.id_affaire)" ng-if="transmettre" style="color:#008000">
+                                            <i class="fa fa-check-circle-o" title="Retirer de la publication"></i></a>
+                                    </span>
+                                    <span ng-click="transmettre = true"><a ng-click="transmettreAffaire_FC(liste.id_affaire)" ng-if="!transmettre" style="color: #dd4b39">
+                                            <i class="fa fa-circle-o" title="Autoriser sa publication"></i></a>
+                                    </span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
+</div>

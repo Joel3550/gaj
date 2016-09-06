@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="modal-header" ng-if="!verifStatut" style="background-color:#357ca5; color:#fff">
+            <span><i class="fa fa-info-circle"></i> FORMULAIRE DE MODIFICATION DU RECU</span>
+        </div>
+
+        <div class="col-xs-12">
+            <div ng-if="message" class="alert {{message.class}}">{{message.msg}}</div>
+        </div>
+
+        <form class="form-horizontal" name="form.reglementForm" role="form" method="post" novalidate>
+
+            <input type="hidden" class="form-control" style="width:100%" name="id_affaire_reglement" id="id_affaire_reglement" ng-model="reglements.id_reglement">
+
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="id_affaire" class="col-sm-4 control-label">Choisir le demandeur <span style="color: #dd4b39">(*)</span></label>
+
+                    <div class="col-sm-4" ng-if="etatModif">
+                        <select class="form-control" style="width: 100%;" required name="nom_individu" ng-model="reglements.id_individu_reglement">
+                            <option value="Choisir un demandeur"></option>
+                            <option ng-repeat="liste in individusForAffaire" value="{{liste.id_individu}}" ng-show="liste.id_typeIndividu_individu == 1 && liste.id_affaire_individu == affaireFormItems.id_affaire">
+                                {{liste.nom_individu | uppercase}} {{liste.prenom_individu}}</option>
+                        </select>
+                        <span ng-show="form.reglementForm.nom_individu.$invalid && !form.reglementForm.nom_individu.$pristine" class="help-block" style="color:#dd4b39">Champ requis</span>
+                    </div>
+                    <div class="col-sm-4" ng-if="!etatModif" ng-model="reglements.id_individu_reglement">
+                        <input type="text" class="form-control" style="width:100%" name="id_individu_reglement" id="id_individu_reglement"
+                               value="{{reglements.nom_individu | uppercase}} {{reglements.prenom_individu}}" disabled="disabled">
+                    </div>
+                    <div>
+                        <button ng-click="etatModif_FC()" ng-if="!etatModif" class="btn btn-primary"><i class="fa fa-edit" title="modifier le demandeur"></i></button>
+                        <button ng-click="annulEtatModif_FC()" ng-if="etatModif" class="btn btn-danger"><i class="fa fa-remove" title="annuler la modification"></i></button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="montant" class="col-sm-4 control-label">Montant (F.CFA) <span style="color: #dd4b39">(*)</span></label>
+
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" style="width:100%" name="montant" id="montant" ng-model="reglements.montant" required>
+                    </div>
+                    <span ng-show="form.reglementForm.montant.$invalid && !form.reglementForm.montant.$pristine" class="help-block" style="color:#dd4b39">Champ requis</span>
+                </div>
+
+                <div class="col-sm-4">
+                    <input type="hidden" class="form-control" style="width:100%" name="nom_individu" id="nom_individu"
+                           ng-model="reglements.id_reglement">
+                </div>
+            </div>
+            <div class="modal-footer" style="background-color:#357ca5; color:#fff">
+                <div class="col-sm-12">
+                    <button type="button" class="btn btn-danger" ng-click="cancel()"><i class="fa fa-close"></i> Fermer</button>
+                    <!--<button type="submit" class="btn btn-primary pull-right" ng-disabled="form.coursForm.$invalid" ng-click="form.coursForm.$valid && ajouterCours_FC(coursFormItems)"><i class="fa fa-save"></i> Enregistrer-->
+                    <button type="submit" class="btn btn-outline pull-right" ng-disabled="form.reglementForm.$invalid" ng-click="form.reglementForm.$valid && modifReglement_FC(reglements)"><i class="fa fa-refresh"></i> Appliquer la modification
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- /.col -->
+</div>
+
+<script src="/angular/angular.js"></script>
+<script src="/angular/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.js"></script>
+<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.3.2.js"></script>
+<script src="/javascripts/app/reglement/reglementController.js"></script>
+
+<script src="/plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<!-- jQuery UI 1.11.4-->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+<!-- Select2 -->
+<script src="/plugins/select2/select2.full.min.js"></script>
